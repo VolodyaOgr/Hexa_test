@@ -16,7 +16,8 @@ namespace HexaTest.App
 
         [Header("Tuning")]
         [SerializeField] private float idleDelay = 2.5f;
-        [SerializeField] private float handScale = 0.5f;
+        [Tooltip("Hand height in world units.")]
+        [SerializeField] private float handWorldHeight = 1.4f;
 
         private Camera _cam;
         private GameConfig _cfg;
@@ -24,12 +25,12 @@ namespace HexaTest.App
         private Func<Vector3?> _getSource;
 
         private Image _hand;
-        private RectTransform _handRect;
-        private Canvas _canvas;
+        private RectTransform _handRoot;
         private Coroutine _loop;
         private bool _showing;
         private bool _stopped;
         private bool _waitingForDrop;
+        private bool _initialized;
         private float _idle;
 
         public void Init(Camera cam, GameConfig cfg, BoardModel board, Func<Vector3?> getSource)
@@ -37,32 +38,35 @@ namespace HexaTest.App
             _cam = cam; _cfg = cfg; _board = board;
             _getSource = getSource;
 
-            GameObject canvasGo = new GameObject("TutorialCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
+            const float pixels = 256f;
+            GameObject canvasGo = new GameObject("TutorialHandCanvas", typeof(Canvas));
             canvasGo.transform.SetParent(transform, false);
-            _canvas = canvasGo.GetComponent<Canvas>();
-            _canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            _canvas.sortingOrder = 2000;
+            Canvas canvas = canvasGo.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.WorldSpace;
+            canvas.worldCamera = _cam;
+            canvas.sortingOrder = 1000;
+            _handRoot = (RectTransform)canvasGo.transform;
+            _handRoot.sizeDelta = new Vector2(pixels, pixels);
+            _handRoot.localScale = Vector3.one * (handWorldHeight / pixels);
 
-            CanvasScaler scaler = canvasGo.GetComponent<CanvasScaler>();
-            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1080f, 1920f);
-            scaler.matchWidthOrHeight = 0.5f;
-
-            GameObject go = new GameObject("TutorialHand", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
-            go.transform.SetParent(canvasGo.transform, false);
-            _handRect = go.GetComponent<RectTransform>();
-            _handRect.pivot = new Vector2(0.5f, 0.5f);
-            _hand = go.GetComponent<Image>();
+            GameObject imgGo = new GameObject("Hand", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            imgGo.transform.SetParent(canvasGo.transform, false);
+            RectTransform r = (RectTransform)imgGo.transform;
+            r.anchorMin = r.anchorMax = new Vector2(0.5f, 0.5f);
+            r.pivot = new Vector2(0.5f, 0.5f);
+            r.sizeDelta = new Vector2(pixels, pixels);
+            _hand = imgGo.GetComponent<Image>();
             _hand.sprite = baseSprite;
             _hand.preserveAspect = true;
             _hand.raycastTarget = false;
-            SetHandSize();
             _hand.enabled = false;
+            _initialized = true;
         }
 
         private void Update()
         {
-            if (_stopped || _showing || _waitingForDrop) return;
+
+            if (!_initialized || _stopped || _showing || _waitingForDrop) return;
             _idle += Time.deltaTime;
             if (_idle >= idleDelay) Show();
         }
@@ -152,21 +156,18 @@ namespace HexaTest.App
 
         private void PlaceHand(Vector3 worldPoint)
         {
-            SetHandSize();
-            Vector2 screen = RectTransformUtility.WorldToScreenPoint(_cam, worldPoint);
-            RectTransform canvasRect = (RectTransform)_canvas.transform;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screen, null, out Vector2 localPoint);
+            _handRoot.rotation = _cam.transform.rotation;
 
-            float h = _handRect.sizeDelta.y;
-            _handRect.anchoredPosition = localPoint - Vector2.up * (h * 0.5f);
-            _handRect.localRotation = Quaternion.identity;
-        }
+            Vector3 anchor = worldPoint - _cam.transform.up * (handWorldHeight * 0.5f);
 
-        private void SetHandSize()
-        {
-            if (_hand == null || _hand.sprite == null || _handRect == null) return;
-            Vector2 size = _hand.sprite.rect.size * handScale;
-            _handRect.sizeDelta = size;
+            Vector3 camPos = _cam.transform.position;
+            float dist = Vector3.Distance(camPos, anchor);
+            float pull = Mathf.Min(4f, dist - 1f);
+            Vector3 toCam = (camPos - anchor) / Mathf.Max(0.001f, dist);
+
+            _handRoot.position = anchor + toCam * pull;
+            float ratio = dist > 0.01f ? (dist - pull) / dist : 1f;
+            _handRoot.localScale = Vector3.one * (handWorldHeight / 256f * ratio);
         }
     }
 }

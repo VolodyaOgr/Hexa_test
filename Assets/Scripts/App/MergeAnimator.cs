@@ -46,7 +46,6 @@ namespace HexaTest.App
             onComplete?.Invoke();
         }
 
-
         private IEnumerator Transfer(TransferStep step, float speed)
         {
             StackView from = _view.GetStack(step.From);
@@ -113,7 +112,6 @@ namespace HexaTest.App
 
             disc.position = target;
         }
-
 
         private IEnumerator Clear(ClearStep step, float speed)
         {

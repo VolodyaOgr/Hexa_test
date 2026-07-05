@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4726486363212904831, guid: 296a7c709aaf2cd499b42e0a4965989e, type: 3}
+      propertyPath: handScale
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8505614934904907469, guid: 296a7c709aaf2cd499b42e0a4965989e, type: 3}
       propertyPath: m_Name
       value: Tutorial
@@ -320,7 +324,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.35
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -409,9 +413,9 @@ RectTransform:
   - {fileID: 5154135997717657058}
   m_Father: {fileID: 4412576098970319050}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -397.1, y: 739}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -397.1, y: -221}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1742542808
@@ -489,8 +493,10 @@ MonoBehaviour:
     - {r: 0.97, g: 0.97, b: 0.97, a: 1}
   setUpCamera: 1
   seededCells: 10
+  cameraFitMargin: 1.5
   hud: {fileID: 6061446377732119772}
   tutorial: {fileID: 488558441}
+  hexBaseMaterial: {fileID: 2100000, guid: 45ed8a9ad54484c4d868ddb861942a36, type: 2}
   packshot: {fileID: 1742542811}
 --- !u!4 &1742542810
 Transform:
@@ -954,9 +960,9 @@ RectTransform:
   - {fileID: 4965387600729049654}
   m_Father: {fileID: 1206961774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5252012660341084580
@@ -1115,6 +1121,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   trackAlarmColor: {r: 0.85, g: 0.15, b: 0.15, a: 1}
+  alphaTintMaterial: {fileID: 2100000, guid: 77958d6f08ab2f14e91921e1c2c72cd6, type: 2}
   fillImage: {fileID: 1394573081821509564}
   trackImage: {fileID: 4504255151616434627}
   timerBgImage: {fileID: 2090225707}

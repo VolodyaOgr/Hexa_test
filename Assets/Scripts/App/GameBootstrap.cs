@@ -13,10 +13,15 @@ namespace HexaTest.App
         [SerializeField] private GameConfig config = new GameConfig();
         [SerializeField] private bool setUpCamera = true;
         [SerializeField] private int seededCells = 10;
+        [Tooltip("How much of the screen width the board fills. Higher = smaller board. Keeps framing consistent across device aspects (editor vs Luna).")]
+        [SerializeField] private float cameraFitMargin = 1.2f;
 
         [Header("Scene references (drag the HUD / tutorial objects)")]
         [SerializeField] private TimerHudView hud;
         [SerializeField] private TutorialController tutorial;
+
+        [Tooltip("Assign Assets/Resources/HexBaseMaterial — referenced here so Luna bundles it reliably.")]
+        [SerializeField] private Material hexBaseMaterial;
         [SerializeField] private PackshotView packshot;
 
         private bool _gameOver;
@@ -42,7 +47,7 @@ namespace HexaTest.App
 
         private void Awake()
         {
-            _assets = new HexAssets(config);
+            _assets = new HexAssets(config, hexBaseMaterial);
             _board = BoardModel.BuildHexagon(config.boardRadius);
 
             _boardView = new GameObject("BoardView").AddComponent<BoardView>();
@@ -92,7 +97,6 @@ namespace HexaTest.App
             if (packshot != null) packshot.Show();
         }
 
-
         private bool PlaceFromTray(StackView view, HexCoord coord)
         {
             TrayEntry entry = _tray.Find(e => e.View == view);
@@ -115,7 +119,6 @@ namespace HexaTest.App
         {
             if (_tray.Count == 0) RefillTray();
         }
-
 
         private void SeedBoard()
         {
@@ -181,22 +184,24 @@ namespace HexaTest.App
             }
             cam.transform.position = new Vector3(0f, 11f, -10f);
             cam.transform.rotation = Quaternion.Euler(50f, 0f, 0f);
-            cam.fieldOfView = 65f;
             cam.clearFlags = CameraClearFlags.SolidColor;
             cam.backgroundColor = new Color(0.75f, 0.85f, 0.93f);
-
-            if (FindObjectOfType<Light>() == null)
-            {
-                Light light = new GameObject("Directional Light").AddComponent<Light>();
-                light.type = LightType.Directional;
-                light.transform.rotation = Quaternion.Euler(50f, -30f, 0f);
-                light.intensity = 1.0f;
-                light.shadows = LightShadows.Soft;
-                light.shadowStrength = 0.35f;
-            }
+            FitCameraToAspect(cam);
 
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
             RenderSettings.ambientLight = new Color(0.78f, 0.83f, 0.9f);
+        }
+
+        private void FitCameraToAspect(Camera cam)
+        {
+            float aspect = Screen.height > 0 ? (float)Screen.width / Screen.height : cam.aspect;
+            if (aspect <= 0f) { cam.fieldOfView = 65f; return; }
+
+            float boardHalfWidth = config.cellSize * (1.5f * config.boardRadius + 1f);
+            float halfW = boardHalfWidth * cameraFitMargin;
+            float dist = Vector3.Distance(cam.transform.position, Vector3.zero);
+            float fov = 2f * Mathf.Atan(halfW / (aspect * dist)) * Mathf.Rad2Deg;
+            cam.fieldOfView = Mathf.Clamp(fov, 25f, 90f);
         }
     }
 }

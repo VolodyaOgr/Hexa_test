@@ -18,7 +18,7 @@ namespace HexaTest.View
         private readonly Material[] _colorMaterials;
         private readonly Material[] _separatorMaterials;
 
-        public HexAssets(GameConfig cfg)
+        public HexAssets(GameConfig cfg, Material litMaterial = null)
         {
             DiscMesh = HexMeshBuilder.BuildRounded(cfg.DiscRadius, cfg.discThickness, cfg.discRound, cfg.cornerSegments);
             DiscSeparatorMesh = HexMeshBuilder.BuildRounded(
@@ -28,16 +28,16 @@ namespace HexaTest.View
                 cfg.cornerSegments);
             TileMesh = HexMeshBuilder.BuildRounded(cfg.TileRadius, cfg.tileThickness, cfg.tileRound, cfg.cornerSegments);
 
-            Shader shader = Shader.Find("Standard");
-            TileMaterial = MakeMaterial(shader, cfg.tileColor);
-            TileHighlightMaterial = MakeMaterial(shader, Color.Lerp(cfg.tileColor, Color.white, 0.5f));
+            Material baseMat = litMaterial != null ? litMaterial : Resources.Load<Material>("HexBaseMaterial");
+            TileMaterial = MakeMaterial(baseMat, cfg.tileColor);
+            TileHighlightMaterial = MakeMaterial(baseMat, Color.Lerp(cfg.tileColor, Color.white, 0.5f));
 
             _colorMaterials = new Material[cfg.palette.Length];
             _separatorMaterials = new Material[cfg.palette.Length];
             for (int i = 0; i < _colorMaterials.Length; i++)
             {
-                _colorMaterials[i] = MakeMaterial(shader, cfg.palette[i]);
-                _separatorMaterials[i] = MakeMaterial(shader, Color.Lerp(cfg.palette[i], Color.black, cfg.discSeparatorDarken));
+                _colorMaterials[i] = MakeMaterial(baseMat, cfg.palette[i]);
+                _separatorMaterials[i] = MakeMaterial(baseMat, Color.Lerp(cfg.palette[i], Color.black, cfg.discSeparatorDarken));
             }
 
             int layers = cfg.baseLayerColors != null ? cfg.baseLayerColors.Length : 0;
@@ -47,7 +47,7 @@ namespace HexaTest.View
             {
                 float radius = cfg.cellSize + k * cfg.edgeRim;
                 BaseLayerMeshes[k] = HexMeshBuilder.BuildRounded(radius, cfg.baseLayerThickness, cfg.baseRound, cfg.cornerSegments);
-                BaseLayerMaterials[k] = MakeMaterial(shader, cfg.baseLayerColors[k]);
+                BaseLayerMaterials[k] = MakeMaterial(baseMat, cfg.baseLayerColors[k]);
             }
         }
 
@@ -63,10 +63,11 @@ namespace HexaTest.View
             return (i >= 0 && i < _separatorMaterials.Length) ? _separatorMaterials[i] : TileMaterial;
         }
 
-        private static Material MakeMaterial(Shader shader, Color c)
+        private static Material MakeMaterial(Material baseMat, Color c)
         {
-            Material m = new Material(shader) { color = c };
-            m.SetFloat("_Glossiness", 0.25f);
+            Material m = baseMat != null ? new Material(baseMat) : new Material(Shader.Find("Sprites/Default"));
+            m.color = c;
+            if (m.HasProperty("_Glossiness")) m.SetFloat("_Glossiness", 0.25f);
             m.enableInstancing = true;
             return m;
         }

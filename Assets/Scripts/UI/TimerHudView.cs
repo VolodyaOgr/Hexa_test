@@ -28,6 +28,8 @@ namespace HexaTest.UI
         [Header("Colors")]
         [SerializeField] private Gradient fillGradient;
         [SerializeField] private Color trackAlarmColor = new Color(0.85f, 0.15f, 0.15f);
+        [Tooltip("Assign Assets/Resources/HexUIAlphaTint — recolors overlays by sprite alpha (no multiply).")]
+        [SerializeField] private Material alphaTintMaterial;
 
         [Header("Wired references (assign in scene)")]
         [SerializeField] private Image fillImage;
@@ -89,7 +91,6 @@ namespace HexaTest.UI
 
             if (justExpired) { _ended = true; StartCoroutine(EndSequence()); }
         }
-
 
         private void EnterAlarm()
         {
@@ -162,6 +163,10 @@ namespace HexaTest.UI
         private void EnsureAlphaTintMaterial()
         {
             if (_alphaTintMaterial != null) return;
+
+            _alphaTintMaterial = alphaTintMaterial != null ? alphaTintMaterial : Resources.Load<Material>("HexUIAlphaTint");
+            if (_alphaTintMaterial != null) return;
+
             Shader shader = Shader.Find("Hexa/UIAlphaTint");
             if (shader != null) _alphaTintMaterial = new Material(shader);
         }

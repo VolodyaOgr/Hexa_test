@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using HexaTest.Integrations;
 using HexaTest.View;
 
 namespace HexaTest.UI
@@ -27,6 +28,7 @@ namespace HexaTest.UI
         [SerializeField] private Vector2 playNowSize = new Vector2(560f, 170f);
 
         private RectTransform _maskRect;
+        private bool _gameEndedSent;
 
         public void Show()
         {
@@ -35,6 +37,7 @@ namespace HexaTest.UI
 
         public void Show(Sprite background, Sprite logo, Sprite playNow)
         {
+            _gameEndedSent = false;
             Build(background, logo, playNow);
             StartCoroutine(Reveal());
         }
@@ -99,8 +102,12 @@ namespace HexaTest.UI
                 rect.sizeDelta = playNowSize;
                 buttonImage.preserveAspect = true;
                 buttonImage.raycastTarget = true;
-                buttonImage.gameObject.AddComponent<Button>();
+                Button button = buttonImage.gameObject.AddComponent<Button>();
+                button.onClick.AddListener(PlayworksBridge.InstallFullGame);
             }
+
+            Button clickCatcher = CreateClickCatcher(canvasGo.transform);
+            clickCatcher.onClick.AddListener(PlayworksBridge.InstallFullGame);
         }
 
         private IEnumerator Reveal()
@@ -111,6 +118,14 @@ namespace HexaTest.UI
                 _maskRect.sizeDelta = new Vector2(size, size);
             });
             _maskRect.sizeDelta = Vector2.one * GetRevealEndSize();
+            CompleteReveal();
+        }
+
+        private void CompleteReveal()
+        {
+            if (_gameEndedSent) return;
+            _gameEndedSent = true;
+            PlayworksBridge.GameEnded();
         }
 
         private float GetRevealEndSize()
@@ -127,6 +142,18 @@ namespace HexaTest.UI
             image.sprite = sprite;
             image.raycastTarget = false;
             return image;
+        }
+
+        private static Button CreateClickCatcher(Transform parent)
+        {
+            GameObject go = new GameObject("Install Click Catcher", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image), typeof(Button));
+            go.transform.SetParent(parent, false);
+            RectTransform rect = go.GetComponent<RectTransform>();
+            Stretch(rect, 0f);
+            Image image = go.GetComponent<Image>();
+            image.color = Color.clear;
+            image.raycastTarget = true;
+            return go.GetComponent<Button>();
         }
 
         private static void Stretch(RectTransform rect, float inset)

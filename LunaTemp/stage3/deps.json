@@ -1,0 +1,38 @@
+{
+  "ignores": [],
+  "groups": [
+    [
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/App/GameBootstrap.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Config/GameConfig.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/App/InputController.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Domain/BoardModel.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/App/MergeAnimator.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/View/BoardView.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/View/HexAssets.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/View/StackFactory.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/View/StackView.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Domain/StackModel.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Domain/CellModel.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/App/TutorialController.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/View/Tweener.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/UI/PackshotView.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Integrations/PlayworksBridge.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/UI/TimerHudView.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Logic/GameTimer.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Domain/HexCoord.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Logic/MergeResolver.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Logic/MergeStep.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/Domain/HexColorId.cs",
+      "D:/UnityProjects/Hexa_test/LunaTemp/stage3/processed-scripts/Assets/Scripts/View/HexMeshBuilder.cs"
+    ],
+    [
+      "C:/Users/kosty/Downloads/7.2.0/pipeline/templates/LunaCompiler/Scripts/Properties/AssemblyInfo.cs"
+    ],
+    [
+      "C:/Users/kosty/Downloads/7.2.0/pipeline/templates/LunaCompiler/Scripts/Sources/OtherDummyScript.cs"
+    ],
+    [
+      "C:/Users/kosty/Downloads/7.2.0/pipeline/templates/LunaCompiler/Scripts/obj/Debug/.NETFramework,Version=v4.7.AssemblyAttributes.cs"
+    ]
+  ]
+}
