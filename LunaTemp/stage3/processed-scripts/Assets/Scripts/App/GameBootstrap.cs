@@ -262,6 +262,7 @@ namespace HexaTest.App
 
             GameObject g = GameObject.CreatePrimitive(PrimitiveType.Plane);
             g.name = "ShadowGround";
+            g.layer = 0; // Luna: code-created nodes need an explicit layer for realtime shadows in web
             Destroy(g.GetComponent<Collider>());
             g.transform.SetParent(transform, false);
             g.transform.position = new Vector3(0f, platformBottom - 0.05f, 0f);
@@ -285,6 +286,7 @@ namespace HexaTest.App
             // always draws on top (the earlier ScreenSpace-Camera canvas covered the board).
             GameObject bg = GameObject.CreatePrimitive(PrimitiveType.Quad);
             bg.name = "Background";
+            bg.layer = 0; // Luna: see BuildShadowGround
             Destroy(bg.GetComponent<Collider>());
             bg.transform.SetParent(_cam.transform, false);
             bg.transform.localPosition = new Vector3(0f, 0f, 50f);

@@ -1,6 +1,6 @@
 if ( TRACE ) { TRACE( JSON.parse( '["HexaTest.App.GameBootstrap#Shuffle","HexaTest.App.GameBootstrap#StackY#get","HexaTest.App.GameBootstrap#init","HexaTest.App.GameBootstrap#CellStackPos","HexaTest.App.GameBootstrap#Awake","HexaTest.App.GameBootstrap#OnPlayerGrab","HexaTest.App.GameBootstrap#GetTraySource","HexaTest.App.GameBootstrap#OnTimeUp","HexaTest.App.GameBootstrap#PlaceFromTray","HexaTest.App.GameBootstrap#MagnetIntoCell","HexaTest.App.GameBootstrap#OnCascadeDone","HexaTest.App.GameBootstrap#SeedBoard","HexaTest.App.GameBootstrap#RefillTray","HexaTest.App.GameBootstrap#RandomDiscs","HexaTest.App.GameBootstrap#ApplyEnvironment","HexaTest.App.GameBootstrap#BuildShadowGround","HexaTest.App.GameBootstrap#BuildBackground","HexaTest.App.InputController#init","HexaTest.App.InputController#Init","HexaTest.App.InputController#Update","HexaTest.App.InputController#TryGrab","HexaTest.App.InputController#Drag","HexaTest.App.InputController#Release","HexaTest.App.InputController#TryNearestEmpty","HexaTest.App.InputController#ProjectToGround","HexaTest.App.MergeAnimator#Downscale","HexaTest.App.MergeAnimator#Init","HexaTest.App.MergeAnimator#Play","HexaTest.App.MergeAnimator#Run","HexaTest.App.MergeAnimator#Transfer","HexaTest.App.MergeAnimator#FlipAndLand","HexaTest.App.MergeAnimator#Flip","HexaTest.App.MergeAnimator#Clear","HexaTest.App.TutorialController#init","HexaTest.App.TutorialController#Init","HexaTest.App.TutorialController#Update","HexaTest.App.TutorialController#NotifyGrab","HexaTest.App.TutorialController#NotifyDropFailed","HexaTest.App.TutorialController#NotifyPlaced","HexaTest.App.TutorialController#StopForever","HexaTest.App.TutorialController#Show","HexaTest.App.TutorialController#Hide","HexaTest.App.TutorialController#GestureLoop","HexaTest.App.TutorialController#FindTargetCell","HexaTest.App.TutorialController#PlaceHand","HexaTest.Config.GameConfig#DiscRadius#get","HexaTest.Config.GameConfig#TileRadius#get","HexaTest.Config.GameConfig#init","HexaTest.Config.GameConfig#ColorOf","HexaTest.Domain.BoardModel#BuildHexagon","HexaTest.Domain.BoardModel#Cells#get","HexaTest.Domain.BoardModel#init","HexaTest.Domain.BoardModel#Add","HexaTest.Domain.BoardModel#TryGet","HexaTest.Domain.BoardModel#Get","HexaTest.Domain.BoardModel#Neighbors","HexaTest.Domain.BoardModel#Clone","HexaTest.Domain.CellModel#IsEmpty#get","HexaTest.Domain.CellModel#init","HexaTest.Domain.CellModel#ctor","HexaTest.Domain.HexCoord#init","HexaTest.Domain.HexCoord#getDefaultValue","HexaTest.Domain.HexCoord#S#get","HexaTest.Domain.HexCoord#$ctor1","HexaTest.Domain.HexCoord#ctor","HexaTest.Domain.HexCoord#Neighbor","HexaTest.Domain.HexCoord#ToWorld","HexaTest.Domain.HexCoord#DistanceToCenter","HexaTest.Domain.HexCoord#equals","HexaTest.Domain.HexCoord#getHashCode","HexaTest.Domain.HexCoord#toString","HexaTest.Domain.HexCoord#$clone","HexaTest.Domain.StackModel#Discs#get","HexaTest.Domain.StackModel#Count#get","HexaTest.Domain.StackModel#IsEmpty#get","HexaTest.Domain.StackModel#TopColor#get","HexaTest.Domain.StackModel#init","HexaTest.Domain.StackModel#Set","HexaTest.Domain.StackModel#Push","HexaTest.Domain.StackModel#PushRange","HexaTest.Domain.StackModel#TopRunLength","HexaTest.Domain.StackModel#RemoveTop","HexaTest.Domain.StackModel#Clone","HexaTest.Integrations.PlayworksBridge#init","HexaTest.Integrations.PlayworksBridge#InstallFullGame","HexaTest.Integrations.PlayworksBridge#GameEnded","HexaTest.Logic.GameTimer#Progress01#get","HexaTest.Logic.GameTimer#Remaining01#get","HexaTest.Logic.GameTimer#Expired#get","HexaTest.Logic.GameTimer#Begin","HexaTest.Logic.GameTimer#Stop","HexaTest.Logic.GameTimer#Tick","HexaTest.Logic.MergeResolver#init","HexaTest.Logic.MergeResolver#RunTransferPhase","HexaTest.Logic.MergeResolver#RunClearPhase","HexaTest.Logic.MergeResolver#Resolve","HexaTest.UI.PackshotView#init","HexaTest.UI.PackshotView#NewImage","HexaTest.UI.PackshotView#CreateClickCatcher","HexaTest.UI.PackshotView#Stretch","HexaTest.UI.PackshotView#CreateHexMaskSprite","HexaTest.UI.PackshotView#IsInsidePolygon","HexaTest.UI.PackshotView#init","HexaTest.UI.PackshotView#Show","HexaTest.UI.PackshotView#Show$1","HexaTest.UI.PackshotView#Build","HexaTest.UI.PackshotView#Reveal","HexaTest.UI.PackshotView#CompleteReveal","HexaTest.UI.PackshotView#GetRevealEndSize","HexaTest.UI.TimerHudView#init","HexaTest.UI.TimerHudView#UpdateOverlayFill","HexaTest.UI.TimerHudView#AnimatedTimerRect#get","HexaTest.UI.TimerHudView#init","HexaTest.UI.TimerHudView#Begin","HexaTest.UI.TimerHudView#Update","HexaTest.UI.TimerHudView#EnterAlarm","HexaTest.UI.TimerHudView#CaptureAlarmBaseState","HexaTest.UI.TimerHudView#WatchPopLoop","HexaTest.UI.TimerHudView#ApplyAlarmPulse","HexaTest.UI.TimerHudView#EnsureAlarmOverlays","HexaTest.UI.TimerHudView#EnsureTimerFillOverlay","HexaTest.UI.TimerHudView#EnsureAlphaTintMaterial","HexaTest.UI.TimerHudView#EnsureOverlay","HexaTest.UI.TimerHudView#SetOverlayColor","HexaTest.UI.TimerHudView#SetTimerFill","HexaTest.UI.TimerHudView#EvaluateFillColor","HexaTest.UI.TimerHudView#EndSequence","HexaTest.UI.TimerHudView#SetFinalAlarmColor","HexaTest.View.BoardView#init","HexaTest.View.BoardView#Build","HexaTest.View.BoardView#BuildPlatform","HexaTest.View.BoardView#BuildTiles","HexaTest.View.BoardView#WorldOf","HexaTest.View.BoardView#Register","HexaTest.View.BoardView#GetStack","HexaTest.View.BoardView#RemoveStack","HexaTest.View.BoardView#SetHighlight","HexaTest.View.CameraAspectFitter#init","HexaTest.View.CameraAspectFitter#Awake","HexaTest.View.CameraAspectFitter#Update","HexaTest.View.CameraAspectFitter#Apply","HexaTest.View.Easing#Linear","HexaTest.View.Easing#OutQuad","HexaTest.View.Easing#InOutQuad","HexaTest.View.Easing#OutBack","HexaTest.View.HexAssets#MakeMaterial","HexaTest.View.HexAssets#ctor","HexaTest.View.HexAssets#MaterialFor","HexaTest.View.HexAssets#SeparatorMaterialFor","HexaTest.View.HexMeshBuilder#Build","HexaTest.View.HexMeshBuilder#BuildRounded","HexaTest.View.HexMeshBuilder#BuildRoundedSideOnly","HexaTest.View.HexMeshBuilder#BuildRing","HexaTest.View.HexMeshBuilder#QuadBezier","HexaTest.View.HexMeshBuilder#BuildPrism","HexaTest.View.StackFactory#ctor","HexaTest.View.StackFactory#Create","HexaTest.View.StackView#DiscCount#get","HexaTest.View.StackView#init","HexaTest.View.StackView#Init","HexaTest.View.StackView#Build","HexaTest.View.StackView#CreateDisc","HexaTest.View.StackView#AddSeparatorBand","HexaTest.View.StackView#NextSlotWorld","HexaTest.View.StackView#SlotWorld","HexaTest.View.StackView#DetachTop","HexaTest.View.StackView#AttachTop","HexaTest.View.StackView#RemoveTopForClear","HexaTest.View.StackView#SlotLocalPos","HexaTest.View.StackView#UpdateCollider","HexaTest.View.Tweener#Tween","HexaTest.View.Tweener#PingPong","HexaTest.Logic.ClearStep#init","HexaTest.Logic.TransferStep#init"]' ) ); }
 /**
- * @version 1.0.9685.30641
+ * @version 1.0.9685.31770
  * @copyright anton
  * @compiler Bridge.NET 17.9.42-luna
  */
@@ -377,6 +377,7 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#BuildShadowGround", this ); }
 
                 var g = UnityEngine.GameObject.CreatePrimitive(UnityEngine.PrimitiveType.Plane);
                 g.name = "ShadowGround";
+                g.layer = 0; // Luna: code-created nodes need an explicit layer for realtime shadows in web
                 UnityEngine.Object.Destroy(g.GetComponent(UnityEngine.Collider));
                 g.transform.SetParent(this.transform, false);
                 g.transform.position = new pc.Vec3( 0.0, platformBottom - 0.05, 0.0 );
@@ -406,6 +407,7 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#BuildBackground", this ); }
                 // always draws on top (the earlier ScreenSpace-Camera canvas covered the board).
                 var bg = UnityEngine.GameObject.CreatePrimitive(UnityEngine.PrimitiveType.Quad);
                 bg.name = "Background";
+                bg.layer = 0; // Luna: see BuildShadowGround
                 UnityEngine.Object.Destroy(bg.GetComponent(UnityEngine.Collider));
                 bg.transform.SetParent(this._cam.transform, false);
                 bg.transform.localPosition = new pc.Vec3( 0.0, 0.0, 50.0 );
@@ -3286,6 +3288,10 @@ if ( TRACE ) { TRACE( "HexaTest.View.BoardView#BuildPlatform", this ); }
                         while ($t2.moveNext()) {
                             var cell = $t2.Current;
                             var go = new UnityEngine.GameObject.$ctor2("Slab");
+                            // Luna web runtime: nodes created from code keep layerMask 0 until the
+                            // layer is assigned explicitly, and layerMask 0 excludes the object from
+                            // realtime shadows. No-op in the editor.
+                            go.layer = 0;
                             go.transform.SetParent(layer, false);
                             go.transform.localPosition = cell.Coord.ToWorld(this._cfg.cellSize);
                             go.AddComponent(UnityEngine.MeshFilter).sharedMesh = mesh;
@@ -3313,6 +3319,7 @@ if ( TRACE ) { TRACE( "HexaTest.View.BoardView#BuildTiles", this ); }
                     while ($t.moveNext()) {
                         var cell = $t.Current;
                         var go = new UnityEngine.GameObject.$ctor2(System.String.format("Tile_{0}", [cell.Coord]));
+                        go.layer = 0; // Luna: see BuildBase — required for realtime shadows in web
                         go.transform.SetParent(root, false);
                         var p = this.WorldOf(cell.Coord);
                         go.transform.localPosition = new pc.Vec3( p.x, this._cfg.tileRaise, p.z );
@@ -3860,6 +3867,7 @@ if ( TRACE ) { TRACE( "HexaTest.View.StackView#Build", this ); }
 if ( TRACE ) { TRACE( "HexaTest.View.StackView#CreateDisc", this ); }
 
                 var go = new UnityEngine.GameObject.$ctor2("Disc");
+                go.layer = 0; // Luna: code-created nodes need an explicit layer for realtime shadows in web
                 go.transform.SetParent(this.transform, false);
                 go.transform.localPosition = this.SlotLocalPos(this._discs.Count);
                 go.AddComponent(UnityEngine.MeshFilter).sharedMesh = this._assets.DiscMesh;
@@ -3881,6 +3889,7 @@ if ( TRACE ) { TRACE( "HexaTest.View.StackView#AddSeparatorBand", this ); }
                 }
 
                 var band = new UnityEngine.GameObject.$ctor2("Separator Band");
+                band.layer = 0; // Luna: see CreateDisc
                 band.transform.SetParent(disc, false);
                 var halfDisc = this._cfg.discThickness * 0.5;
                 var halfBand = this._cfg.discSeparatorThickness * 0.5;

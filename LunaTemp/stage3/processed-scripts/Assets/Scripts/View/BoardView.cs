@@ -39,6 +39,10 @@ namespace HexaTest.View
                 foreach (CellModel cell in board.Cells)
                 {
                     GameObject go = new GameObject("Slab");
+                    // Luna web runtime: nodes created from code keep layerMask 0 until the
+                    // layer is assigned explicitly, and layerMask 0 excludes the object from
+                    // realtime shadows. No-op in the editor.
+                    go.layer = 0;
                     go.transform.SetParent(layer, false);
                     go.transform.localPosition = cell.Coord.ToWorld(_cfg.cellSize);
                     go.AddComponent<MeshFilter>().sharedMesh = mesh;
@@ -55,6 +59,7 @@ namespace HexaTest.View
             foreach (CellModel cell in board.Cells)
             {
                 GameObject go = new GameObject($"Tile_{cell.Coord}");
+                go.layer = 0; // Luna: see BuildBase — required for realtime shadows in web
                 go.transform.SetParent(root, false);
                 Vector3 p = WorldOf(cell.Coord);
                 go.transform.localPosition = new Vector3(p.x, _cfg.tileRaise, p.z);

@@ -791,7 +791,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 703480551, guid: 85de7d9487432994682731b955720790, type: 3}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   trackAlarmColor: {r: 0.85, g: 0.15, b: 0.15, a: 1}
   alphaTintMaterial: {fileID: 2100000, guid: 77958d6f08ab2f14e91921e1c2c72cd6, type: 2}
   fillImage: {fileID: 1394573081821509564}
-  fillMaskRect: {fileID: 1704260471}
+  fillMaskRect: {fileID: 0}
   trackImage: {fileID: 4504255151616434627}
   timerBgImage: {fileID: 2090225707}
   timerNippleImage: {fileID: 2103602458}

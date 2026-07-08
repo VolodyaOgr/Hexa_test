@@ -34,6 +34,7 @@ namespace HexaTest.View
         private Transform CreateDisc(HexColorId color)
         {
             GameObject go = new GameObject("Disc");
+            go.layer = 0; // Luna: code-created nodes need an explicit layer for realtime shadows in web
             go.transform.SetParent(transform, false);
             go.transform.localPosition = SlotLocalPos(_discs.Count);
             go.AddComponent<MeshFilter>().sharedMesh = _assets.DiscMesh;
@@ -48,6 +49,7 @@ namespace HexaTest.View
             if (_cfg.discSeparatorThickness <= 0f) return;
 
             GameObject band = new GameObject("Separator Band");
+            band.layer = 0; // Luna: see CreateDisc
             band.transform.SetParent(disc, false);
             float halfDisc = _cfg.discThickness * 0.5f;
             float halfBand = _cfg.discSeparatorThickness * 0.5f;
