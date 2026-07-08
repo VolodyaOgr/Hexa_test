@@ -19,6 +19,7 @@ namespace HexaTest.App
 
         private StackView _held;
         private Vector3 _home;
+        private Vector3 _grabOffset; // XZ offset between the stack's position and the cursor's ground point at grab time
         private HexCoord _hover;
         private bool _hasHover;
 
@@ -56,6 +57,8 @@ namespace HexaTest.App
 
             _held = stack;
             _home = stack.transform.position;
+            _grabOffset = ProjectToGround(out Vector3 grabGround) ? _home - grabGround : Vector3.zero;
+            _grabOffset.y = 0f;
             _onGrab?.Invoke();
         }
 
@@ -63,9 +66,10 @@ namespace HexaTest.App
         {
             if (!ProjectToGround(out Vector3 ground)) return;
 
-            _held.transform.position = ground + Vector3.up * _cfg.dragLift;
+            Vector3 followed = ground + _grabOffset;
+            _held.transform.position = followed + Vector3.up * _cfg.dragLift;
 
-            if (TryNearestEmpty(ground, out HexCoord coord))
+            if (TryNearestEmpty(followed, out HexCoord coord))
             {
                 if (!_hasHover || !coord.Equals(_hover))
                 {

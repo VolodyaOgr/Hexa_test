@@ -39,21 +39,23 @@ namespace HexaTest.Config
         [Header("Board platform (layered edge)")]
         [Tooltip("The platform is built from the same cells, so its silhouette matches exactly.")]
         [Range(0f, 1f)] public float baseRound = 0.12f;
-        public float baseLayerThickness = 0.10f;
+        public float baseLayerThickness = 0.04f;
         [Tooltip("How much wider (world units) each lower layer is — the visible rim sliver. Keep small.")]
-        public float edgeRim = 0.03f;
+        public float edgeRim = 0.05f;
         [Tooltip("Platform layers top -> bottom. Length = number of layers (reference ~3).")]
         public Color[] baseLayerColors =
         {
-            new Color(0.55f, 0.68f, 0.82f),
-            new Color(0.93f, 0.95f, 0.98f),
-            new Color(0.42f, 0.56f, 0.74f),
+            new Color(0.55f, 0.66f, 0.83f),
+            new Color(1.00f, 1.00f, 1.00f),
+            new Color(0.38f, 0.50f, 0.70f),
         };
 
         [Header("Interaction")]
-        public float snapDistance = 0.7f;
+        public float snapDistance = 0.82f;
         [Tooltip("How high a grabbed stack floats above the board so it never blends into it.")]
-        public float dragLift = 1.4f;
+        public float dragLift = 0.6f;
+        [Tooltip("How fast a released stack glides into its cell, in world units/second. Higher = snappier magnet-in; lower = a slower, floatier pull.")]
+        public float magnetSpeed = 6f;
 
         [Header("Tray")]
         [Tooltip("How far below the board center the tray sits (world units).")]
@@ -77,7 +79,7 @@ namespace HexaTest.Config
         public float maxSpeed = 8f;
 
         [Header("Colors")]
-        public Color tileColor = new Color(0.72f, 0.82f, 0.92f, 1f);
+        public Color tileColor = new Color(0.66f, 0.76f, 0.90f, 1f);
         public Color[] palette =
         {
             new Color(0.30f, 0.82f, 0.28f),

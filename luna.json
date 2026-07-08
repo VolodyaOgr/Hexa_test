@@ -157,7 +157,7 @@
         "preloader": {
             "logo": ""
         },
-        "enableRealtimeShadows": false,
+        "enableRealtimeShadows": true,
         "enableLunaCompilerV2": false,
         "optimiseShaderVariantsExport": true,
         "enableMecanimWASM": true,
@@ -1964,10 +1964,6 @@
             },
             {
                 "name": "UnityEngine.Timeline.TrackMediaType",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.Tools.GeometryUtility",
                 "excluded": true
             },
             {
@@ -4528,7 +4524,7 @@
             },
             {
                 "name": "UnityEngine.PrimitiveType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ProceduralCacheSize",
@@ -4904,7 +4900,7 @@
             },
             {
                 "name": "UnityEngine.Rendering.ShadowCastingMode",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.Rendering.ShadowMapPass",
@@ -5080,7 +5076,7 @@
             },
             {
                 "name": "UnityEngine.ShadowProjection",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ShadowQuality",
@@ -6351,10 +6347,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.UI.ClipperRegistry",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.UI.Clipping",
                 "excluded": true
             },
@@ -6384,10 +6376,6 @@
             },
             {
                 "name": "UnityEngine.UI.Misc",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.UI.RectangularVertexClipper",
                 "excluded": true
             },
             {
@@ -15454,7 +15442,7 @@
                     },
                     {
                         "name": "width#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "width#set",
@@ -17036,7 +17024,7 @@
                     },
                     {
                         "name": "mainTexture#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "color#get",
@@ -17204,7 +17192,7 @@
                     },
                     {
                         "name": "SetTexture$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetTexture",
@@ -17686,7 +17674,7 @@
                     },
                     {
                         "name": "Clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -18540,11 +18528,11 @@
                     },
                     {
                         "name": "depthTextureMode#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "depthTextureMode#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "clearFlags#get",
@@ -18636,11 +18624,11 @@
                     },
                     {
                         "name": "orthographicSize#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "orthographicSize#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "orthographic#get",
@@ -19076,7 +19064,7 @@
                     },
                     {
                         "name": "receiveShadows#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "shadowCastingMode#get",
@@ -19084,7 +19072,7 @@
                     },
                     {
                         "name": "shadowCastingMode#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "motionVectorGenerationMode#get",
@@ -19334,7 +19322,7 @@
                     },
                     {
                         "name": "rect#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "cachedRect#get",
@@ -20034,7 +20022,7 @@
                     },
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "getItem",
@@ -20050,7 +20038,7 @@
                     },
                     {
                         "name": "AddUnique",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "remove",
@@ -20266,7 +20254,7 @@
                 "instanceMethods": [
                     {
                         "name": "Notify2DMaskStateChanged",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "NotifyStencilStateChanged",
@@ -20282,7 +20270,7 @@
                     },
                     {
                         "name": "IsDescendantOrSelf",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetRectMaskForClippable",
@@ -21138,15 +21126,15 @@
                     },
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnEnable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDisable",
@@ -21162,7 +21150,7 @@
                     },
                     {
                         "name": "AddClippable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RemoveClippable",
@@ -21302,7 +21290,7 @@
                     },
                     {
                         "name": "RecalculateClipping",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RecalculateMasking",
@@ -23991,11 +23979,23 @@
                         "excluded": false
                     },
                     {
-                        "name": "SetUpCamera",
+                        "name": "OnPlayerGrab",
                         "excluded": false
                     },
                     {
-                        "name": "FitCameraToAspect",
+                        "name": "MagnetIntoCell",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ApplyEnvironment",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BuildShadowGround",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BuildBackground",
                         "excluded": false
                     }
                 ]
@@ -24277,15 +24277,15 @@
                         "excluded": false
                     },
                     {
-                        "name": "Radial",
-                        "excluded": false
-                    },
-                    {
                         "name": "QuadBezier",
                         "excluded": false
                     },
                     {
                         "name": "BuildPrism",
+                        "excluded": false
+                    },
+                    {
+                        "name": "BuildRoundedSideOnly",
                         "excluded": false
                     }
                 ]
@@ -25002,7 +25002,7 @@
                 "instanceMethods": [
                     {
                         "name": "mesh#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "mesh#set",
@@ -25010,7 +25010,7 @@
                     },
                     {
                         "name": "sharedMesh#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sharedMesh#set",
@@ -27512,7 +27512,7 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -30209,6 +30209,158 @@
                         "excluded": false
                     }
                 ]
+            },
+            {
+                "className": "UnityEngine.Tools.GeometryUtility",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SharedQuad#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SharedPlane#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SharedCube#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SharedSphere#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SharedCapsule#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SharedCylinder#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Quad#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Plane#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Cube#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Sphere#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Capsule#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Cylinder#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CreateAndFillMesh",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CreateQuadMesh",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CreatePlainMesh",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CreateCubeMesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateCylinderMesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateSphereMesh",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateCapsuleMesh",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.ClipperRegistry",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Register",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Unregister",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Cull",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.RectangularVertexClipper",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetCanvasRect",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "HexaTest.View.CameraAspectFitter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Apply",
+                        "excluded": false
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -30264,7 +30416,7 @@
             "font": {
                 "default": {
                     "data": {
-                        "alphabet": " §1234567890-=qwertyuiop[]asdfghjkl;'\\`zxcvbnm,./±!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:\"|~ZXCVBNM<>?",
+                        "alphabet": " В§1234567890-=qwertyuiop[]asdfghjkl;'\\`zxcvbnm,./В±!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:\"|~ZXCVBNM<>?",
                         "size": 64,
                         "textureWidth": 1024,
                         "textureHeight": 1024

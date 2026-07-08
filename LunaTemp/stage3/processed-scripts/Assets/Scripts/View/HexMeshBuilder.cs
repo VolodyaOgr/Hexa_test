@@ -10,7 +10,18 @@ namespace HexaTest.View
         public static Mesh BuildRounded(float radius, float thickness, float round01, int cornerSegments)
         {
             List<Vector2> ring = BuildRing(radius, Mathf.Clamp01(round01), Mathf.Max(1, cornerSegments));
-            return BuildPrism(ring, thickness);
+            return BuildPrism(ring, thickness, includeCaps: true);
+        }
+
+        // For thin bands sandwiched against another hex's flat face (e.g. the disc
+        // separator ring, which sits with its bottom flush against the disc's own
+        // bottom cap): a full cap fan there is never actually seen — only the side
+        // wall peeks out past the parent's edge — and it lands exactly coplanar with
+        // the neighboring cap, causing z-fighting. Skip the caps for these.
+        public static Mesh BuildRoundedSideOnly(float radius, float thickness, float round01, int cornerSegments)
+        {
+            List<Vector2> ring = BuildRing(radius, Mathf.Clamp01(round01), Mathf.Max(1, cornerSegments));
+            return BuildPrism(ring, thickness, includeCaps: false);
         }
 
         private static List<Vector2> BuildRing(float radius, float round, int segments)
@@ -46,19 +57,13 @@ namespace HexaTest.View
             return ring;
         }
 
-        private static Vector3 Radial([Bridge.Ref] Vector2 p)
-        {
-            Vector3 v = new Vector3(p.x, 0f, p.y);
-            return v.sqrMagnitude > 1e-6f ? v.normalized : Vector3.forward;
-        }
-
         private static Vector2 QuadBezier([Bridge.Ref] Vector2 a, [Bridge.Ref] Vector2 b, [Bridge.Ref] Vector2 c, float u)
         {
             float iu = 1f - u;
             return iu * iu * a + 2f * iu * u * b + u * u * c;
         }
 
-        private static Mesh BuildPrism(List<Vector2> ring, float thickness)
+        private static Mesh BuildPrism(List<Vector2> ring, float thickness, bool includeCaps)
         {
             int n = ring.Count;
             float half = thickness * 0.5f;
@@ -66,24 +71,38 @@ namespace HexaTest.View
             List<int> tris = new List<int>();
             List<Vector3> normals = new List<Vector3>();
 
-            int topCenter = verts.Count; verts.Add(new Vector3(0, half, 0)); normals.Add(Vector3.up);
-            int topRing = verts.Count;
-            for (int i = 0; i < n; i++) { verts.Add(new Vector3(ring[i].x, half, ring[i].y)); normals.Add(Vector3.up); }
-            for (int i = 0; i < n; i++) { tris.Add(topCenter); tris.Add(topRing + (i + 1) % n); tris.Add(topRing + i); }
+            if (includeCaps)
+            {
+                int topCenter = verts.Count; verts.Add(new Vector3(0, half, 0)); normals.Add(Vector3.up);
+                int topRing = verts.Count;
+                for (int i = 0; i < n; i++) { verts.Add(new Vector3(ring[i].x, half, ring[i].y)); normals.Add(Vector3.up); }
+                for (int i = 0; i < n; i++) { tris.Add(topCenter); tris.Add(topRing + (i + 1) % n); tris.Add(topRing + i); }
 
-            int botCenter = verts.Count; verts.Add(new Vector3(0, -half, 0)); normals.Add(Vector3.down);
-            int botRing = verts.Count;
-            for (int i = 0; i < n; i++) { verts.Add(new Vector3(ring[i].x, -half, ring[i].y)); normals.Add(Vector3.down); }
-            for (int i = 0; i < n; i++) { tris.Add(botCenter); tris.Add(botRing + i); tris.Add(botRing + (i + 1) % n); }
+                int botCenter = verts.Count; verts.Add(new Vector3(0, -half, 0)); normals.Add(Vector3.down);
+                int botRing = verts.Count;
+                for (int i = 0; i < n; i++) { verts.Add(new Vector3(ring[i].x, -half, ring[i].y)); normals.Add(Vector3.down); }
+                for (int i = 0; i < n; i++) { tris.Add(botCenter); tris.Add(botRing + i); tris.Add(botRing + (i + 1) % n); }
+            }
 
-            int sideTop = verts.Count;
-            for (int i = 0; i < n; i++) { verts.Add(new Vector3(ring[i].x, half, ring[i].y)); normals.Add(Radial(ring[i])); }
-            int sideBot = verts.Count;
-            for (int i = 0; i < n; i++) { verts.Add(new Vector3(ring[i].x, -half, ring[i].y)); normals.Add(Radial(ring[i])); }
+            // Flat-shaded side quads, one per ring edge, each with its own true face
+            // normal. Sharing a single "radial from hex center" normal across the
+            // rounded-corner segments (the previous approach) is only correct for a
+            // true circle; on a hex it points off-surface at the corners and produces
+            // broken-looking shading exactly where the fillet faces the camera.
             for (int i = 0; i < n; i++)
             {
-                int a = sideTop + i, b = sideTop + (i + 1) % n;
-                int c = sideBot + i, d = sideBot + (i + 1) % n;
+                Vector2 p0 = ring[i];
+                Vector2 p1 = ring[(i + 1) % n];
+                Vector3 top0 = new Vector3(p0.x, half, p0.y);
+                Vector3 top1 = new Vector3(p1.x, half, p1.y);
+                Vector3 bot0 = new Vector3(p0.x, -half, p0.y);
+                Vector3 bot1 = new Vector3(p1.x, -half, p1.y);
+                Vector3 faceNormal = Vector3.Cross(top1 - top0, bot0 - top0).normalized;
+
+                int a = verts.Count; verts.Add(top0); normals.Add(faceNormal);
+                int b = verts.Count; verts.Add(top1); normals.Add(faceNormal);
+                int c = verts.Count; verts.Add(bot0); normals.Add(faceNormal);
+                int d = verts.Count; verts.Add(bot1); normals.Add(faceNormal);
                 tris.Add(a); tris.Add(c); tris.Add(b);
                 tris.Add(b); tris.Add(c); tris.Add(d);
             }

@@ -1,6 +1,6 @@
-if ( TRACE ) { TRACE( JSON.parse( '["HexaTest.App.GameBootstrap#Shuffle","HexaTest.App.GameBootstrap#StackY#get","HexaTest.App.GameBootstrap#init","HexaTest.App.GameBootstrap#CellStackPos","HexaTest.App.GameBootstrap#Awake","HexaTest.App.GameBootstrap#GetTraySource","HexaTest.App.GameBootstrap#OnTimeUp","HexaTest.App.GameBootstrap#PlaceFromTray","HexaTest.App.GameBootstrap#OnCascadeDone","HexaTest.App.GameBootstrap#SeedBoard","HexaTest.App.GameBootstrap#RefillTray","HexaTest.App.GameBootstrap#RandomDiscs","HexaTest.App.GameBootstrap#SetUpCamera","HexaTest.App.GameBootstrap#FitCameraToAspect","HexaTest.App.InputController#init","HexaTest.App.InputController#Init","HexaTest.App.InputController#Update","HexaTest.App.InputController#TryGrab","HexaTest.App.InputController#Drag","HexaTest.App.InputController#Release","HexaTest.App.InputController#TryNearestEmpty","HexaTest.App.InputController#ProjectToGround","HexaTest.App.MergeAnimator#Downscale","HexaTest.App.MergeAnimator#Init","HexaTest.App.MergeAnimator#Play","HexaTest.App.MergeAnimator#Run","HexaTest.App.MergeAnimator#Transfer","HexaTest.App.MergeAnimator#FlipAndLand","HexaTest.App.MergeAnimator#Flip","HexaTest.App.MergeAnimator#Clear","HexaTest.App.TutorialController#init","HexaTest.App.TutorialController#Init","HexaTest.App.TutorialController#Update","HexaTest.App.TutorialController#NotifyGrab","HexaTest.App.TutorialController#NotifyDropFailed","HexaTest.App.TutorialController#NotifyPlaced","HexaTest.App.TutorialController#StopForever","HexaTest.App.TutorialController#Show","HexaTest.App.TutorialController#Hide","HexaTest.App.TutorialController#GestureLoop","HexaTest.App.TutorialController#FindTargetCell","HexaTest.App.TutorialController#PlaceHand","HexaTest.Config.GameConfig#DiscRadius#get","HexaTest.Config.GameConfig#TileRadius#get","HexaTest.Config.GameConfig#init","HexaTest.Config.GameConfig#ColorOf","HexaTest.Domain.BoardModel#BuildHexagon","HexaTest.Domain.BoardModel#Cells#get","HexaTest.Domain.BoardModel#init","HexaTest.Domain.BoardModel#Add","HexaTest.Domain.BoardModel#TryGet","HexaTest.Domain.BoardModel#Get","HexaTest.Domain.BoardModel#Neighbors","HexaTest.Domain.BoardModel#Clone","HexaTest.Domain.CellModel#IsEmpty#get","HexaTest.Domain.CellModel#init","HexaTest.Domain.CellModel#ctor","HexaTest.Domain.HexCoord#init","HexaTest.Domain.HexCoord#getDefaultValue","HexaTest.Domain.HexCoord#S#get","HexaTest.Domain.HexCoord#$ctor1","HexaTest.Domain.HexCoord#ctor","HexaTest.Domain.HexCoord#Neighbor","HexaTest.Domain.HexCoord#ToWorld","HexaTest.Domain.HexCoord#DistanceToCenter","HexaTest.Domain.HexCoord#equals","HexaTest.Domain.HexCoord#getHashCode","HexaTest.Domain.HexCoord#toString","HexaTest.Domain.HexCoord#$clone","HexaTest.Domain.StackModel#Discs#get","HexaTest.Domain.StackModel#Count#get","HexaTest.Domain.StackModel#IsEmpty#get","HexaTest.Domain.StackModel#TopColor#get","HexaTest.Domain.StackModel#init","HexaTest.Domain.StackModel#Set","HexaTest.Domain.StackModel#Push","HexaTest.Domain.StackModel#PushRange","HexaTest.Domain.StackModel#TopRunLength","HexaTest.Domain.StackModel#RemoveTop","HexaTest.Domain.StackModel#Clone","HexaTest.Integrations.PlayworksBridge#init","HexaTest.Integrations.PlayworksBridge#InstallFullGame","HexaTest.Integrations.PlayworksBridge#GameEnded","HexaTest.Logic.GameTimer#Progress01#get","HexaTest.Logic.GameTimer#Remaining01#get","HexaTest.Logic.GameTimer#Expired#get","HexaTest.Logic.GameTimer#Begin","HexaTest.Logic.GameTimer#Stop","HexaTest.Logic.GameTimer#Tick","HexaTest.Logic.MergeResolver#init","HexaTest.Logic.MergeResolver#RunTransferPhase","HexaTest.Logic.MergeResolver#RunClearPhase","HexaTest.Logic.MergeResolver#Resolve","HexaTest.UI.PackshotView#init","HexaTest.UI.PackshotView#NewImage","HexaTest.UI.PackshotView#CreateClickCatcher","HexaTest.UI.PackshotView#Stretch","HexaTest.UI.PackshotView#CreateHexMaskSprite","HexaTest.UI.PackshotView#IsInsidePolygon","HexaTest.UI.PackshotView#init","HexaTest.UI.PackshotView#Show","HexaTest.UI.PackshotView#Show$1","HexaTest.UI.PackshotView#Build","HexaTest.UI.PackshotView#Reveal","HexaTest.UI.PackshotView#CompleteReveal","HexaTest.UI.PackshotView#GetRevealEndSize","HexaTest.UI.TimerHudView#init","HexaTest.UI.TimerHudView#UpdateOverlayFill","HexaTest.UI.TimerHudView#AnimatedTimerRect#get","HexaTest.UI.TimerHudView#init","HexaTest.UI.TimerHudView#Begin","HexaTest.UI.TimerHudView#Update","HexaTest.UI.TimerHudView#EnterAlarm","HexaTest.UI.TimerHudView#CaptureAlarmBaseState","HexaTest.UI.TimerHudView#WatchPopLoop","HexaTest.UI.TimerHudView#ApplyAlarmPulse","HexaTest.UI.TimerHudView#EnsureAlarmOverlays","HexaTest.UI.TimerHudView#EnsureTimerFillOverlay","HexaTest.UI.TimerHudView#EnsureAlphaTintMaterial","HexaTest.UI.TimerHudView#EnsureOverlay","HexaTest.UI.TimerHudView#SetOverlayColor","HexaTest.UI.TimerHudView#SetTimerFill","HexaTest.UI.TimerHudView#EvaluateFillColor","HexaTest.UI.TimerHudView#EndSequence","HexaTest.UI.TimerHudView#SetFinalAlarmColor","HexaTest.View.BoardView#init","HexaTest.View.BoardView#Build","HexaTest.View.BoardView#BuildPlatform","HexaTest.View.BoardView#BuildTiles","HexaTest.View.BoardView#WorldOf","HexaTest.View.BoardView#Register","HexaTest.View.BoardView#GetStack","HexaTest.View.BoardView#RemoveStack","HexaTest.View.BoardView#SetHighlight","HexaTest.View.Easing#Linear","HexaTest.View.Easing#OutQuad","HexaTest.View.Easing#InOutQuad","HexaTest.View.Easing#OutBack","HexaTest.View.HexAssets#MakeMaterial","HexaTest.View.HexAssets#ctor","HexaTest.View.HexAssets#MaterialFor","HexaTest.View.HexAssets#SeparatorMaterialFor","HexaTest.View.HexMeshBuilder#Build","HexaTest.View.HexMeshBuilder#BuildRounded","HexaTest.View.HexMeshBuilder#BuildRing","HexaTest.View.HexMeshBuilder#Radial","HexaTest.View.HexMeshBuilder#QuadBezier","HexaTest.View.HexMeshBuilder#BuildPrism","HexaTest.View.StackFactory#ctor","HexaTest.View.StackFactory#Create","HexaTest.View.StackView#DiscCount#get","HexaTest.View.StackView#init","HexaTest.View.StackView#Init","HexaTest.View.StackView#Build","HexaTest.View.StackView#CreateDisc","HexaTest.View.StackView#AddSeparatorBand","HexaTest.View.StackView#NextSlotWorld","HexaTest.View.StackView#SlotWorld","HexaTest.View.StackView#DetachTop","HexaTest.View.StackView#AttachTop","HexaTest.View.StackView#RemoveTopForClear","HexaTest.View.StackView#SlotLocalPos","HexaTest.View.StackView#UpdateCollider","HexaTest.View.Tweener#Tween","HexaTest.View.Tweener#PingPong","HexaTest.Logic.ClearStep#init","HexaTest.Logic.TransferStep#init"]' ) ); }
+if ( TRACE ) { TRACE( JSON.parse( '["HexaTest.App.GameBootstrap#Shuffle","HexaTest.App.GameBootstrap#StackY#get","HexaTest.App.GameBootstrap#init","HexaTest.App.GameBootstrap#CellStackPos","HexaTest.App.GameBootstrap#Awake","HexaTest.App.GameBootstrap#OnPlayerGrab","HexaTest.App.GameBootstrap#GetTraySource","HexaTest.App.GameBootstrap#OnTimeUp","HexaTest.App.GameBootstrap#PlaceFromTray","HexaTest.App.GameBootstrap#MagnetIntoCell","HexaTest.App.GameBootstrap#OnCascadeDone","HexaTest.App.GameBootstrap#SeedBoard","HexaTest.App.GameBootstrap#RefillTray","HexaTest.App.GameBootstrap#RandomDiscs","HexaTest.App.GameBootstrap#ApplyEnvironment","HexaTest.App.GameBootstrap#BuildShadowGround","HexaTest.App.GameBootstrap#BuildBackground","HexaTest.App.InputController#init","HexaTest.App.InputController#Init","HexaTest.App.InputController#Update","HexaTest.App.InputController#TryGrab","HexaTest.App.InputController#Drag","HexaTest.App.InputController#Release","HexaTest.App.InputController#TryNearestEmpty","HexaTest.App.InputController#ProjectToGround","HexaTest.App.MergeAnimator#Downscale","HexaTest.App.MergeAnimator#Init","HexaTest.App.MergeAnimator#Play","HexaTest.App.MergeAnimator#Run","HexaTest.App.MergeAnimator#Transfer","HexaTest.App.MergeAnimator#FlipAndLand","HexaTest.App.MergeAnimator#Flip","HexaTest.App.MergeAnimator#Clear","HexaTest.App.TutorialController#init","HexaTest.App.TutorialController#Init","HexaTest.App.TutorialController#Update","HexaTest.App.TutorialController#NotifyGrab","HexaTest.App.TutorialController#NotifyDropFailed","HexaTest.App.TutorialController#NotifyPlaced","HexaTest.App.TutorialController#StopForever","HexaTest.App.TutorialController#Show","HexaTest.App.TutorialController#Hide","HexaTest.App.TutorialController#GestureLoop","HexaTest.App.TutorialController#FindTargetCell","HexaTest.App.TutorialController#PlaceHand","HexaTest.Config.GameConfig#DiscRadius#get","HexaTest.Config.GameConfig#TileRadius#get","HexaTest.Config.GameConfig#init","HexaTest.Config.GameConfig#ColorOf","HexaTest.Domain.BoardModel#BuildHexagon","HexaTest.Domain.BoardModel#Cells#get","HexaTest.Domain.BoardModel#init","HexaTest.Domain.BoardModel#Add","HexaTest.Domain.BoardModel#TryGet","HexaTest.Domain.BoardModel#Get","HexaTest.Domain.BoardModel#Neighbors","HexaTest.Domain.BoardModel#Clone","HexaTest.Domain.CellModel#IsEmpty#get","HexaTest.Domain.CellModel#init","HexaTest.Domain.CellModel#ctor","HexaTest.Domain.HexCoord#init","HexaTest.Domain.HexCoord#getDefaultValue","HexaTest.Domain.HexCoord#S#get","HexaTest.Domain.HexCoord#$ctor1","HexaTest.Domain.HexCoord#ctor","HexaTest.Domain.HexCoord#Neighbor","HexaTest.Domain.HexCoord#ToWorld","HexaTest.Domain.HexCoord#DistanceToCenter","HexaTest.Domain.HexCoord#equals","HexaTest.Domain.HexCoord#getHashCode","HexaTest.Domain.HexCoord#toString","HexaTest.Domain.HexCoord#$clone","HexaTest.Domain.StackModel#Discs#get","HexaTest.Domain.StackModel#Count#get","HexaTest.Domain.StackModel#IsEmpty#get","HexaTest.Domain.StackModel#TopColor#get","HexaTest.Domain.StackModel#init","HexaTest.Domain.StackModel#Set","HexaTest.Domain.StackModel#Push","HexaTest.Domain.StackModel#PushRange","HexaTest.Domain.StackModel#TopRunLength","HexaTest.Domain.StackModel#RemoveTop","HexaTest.Domain.StackModel#Clone","HexaTest.Integrations.PlayworksBridge#init","HexaTest.Integrations.PlayworksBridge#InstallFullGame","HexaTest.Integrations.PlayworksBridge#GameEnded","HexaTest.Logic.GameTimer#Progress01#get","HexaTest.Logic.GameTimer#Remaining01#get","HexaTest.Logic.GameTimer#Expired#get","HexaTest.Logic.GameTimer#Begin","HexaTest.Logic.GameTimer#Stop","HexaTest.Logic.GameTimer#Tick","HexaTest.Logic.MergeResolver#init","HexaTest.Logic.MergeResolver#RunTransferPhase","HexaTest.Logic.MergeResolver#RunClearPhase","HexaTest.Logic.MergeResolver#Resolve","HexaTest.UI.PackshotView#init","HexaTest.UI.PackshotView#NewImage","HexaTest.UI.PackshotView#CreateClickCatcher","HexaTest.UI.PackshotView#Stretch","HexaTest.UI.PackshotView#CreateHexMaskSprite","HexaTest.UI.PackshotView#IsInsidePolygon","HexaTest.UI.PackshotView#init","HexaTest.UI.PackshotView#Show","HexaTest.UI.PackshotView#Show$1","HexaTest.UI.PackshotView#Build","HexaTest.UI.PackshotView#Reveal","HexaTest.UI.PackshotView#CompleteReveal","HexaTest.UI.PackshotView#GetRevealEndSize","HexaTest.UI.TimerHudView#init","HexaTest.UI.TimerHudView#UpdateOverlayFill","HexaTest.UI.TimerHudView#AnimatedTimerRect#get","HexaTest.UI.TimerHudView#init","HexaTest.UI.TimerHudView#Begin","HexaTest.UI.TimerHudView#Update","HexaTest.UI.TimerHudView#EnterAlarm","HexaTest.UI.TimerHudView#CaptureAlarmBaseState","HexaTest.UI.TimerHudView#WatchPopLoop","HexaTest.UI.TimerHudView#ApplyAlarmPulse","HexaTest.UI.TimerHudView#EnsureAlarmOverlays","HexaTest.UI.TimerHudView#EnsureTimerFillOverlay","HexaTest.UI.TimerHudView#EnsureAlphaTintMaterial","HexaTest.UI.TimerHudView#EnsureOverlay","HexaTest.UI.TimerHudView#SetOverlayColor","HexaTest.UI.TimerHudView#SetTimerFill","HexaTest.UI.TimerHudView#EvaluateFillColor","HexaTest.UI.TimerHudView#EndSequence","HexaTest.UI.TimerHudView#SetFinalAlarmColor","HexaTest.View.BoardView#init","HexaTest.View.BoardView#Build","HexaTest.View.BoardView#BuildPlatform","HexaTest.View.BoardView#BuildTiles","HexaTest.View.BoardView#WorldOf","HexaTest.View.BoardView#Register","HexaTest.View.BoardView#GetStack","HexaTest.View.BoardView#RemoveStack","HexaTest.View.BoardView#SetHighlight","HexaTest.View.CameraAspectFitter#init","HexaTest.View.CameraAspectFitter#Awake","HexaTest.View.CameraAspectFitter#Update","HexaTest.View.CameraAspectFitter#Apply","HexaTest.View.Easing#Linear","HexaTest.View.Easing#OutQuad","HexaTest.View.Easing#InOutQuad","HexaTest.View.Easing#OutBack","HexaTest.View.HexAssets#MakeMaterial","HexaTest.View.HexAssets#ctor","HexaTest.View.HexAssets#MaterialFor","HexaTest.View.HexAssets#SeparatorMaterialFor","HexaTest.View.HexMeshBuilder#Build","HexaTest.View.HexMeshBuilder#BuildRounded","HexaTest.View.HexMeshBuilder#BuildRoundedSideOnly","HexaTest.View.HexMeshBuilder#BuildRing","HexaTest.View.HexMeshBuilder#QuadBezier","HexaTest.View.HexMeshBuilder#BuildPrism","HexaTest.View.StackFactory#ctor","HexaTest.View.StackFactory#Create","HexaTest.View.StackView#DiscCount#get","HexaTest.View.StackView#init","HexaTest.View.StackView#Init","HexaTest.View.StackView#Build","HexaTest.View.StackView#CreateDisc","HexaTest.View.StackView#AddSeparatorBand","HexaTest.View.StackView#NextSlotWorld","HexaTest.View.StackView#SlotWorld","HexaTest.View.StackView#DetachTop","HexaTest.View.StackView#AttachTop","HexaTest.View.StackView#RemoveTopForClear","HexaTest.View.StackView#SlotLocalPos","HexaTest.View.StackView#UpdateCollider","HexaTest.View.Tweener#Tween","HexaTest.View.Tweener#PingPong","HexaTest.Logic.ClearStep#init","HexaTest.Logic.TransferStep#init"]' ) ); }
 /**
- * @version 1.0.9682.36939
+ * @version 1.0.9685.30641
  * @copyright anton
  * @compiler Bridge.NET 17.9.42-luna
  */
@@ -28,14 +28,18 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#Shuffle", this ); }
         },
         fields: {
             config: null,
-            setUpCamera: false,
             seededCells: 0,
-            cameraFitMargin: 0,
             hud: null,
             tutorial: null,
             hexBaseMaterial: null,
             packshot: null,
+            backgroundSprite: null,
+            backgroundMaterial: null,
+            shadowGroundMaterial: null,
             _gameOver: false,
+            _started: false,
+            _cam: null,
+            _activeMagnets: 0,
             _assets: null,
             _board: null,
             _boardView: null,
@@ -59,9 +63,7 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#StackY#get", this ); }
 if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#init", this ); }
 
                 this.config = new HexaTest.Config.GameConfig();
-                this.setUpCamera = true;
                 this.seededCells = 10;
-                this.cameraFitMargin = 1.2;
                 this._tray = new (System.Collections.Generic.List$1(HexaTest.App.GameBootstrap.TrayEntry)).ctor();
             }
         },
@@ -95,9 +97,9 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#Awake", this ); }
                 this._trayRoot.SetParent(this.transform, false);
                 this.RefillTray();
 
-                if (this.setUpCamera) {
-                    this.SetUpCamera();
-                }
+                this.ApplyEnvironment();
+                this.BuildBackground();
+                this.BuildShadowGround();
 
                 this._animator = this.gameObject.AddComponent(HexaTest.App.MergeAnimator);
                 this._animator.Init(this.config, this._board, this._boardView);
@@ -108,12 +110,8 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#Awake", this ); }
 
                 var input = this.gameObject.AddComponent(HexaTest.App.InputController);
                 input.Init(UnityEngine.Camera.main, this.config, this._board, this._boardView, Bridge.fn.bind(this, function () {
-                    return this._animator.IsPlaying || this._gameOver;
-                }), Bridge.fn.cacheBind(this, this.PlaceFromTray), Bridge.fn.bind(this, function () {
-                    if (UnityEngine.MonoBehaviour.op_Inequality(this.tutorial, null)) {
-                        this.tutorial.NotifyGrab();
-                    }
-                }), Bridge.fn.bind(this, function () {
+                    return this._animator.IsPlaying || this._gameOver || this._activeMagnets > 0;
+                }), Bridge.fn.cacheBind(this, this.PlaceFromTray), Bridge.fn.cacheBind(this, this.OnPlayerGrab), Bridge.fn.bind(this, function () {
                     if (UnityEngine.MonoBehaviour.op_Inequality(this.tutorial, null)) {
                         this.tutorial.NotifyDropFailed();
                     }
@@ -121,10 +119,25 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#Awake", this ); }
 
                 if (UnityEngine.MonoBehaviour.op_Inequality(this.hud, null)) {
                     this.hud.addExpired(Bridge.fn.cacheBind(this, this.OnTimeUp));
-                    this.hud.Begin();
                 }
             },
             /*HexaTest.App.GameBootstrap.Awake end.*/
+
+            /*HexaTest.App.GameBootstrap.OnPlayerGrab start.*/
+            OnPlayerGrab: function () {
+if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#OnPlayerGrab", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Inequality(this.tutorial, null)) {
+                    this.tutorial.NotifyGrab();
+                }
+                if (!this._started) {
+                    this._started = true;
+                    if (UnityEngine.MonoBehaviour.op_Inequality(this.hud, null)) {
+                        this.hud.Begin();
+                    }
+                }
+            },
+            /*HexaTest.App.GameBootstrap.OnPlayerGrab end.*/
 
             /*HexaTest.App.GameBootstrap.GetTraySource start.*/
             GetTraySource: function () {
@@ -167,18 +180,90 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#PlaceFromTray", this ); }
                 cell.v.Stack = entry.Model;
                 view.IsTray = false;
                 view.transform.SetParent(this._boardView.transform, true);
-                view.transform.position = this.CellStackPos(coord);
                 this._boardView.Register(coord, view);
                 this._tray.remove(entry);
                 if (UnityEngine.MonoBehaviour.op_Inequality(this.tutorial, null)) {
                     this.tutorial.NotifyPlaced();
                 }
 
-                var plan = this._resolver.Resolve(this._board.Clone(), coord, this.config.clearCount);
-                this._animator.Play(plan, Bridge.fn.cacheBind(this, this.OnCascadeDone));
+                this.StartCoroutine$1(this.MagnetIntoCell(view, coord, cell.v));
                 return true;
             },
             /*HexaTest.App.GameBootstrap.PlaceFromTray end.*/
+
+            /*HexaTest.App.GameBootstrap.MagnetIntoCell start.*/
+            MagnetIntoCell: function (view, coord, cell) {
+if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#MagnetIntoCell", this ); }
+
+                var $step = 0,
+                    $jumpFromFinally,
+                    $returnValue,
+                    start,
+                    target,
+                    dist,
+                    dur,
+                    t,
+                    plan,
+                    $async_e;
+
+                var $enumerator = new Bridge.GeneratorEnumerator(Bridge.fn.bind(this, function () {
+                    try {
+                        for (;;) {
+                            switch ($step) {
+                                case 0: {
+                                    this._activeMagnets = (this._activeMagnets + 1) | 0;
+
+                                        start = view.transform.position.$clone();
+                                        target = this.CellStackPos(coord);
+                                        dist = pc.Vec3.distance( start, target );
+                                        dur = this.config.magnetSpeed > 0.001 ? dist / this.config.magnetSpeed : 0.0;
+
+                                        t = 0.0;
+                                    $step = 1;
+                                    continue;
+                                }
+                                case 1: {
+                                    if ( t < dur ) {
+                                            $step = 2;
+                                            continue;
+                                        } 
+                                        $step = 4;
+                                        continue;
+                                }
+                                case 2: {
+                                    t += UnityEngine.Time.deltaTime;
+                                        view.transform.position = new pc.Vec3().lerp( start, target, HexaTest.View.Easing.OutQuad(Math.max(0, Math.min(1, t / dur))) );
+                                        $enumerator.current = null;
+                                        $step = 3;
+                                        return true;
+                                }
+                                case 3: {
+                                    
+                                        $step = 1;
+                                        continue;
+                                }
+                                case 4: {
+                                    view.transform.position = target.$clone();
+
+                                        this._activeMagnets = (this._activeMagnets - 1) | 0;
+
+                                        plan = this._resolver.Resolve(this._board.Clone(), coord, this.config.clearCount);
+                                        this._animator.Play(plan, Bridge.fn.cacheBind(this, this.OnCascadeDone));
+
+                                }
+                                default: {
+                                    return false;
+                                }
+                            }
+                        }
+                    } catch($async_e1) {
+                        $async_e = System.Exception.create($async_e1);
+                        throw $async_e;
+                    }
+                }));
+                return $enumerator;
+            },
+            /*HexaTest.App.GameBootstrap.MagnetIntoCell end.*/
 
             /*HexaTest.App.GameBootstrap.OnCascadeDone start.*/
             OnCascadeDone: function () {
@@ -244,44 +329,116 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#RandomDiscs", this ); }
             },
             /*HexaTest.App.GameBootstrap.RandomDiscs end.*/
 
-            /*HexaTest.App.GameBootstrap.SetUpCamera start.*/
-            SetUpCamera: function () {
-if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#SetUpCamera", this ); }
+            /*HexaTest.App.GameBootstrap.ApplyEnvironment start.*/
+            ApplyEnvironment: function () {
+if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#ApplyEnvironment", this ); }
 
-                var $t;
-                var cam = UnityEngine.Camera.main;
-                if (UnityEngine.Component.op_Equality(cam, null)) {
-                    var go = ($t = new UnityEngine.GameObject.$ctor2("Main Camera"), $t.tag = "MainCamera", $t);
-                    cam = go.AddComponent(UnityEngine.Camera);
+                this._cam = UnityEngine.Camera.main;
+                // Required for Luna's shadow pipeline: its web renderer draws a camera depth
+                // pre-pass through each shader's SHADOWCASTER pass with NO keywords before
+                // collecting screen-space shadows. Enabling the depth texture here makes the
+                // editor exercise those keywordless caster variants during Play mode, so the
+                // Luna export records and compiles them (otherwise shadows silently vanish
+                // in the web build even though all SHADOWS_DEPTH variants are present).
+                if (UnityEngine.Component.op_Inequality(this._cam, null)) {
+                    this._cam.depthTextureMode |= UnityEngine.DepthTextureMode.Depth;
                 }
-                cam.transform.position = new pc.Vec3( 0.0, 11.0, -10.0 );
-                cam.transform.rotation = new pc.Quat().setFromEulerAngles_Unity( 50.0, 0.0, 0.0 );
-                cam.clearFlags = UnityEngine.CameraClearFlags.SolidColor;
-                cam.backgroundColor = new pc.Color( 0.75, 0.85, 0.93, 1 );
-                this.FitCameraToAspect(cam);
 
                 UnityEngine.RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
-                UnityEngine.RenderSettings.ambientLight = new pc.Color( 0.78, 0.83, 0.9, 1 );
+                UnityEngine.RenderSettings.ambientLight = new pc.Color( 0.72, 0.78, 0.86, 1 );
+                pc.QualitySettings.instance.shadowDistance = 60.0;
+                pc.QualitySettings.instance.shadowProjection = UnityEngine.ShadowProjection.StableFit;
             },
-            /*HexaTest.App.GameBootstrap.SetUpCamera end.*/
+            /*HexaTest.App.GameBootstrap.ApplyEnvironment end.*/
 
-            /*HexaTest.App.GameBootstrap.FitCameraToAspect start.*/
-            FitCameraToAspect: function (cam) {
-if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#FitCameraToAspect", this ); }
+            /*HexaTest.App.GameBootstrap.BuildShadowGround start.*/
+            BuildShadowGround: function () {
+if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#BuildShadowGround", this ); }
 
-                var aspect = UnityEngine.Screen.height > 0 ? UnityEngine.Screen.width / UnityEngine.Screen.height : cam.aspect;
-                if (aspect <= 0.0) {
-                    cam.fieldOfView = 65.0;
+                // Luna strips shaders that are only referenced through Shader.Find, so the
+                // serialized material asset is the reliable path; Shader.Find stays as an
+                // editor-friendly fallback.
+                var src = this.shadowGroundMaterial;
+                if (src == null) {
+                    var sh = UnityEngine.Shader.Find("Hexa/ShadowGround");
+                    if (sh != null) {
+                        src = new UnityEngine.Material.$ctor2(sh);
+                    }
+                }
+                if (src == null || this.backgroundSprite == null) {
+                    UnityEngine.Debug.LogWarning$1("[Hexa] ShadowGround material/background missing.");
                     return;
                 }
 
-                var boardHalfWidth = this.config.cellSize * (1.5 * this.config.boardRadius + 1.0);
-                var halfW = boardHalfWidth * this.cameraFitMargin;
-                var dist = pc.Vec3.distance( cam.transform.position, pc.Vec3.ZERO.clone() );
-                var fov = 2.0 * Math.atan(halfW / (aspect * dist)) * UnityEngine.Mathf.Rad2Deg;
-                cam.fieldOfView = Math.max(25.0, Math.min(fov, 90.0));
+                // Must sit strictly below the lowest platform layer, or the two coplanar
+                // opaque surfaces z-fight and the shadowed ground wins the fight in patches,
+                // blanking out the platform's rim colors wherever a shadow lands on them.
+                var platformBottom = -this.config.baseLayerThickness * this._assets.BaseLayerMeshes.length;
+
+                var g = UnityEngine.GameObject.CreatePrimitive(UnityEngine.PrimitiveType.Plane);
+                g.name = "ShadowGround";
+                UnityEngine.Object.Destroy(g.GetComponent(UnityEngine.Collider));
+                g.transform.SetParent(this.transform, false);
+                g.transform.position = new pc.Vec3( 0.0, platformBottom - 0.05, 0.0 );
+                g.transform.localScale = new pc.Vec3( 20.0, 1.0, 20.0 ); // Unity plane is 10u => 200u
+
+                var mat = new UnityEngine.Material.$ctor1(src);
+                mat.mainTexture = this.backgroundSprite.texture; // same image as the background => seamless
+                mat.SetFloat$1("_Strength", 0.45);
+                var mr = g.GetComponent(UnityEngine.MeshRenderer);
+                mr.sharedMaterial = mat;
+                mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                mr.receiveShadows = true;
             },
-            /*HexaTest.App.GameBootstrap.FitCameraToAspect end.*/
+            /*HexaTest.App.GameBootstrap.BuildShadowGround end.*/
+
+            /*HexaTest.App.GameBootstrap.BuildBackground start.*/
+            BuildBackground: function () {
+if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#BuildBackground", this ); }
+
+                var $t;
+                if (this.backgroundSprite == null || UnityEngine.Component.op_Equality(this._cam, null)) {
+                    return;
+                }
+
+                // A screen-filling quad parented to the camera, placed far behind the board.
+                // Unlit so it is unaffected by lights/shadows, and depth-correct so the board
+                // always draws on top (the earlier ScreenSpace-Camera canvas covered the board).
+                var bg = UnityEngine.GameObject.CreatePrimitive(UnityEngine.PrimitiveType.Quad);
+                bg.name = "Background";
+                UnityEngine.Object.Destroy(bg.GetComponent(UnityEngine.Collider));
+                bg.transform.SetParent(this._cam.transform, false);
+                bg.transform.localPosition = new pc.Vec3( 0.0, 0.0, 50.0 );
+                bg.transform.localRotation = pc.Quat.IDENTITY.clone();
+
+                // Screen-UV sampling makes the visible gradient independent of the quad size,
+                // so we oversize generously to always cover the view (the aspect fitter may
+                // zoom out at runtime). No distortion results from the extra size.
+                var h = (this._cam.orthographic ? this._cam.orthographicSize : 20.0 * Math.tan(this._cam.fieldOfView * 0.5 * UnityEngine.Mathf.Deg2Rad)) * 2.0;
+                bg.transform.localScale = new pc.Vec3( h * 4.0, h * 3.0, 1.0 );
+
+                var src = this.backgroundMaterial;
+                if (src == null) {
+                    var bgSh = UnityEngine.Shader.Find("Hexa/ScreenGradient");
+                    if (bgSh == null) {
+                        bgSh = UnityEngine.Shader.Find("Unlit/Texture");
+                    }
+                    if (bgSh != null) {
+                        src = new UnityEngine.Material.$ctor2(bgSh);
+                    }
+                }
+                if (src == null) {
+                    UnityEngine.Debug.LogWarning$1("[Hexa] Background material missing.");
+                    UnityEngine.MonoBehaviour.Destroy(bg);
+                    return;
+                }
+                var mat = ($t = new UnityEngine.Material.$ctor1(src), $t.mainTexture = this.backgroundSprite.texture, $t);
+                var mr = bg.GetComponent(UnityEngine.MeshRenderer);
+                mr.sharedMaterial = mat;
+                mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                mr.receiveShadows = false;
+            },
+            /*HexaTest.App.GameBootstrap.BuildBackground end.*/
 
 
         }
@@ -313,6 +470,7 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#FitCameraToAspect", this ); }
             _onInvalidDrop: null,
             _held: null,
             _home: null,
+            _grabOffset: null,
             _hover: null,
             _hasHover: false
         },
@@ -321,6 +479,7 @@ if ( TRACE ) { TRACE( "HexaTest.App.GameBootstrap#FitCameraToAspect", this ); }
 if ( TRACE ) { TRACE( "HexaTest.App.InputController#init", this ); }
 
                 this._home = new UnityEngine.Vector3();
+                this._grabOffset = new UnityEngine.Vector3();
                 this._hover = new HexaTest.Domain.HexCoord();
             }
         },
@@ -385,6 +544,9 @@ if ( TRACE ) { TRACE( "HexaTest.App.InputController#TryGrab", this ); }
 
                 this._held = stack;
                 this._home = stack.transform.position.$clone();
+                var grabGround = { v : new UnityEngine.Vector3() };
+                this._grabOffset = this.ProjectToGround(grabGround) ? this._home.$clone().sub( grabGround.v ) : pc.Vec3.ZERO.clone();
+                this._grabOffset.y = 0.0;
                 !Bridge.staticEquals(this._onGrab, null) ? this._onGrab() : null;
             },
             /*HexaTest.App.InputController.TryGrab end.*/
@@ -398,10 +560,11 @@ if ( TRACE ) { TRACE( "HexaTest.App.InputController#Drag", this ); }
                     return;
                 }
 
-                this._held.transform.position = ground.v.$clone().add( pc.Vec3.UP.clone().clone().scale( this._cfg.dragLift ) );
+                var followed = ground.v.$clone().add( this._grabOffset );
+                this._held.transform.position = followed.$clone().add( pc.Vec3.UP.clone().clone().scale( this._cfg.dragLift ) );
                 var coord = { v : new HexaTest.Domain.HexCoord() };
 
-                if (this.TryNearestEmpty(ground.v, coord)) {
+                if (this.TryNearestEmpty(followed, coord)) {
                     if (!this._hasHover || !coord.v.equals(this._hover)) {
                         if (this._hasHover) {
                             this._view.SetHighlight(this._hover, false);
@@ -1384,6 +1547,7 @@ if ( TRACE ) { TRACE( "HexaTest.App.TutorialController#PlaceHand", this ); }
             baseLayerColors: null,
             snapDistance: 0,
             dragLift: 0,
+            magnetSpeed: 0,
             trayDistance: 0,
             traySpacing: 0,
             flipDuration: 0,
@@ -1432,15 +1596,16 @@ if ( TRACE ) { TRACE( "HexaTest.Config.GameConfig#init", this ); }
                 this.tileRound = 0.25;
                 this.tileRaise = 0.07;
                 this.baseRound = 0.12;
-                this.baseLayerThickness = 0.1;
-                this.edgeRim = 0.03;
+                this.baseLayerThickness = 0.04;
+                this.edgeRim = 0.05;
                 this.baseLayerColors = System.Array.init([
-                    new pc.Color( 0.55, 0.68, 0.82, 1 ), 
-                    new pc.Color( 0.93, 0.95, 0.98, 1 ), 
-                    new pc.Color( 0.42, 0.56, 0.74, 1 )
+                    new pc.Color( 0.55, 0.66, 0.83, 1 ), 
+                    new pc.Color( 1.0, 1.0, 1.0, 1 ), 
+                    new pc.Color( 0.38, 0.5, 0.7, 1 )
                 ], UnityEngine.Color);
-                this.snapDistance = 0.7;
-                this.dragLift = 1.4;
+                this.snapDistance = 0.82;
+                this.dragLift = 0.6;
+                this.magnetSpeed = 6.0;
                 this.trayDistance = 7.0;
                 this.traySpacing = 2.4;
                 this.flipDuration = 0.24;
@@ -1450,7 +1615,7 @@ if ( TRACE ) { TRACE( "HexaTest.Config.GameConfig#init", this ); }
                 this.discInterval = 0.04;
                 this.speedRamp = 0.3;
                 this.maxSpeed = 8.0;
-                this.tileColor = new pc.Color( 0.72, 0.82, 0.92, 1.0 );
+                this.tileColor = new pc.Color( 0.66, 0.76, 0.9, 1.0 );
                 this.palette = System.Array.init([
                     new pc.Color( 0.3, 0.82, 0.28, 1 ), 
                     new pc.Color( 0.93, 0.22, 0.78, 1 ), 
@@ -2545,6 +2710,7 @@ if ( TRACE ) { TRACE( "HexaTest.UI.TimerHudView#UpdateOverlayFill", this ); }
             trackAlarmColor: null,
             alphaTintMaterial: null,
             fillImage: null,
+            fillMaskRect: null,
             trackImage: null,
             timerBgImage: null,
             timerNippleImage: null,
@@ -2565,7 +2731,8 @@ if ( TRACE ) { TRACE( "HexaTest.UI.TimerHudView#UpdateOverlayFill", this ); }
             _timerNippleOverlay: null,
             _trackOverlay: null,
             _fillOverlay: null,
-            _alphaTintMaterial: null
+            _alphaTintMaterial: null,
+            _fillFullWidth: 0
         },
         events: {
             Expired: null
@@ -2610,7 +2777,17 @@ if ( TRACE ) { TRACE( "HexaTest.UI.TimerHudView#init", this ); }
             Begin: function () {
 if ( TRACE ) { TRACE( "HexaTest.UI.TimerHudView#Begin", this ); }
 
-                this.EnsureTimerFillOverlay();
+                if (UnityEngine.Component.op_Inequality(this.fillMaskRect, null)) {
+                    if (this._fillFullWidth <= 0.0) {
+                        this._fillFullWidth = this.fillMaskRect.rect.width;
+                    }
+                    this.EnsureAlphaTintMaterial();
+                    if (this._alphaTintMaterial != null) {
+                        this.fillImage.material = this._alphaTintMaterial;
+                    }
+                } else {
+                    this.EnsureTimerFillOverlay();
+                }
                 this._timer.Begin(this.duration);
                 this._running = true;
                 this.SetTimerFill(1.0, this.EvaluateFillColor());
@@ -2898,6 +3075,17 @@ if ( TRACE ) { TRACE( "HexaTest.UI.TimerHudView#SetTimerFill", this ); }
                 if (UnityEngine.MonoBehaviour.op_Equality(this.fillImage, null)) {
                     return;
                 }
+
+                if (UnityEngine.Component.op_Inequality(this.fillMaskRect, null)) {
+                    if (this._fillFullWidth <= 0.0) {
+                        this._fillFullWidth = this.fillMaskRect.rect.width;
+                    }
+                    var sd = this.fillMaskRect.sizeDelta.$clone();
+                    this.fillMaskRect.sizeDelta = new pc.Vec2( this._fillFullWidth * Math.max(0, Math.min(1, amount)), sd.y );
+                    this.fillImage.color = color.$clone();
+                    return;
+                }
+
                 this.EnsureTimerFillOverlay();
                 this.fillImage.fillAmount = amount;
                 this.fillImage.color = new pc.Color( 0, 0, 0, 0 );
@@ -3195,6 +3383,86 @@ if ( TRACE ) { TRACE( "HexaTest.View.BoardView#SetHighlight", this ); }
     });
     /*HexaTest.View.BoardView end.*/
 
+    /*HexaTest.View.CameraAspectFitter start.*/
+    /** @namespace HexaTest.View */
+
+    /**
+     * Keeps an orthographic camera's framing correct across every screen aspect
+     (editor, phones, Luna playable ads) without ever cropping content.
+     You frame the shot manually in the editor at {@link }
+     (position / rotation / zoom). At runtime this component only adjusts
+     <pre><code>orthographicSize</code></pre> so that BOTH the authored horizontal width and the
+     authored vertical height stay fully visible — on any aspect it can only zoom
+     out relative to your reference, never in, so nothing gets cut off.
+     *
+     * @public
+     * @class HexaTest.View.CameraAspectFitter
+     * @augments UnityEngine.MonoBehaviour
+     */
+    Bridge.define("HexaTest.View.CameraAspectFitter", {
+        inherits: [UnityEngine.MonoBehaviour],
+        fields: {
+            referenceAspect: 0,
+            _cam: null,
+            _refHalfHeight: 0,
+            _refHalfWidth: 0,
+            _lastW: 0,
+            _lastH: 0
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "HexaTest.View.CameraAspectFitter#init", this ); }
+
+                this.referenceAspect = 0.5625;
+                this._lastW = -1;
+                this._lastH = -1;
+            }
+        },
+        methods: {
+            /*HexaTest.View.CameraAspectFitter.Awake start.*/
+            Awake: function () {
+if ( TRACE ) { TRACE( "HexaTest.View.CameraAspectFitter#Awake", this ); }
+
+                this._cam = this.GetComponent(UnityEngine.Camera);
+                // Capture the authored framing before we ever touch orthographicSize.
+                this._refHalfHeight = this._cam.orthographicSize;
+                this._refHalfWidth = this._refHalfHeight * UnityEngine.Mathf.Max(0.0001, this.referenceAspect);
+                this.Apply();
+            },
+            /*HexaTest.View.CameraAspectFitter.Awake end.*/
+
+            /*HexaTest.View.CameraAspectFitter.Update start.*/
+            Update: function () {
+if ( TRACE ) { TRACE( "HexaTest.View.CameraAspectFitter#Update", this ); }
+
+                if (UnityEngine.Screen.width !== this._lastW || UnityEngine.Screen.height !== this._lastH) {
+                    this.Apply();
+                }
+            },
+            /*HexaTest.View.CameraAspectFitter.Update end.*/
+
+            /*HexaTest.View.CameraAspectFitter.Apply start.*/
+            Apply: function () {
+if ( TRACE ) { TRACE( "HexaTest.View.CameraAspectFitter#Apply", this ); }
+
+                this._lastW = UnityEngine.Screen.width;
+                this._lastH = UnityEngine.Screen.height;
+                if (UnityEngine.Component.op_Equality(this._cam, null) || !this._cam.orthographic || this._lastH <= 0) {
+                    return;
+                }
+
+                var aspect = this._lastW / this._lastH;
+                // "Contain" fit: never show less than the authored width or height.
+                var sizeForWidth = this._refHalfWidth / UnityEngine.Mathf.Max(0.0001, aspect);
+                this._cam.orthographicSize = UnityEngine.Mathf.Max(sizeForWidth, this._refHalfHeight);
+            },
+            /*HexaTest.View.CameraAspectFitter.Apply end.*/
+
+
+        }
+    });
+    /*HexaTest.View.CameraAspectFitter end.*/
+
     /*HexaTest.View.Easing start.*/
     Bridge.define("HexaTest.View.Easing", {
         statics: {
@@ -3251,7 +3519,7 @@ if ( TRACE ) { TRACE( "HexaTest.View.HexAssets#MakeMaterial", this ); }
                     var m = baseMat != null ? new UnityEngine.Material.$ctor1(baseMat) : new UnityEngine.Material.$ctor2(UnityEngine.Shader.Find("Sprites/Default"));
                     m.color = c.$clone();
                     if (m.HasProperty$1("_Glossiness")) {
-                        m.SetFloat$1("_Glossiness", 0.25);
+                        m.SetFloat$1("_Glossiness", 0.42);
                     }
                     m.enableInstancing = true;
                     return m;
@@ -3280,7 +3548,7 @@ if ( TRACE ) { TRACE( "HexaTest.View.HexAssets#ctor", this ); }
 
                 this.$initialize();
                 this.DiscMesh = HexaTest.View.HexMeshBuilder.BuildRounded(cfg.DiscRadius, cfg.discThickness, cfg.discRound, cfg.cornerSegments);
-                this.DiscSeparatorMesh = HexaTest.View.HexMeshBuilder.BuildRounded(cfg.DiscRadius * 1.012, cfg.discSeparatorThickness, cfg.discRound, cfg.cornerSegments);
+                this.DiscSeparatorMesh = HexaTest.View.HexMeshBuilder.BuildRoundedSideOnly(cfg.DiscRadius * 1.012, cfg.discSeparatorThickness, cfg.discRound, cfg.cornerSegments);
                 this.TileMesh = HexaTest.View.HexMeshBuilder.BuildRounded(cfg.TileRadius, cfg.tileThickness, cfg.tileRound, cfg.cornerSegments);
 
                 var baseMat = litMaterial != null ? litMaterial : UnityEngine.Resources.Load(UnityEngine.Material, "HexBaseMaterial");
@@ -3345,9 +3613,18 @@ if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#Build", this ); }
 if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#BuildRounded", this ); }
 
                     var ring = HexaTest.View.HexMeshBuilder.BuildRing(radius, Math.max(0, Math.min(1, round01)), UnityEngine.Mathf.Max(1, cornerSegments));
-                    return HexaTest.View.HexMeshBuilder.BuildPrism(ring, thickness);
+                    return HexaTest.View.HexMeshBuilder.BuildPrism(ring, thickness, true);
                 },
                 /*HexaTest.View.HexMeshBuilder.BuildRounded:static end.*/
+
+                /*HexaTest.View.HexMeshBuilder.BuildRoundedSideOnly:static start.*/
+                BuildRoundedSideOnly: function (radius, thickness, round01, cornerSegments) {
+if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#BuildRoundedSideOnly", this ); }
+
+                    var ring = HexaTest.View.HexMeshBuilder.BuildRing(radius, Math.max(0, Math.min(1, round01)), UnityEngine.Mathf.Max(1, cornerSegments));
+                    return HexaTest.View.HexMeshBuilder.BuildPrism(ring, thickness, false);
+                },
+                /*HexaTest.View.HexMeshBuilder.BuildRoundedSideOnly:static end.*/
 
                 /*HexaTest.View.HexMeshBuilder.BuildRing:static start.*/
                 BuildRing: function (radius, round, segments) {
@@ -3383,15 +3660,6 @@ if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#BuildRing", this ); }
                 },
                 /*HexaTest.View.HexMeshBuilder.BuildRing:static end.*/
 
-                /*HexaTest.View.HexMeshBuilder.Radial:static start.*/
-                Radial: function (p) {
-if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#Radial", this ); }
-
-                    var v = new pc.Vec3( p.x, 0.0, p.y );
-                    return v.lengthSq() > 1E-06 ? v.clone().normalize().$clone() : new pc.Vec3( 0, 0, 1 );
-                },
-                /*HexaTest.View.HexMeshBuilder.Radial:static end.*/
-
                 /*HexaTest.View.HexMeshBuilder.QuadBezier:static start.*/
                 QuadBezier: function (a, b, c, u) {
 if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#QuadBezier", this ); }
@@ -3402,7 +3670,7 @@ if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#QuadBezier", this ); }
                 /*HexaTest.View.HexMeshBuilder.QuadBezier:static end.*/
 
                 /*HexaTest.View.HexMeshBuilder.BuildPrism:static start.*/
-                BuildPrism: function (ring, thickness) {
+                BuildPrism: function (ring, thickness, includeCaps) {
 if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#BuildPrism", this ); }
 
                     var $t;
@@ -3412,47 +3680,62 @@ if ( TRACE ) { TRACE( "HexaTest.View.HexMeshBuilder#BuildPrism", this ); }
                     var tris = new (System.Collections.Generic.List$1(System.Int32)).ctor();
                     var normals = new (System.Collections.Generic.List$1(UnityEngine.Vector3)).ctor();
 
-                    var topCenter = verts.Count;
-                    verts.add(new pc.Vec3( 0, half, 0 ));
-                    normals.add(pc.Vec3.UP.clone());
-                    var topRing = verts.Count;
-                    for (var i = 0; i < n; i = (i + 1) | 0) {
-                        verts.add(new pc.Vec3( ring.getItem(i).$clone().x, half, ring.getItem(i).$clone().y ));
+                    if (includeCaps) {
+                        var topCenter = verts.Count;
+                        verts.add(new pc.Vec3( 0, half, 0 ));
                         normals.add(pc.Vec3.UP.clone());
-                    }
-                    for (var i1 = 0; i1 < n; i1 = (i1 + 1) | 0) {
-                        tris.add(topCenter);
-                        tris.add(((topRing + (((i1 + 1) | 0)) % n) | 0));
-                        tris.add(((topRing + i1) | 0));
-                    }
+                        var topRing = verts.Count;
+                        for (var i = 0; i < n; i = (i + 1) | 0) {
+                            verts.add(new pc.Vec3( ring.getItem(i).$clone().x, half, ring.getItem(i).$clone().y ));
+                            normals.add(pc.Vec3.UP.clone());
+                        }
+                        for (var i1 = 0; i1 < n; i1 = (i1 + 1) | 0) {
+                            tris.add(topCenter);
+                            tris.add(((topRing + (((i1 + 1) | 0)) % n) | 0));
+                            tris.add(((topRing + i1) | 0));
+                        }
 
-                    var botCenter = verts.Count;
-                    verts.add(new pc.Vec3( 0, -half, 0 ));
-                    normals.add(pc.Vec3.DOWN.clone());
-                    var botRing = verts.Count;
-                    for (var i2 = 0; i2 < n; i2 = (i2 + 1) | 0) {
-                        verts.add(new pc.Vec3( ring.getItem(i2).$clone().x, -half, ring.getItem(i2).$clone().y ));
+                        var botCenter = verts.Count;
+                        verts.add(new pc.Vec3( 0, -half, 0 ));
                         normals.add(pc.Vec3.DOWN.clone());
-                    }
-                    for (var i3 = 0; i3 < n; i3 = (i3 + 1) | 0) {
-                        tris.add(botCenter);
-                        tris.add(((botRing + i3) | 0));
-                        tris.add(((botRing + (((i3 + 1) | 0)) % n) | 0));
+                        var botRing = verts.Count;
+                        for (var i2 = 0; i2 < n; i2 = (i2 + 1) | 0) {
+                            verts.add(new pc.Vec3( ring.getItem(i2).$clone().x, -half, ring.getItem(i2).$clone().y ));
+                            normals.add(pc.Vec3.DOWN.clone());
+                        }
+                        for (var i3 = 0; i3 < n; i3 = (i3 + 1) | 0) {
+                            tris.add(botCenter);
+                            tris.add(((botRing + i3) | 0));
+                            tris.add(((botRing + (((i3 + 1) | 0)) % n) | 0));
+                        }
                     }
 
-                    var sideTop = verts.Count;
+                    // Flat-shaded side quads, one per ring edge, each with its own true face
+                    // normal. Sharing a single "radial from hex center" normal across the
+                    // rounded-corner segments (the previous approach) is only correct for a
+                    // true circle; on a hex it points off-surface at the corners and produces
+                    // broken-looking shading exactly where the fillet faces the camera.
                     for (var i4 = 0; i4 < n; i4 = (i4 + 1) | 0) {
-                        verts.add(new pc.Vec3( ring.getItem(i4).$clone().x, half, ring.getItem(i4).$clone().y ));
-                        normals.add(HexaTest.View.HexMeshBuilder.Radial(ring.getItem(i4)));
-                    }
-                    var sideBot = verts.Count;
-                    for (var i5 = 0; i5 < n; i5 = (i5 + 1) | 0) {
-                        verts.add(new pc.Vec3( ring.getItem(i5).$clone().x, -half, ring.getItem(i5).$clone().y ));
-                        normals.add(HexaTest.View.HexMeshBuilder.Radial(ring.getItem(i5)));
-                    }
-                    for (var i6 = 0; i6 < n; i6 = (i6 + 1) | 0) {
-                        var a = (sideTop + i6) | 0, b = (sideTop + (((i6 + 1) | 0)) % n) | 0;
-                        var c = (sideBot + i6) | 0, d = (sideBot + (((i6 + 1) | 0)) % n) | 0;
+                        var p0 = ring.getItem(i4).$clone();
+                        var p1 = ring.getItem((((i4 + 1) | 0)) % n).$clone();
+                        var top0 = new pc.Vec3( p0.x, half, p0.y );
+                        var top1 = new pc.Vec3( p1.x, half, p1.y );
+                        var bot0 = new pc.Vec3( p0.x, -half, p0.y );
+                        var bot1 = new pc.Vec3( p1.x, -half, p1.y );
+                        var faceNormal = new pc.Vec3().cross( top1.$clone().sub( top0 ), bot0.$clone().sub( top0 ) ).clone().normalize().$clone();
+
+                        var a = verts.Count;
+                        verts.add(top0.$clone());
+                        normals.add(faceNormal.$clone());
+                        var b = verts.Count;
+                        verts.add(top1.$clone());
+                        normals.add(faceNormal.$clone());
+                        var c = verts.Count;
+                        verts.add(bot0.$clone());
+                        normals.add(faceNormal.$clone());
+                        var d = verts.Count;
+                        verts.add(bot1.$clone());
+                        normals.add(faceNormal.$clone());
                         tris.add(a);
                         tris.add(c);
                         tris.add(b);
@@ -3879,12 +4162,16 @@ if ( TRACE ) { TRACE( "HexaTest.Logic.TransferStep#init", this ); }
     $m("HexaTest.View.BoardView", function () { return {"att":1048833,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Build","t":8,"pi":[{"n":"cfg","pt":$n[0].GameConfig,"ps":0},{"n":"assets","pt":$n[1].HexAssets,"ps":1},{"n":"board","pt":$n[2].BoardModel,"ps":2}],"sn":"Build","rt":$n[3].Void,"p":[$n[0].GameConfig,$n[1].HexAssets,$n[2].BoardModel]},{"a":1,"n":"BuildPlatform","t":8,"pi":[{"n":"board","pt":$n[2].BoardModel,"ps":0}],"sn":"BuildPlatform","rt":$n[3].Void,"p":[$n[2].BoardModel]},{"a":1,"n":"BuildTiles","t":8,"pi":[{"n":"board","pt":$n[2].BoardModel,"ps":0}],"sn":"BuildTiles","rt":$n[3].Void,"p":[$n[2].BoardModel]},{"a":2,"n":"GetStack","t":8,"pi":[{"n":"c","pt":$n[2].HexCoord,"ps":0}],"sn":"GetStack","rt":$n[1].StackView,"p":[$n[2].HexCoord]},{"a":2,"n":"Register","t":8,"pi":[{"n":"c","pt":$n[2].HexCoord,"ps":0},{"n":"view","pt":$n[1].StackView,"ps":1}],"sn":"Register","rt":$n[3].Void,"p":[$n[2].HexCoord,$n[1].StackView]},{"a":2,"n":"RemoveStack","t":8,"pi":[{"n":"c","pt":$n[2].HexCoord,"ps":0}],"sn":"RemoveStack","rt":$n[3].Void,"p":[$n[2].HexCoord]},{"a":2,"n":"SetHighlight","t":8,"pi":[{"n":"c","pt":$n[2].HexCoord,"ps":0},{"n":"on","pt":$n[3].Boolean,"ps":1}],"sn":"SetHighlight","rt":$n[3].Void,"p":[$n[2].HexCoord,$n[3].Boolean]},{"a":2,"n":"WorldOf","t":8,"pi":[{"n":"c","pt":$n[2].HexCoord,"ps":0}],"sn":"WorldOf","rt":$n[4].Vector3,"p":[$n[2].HexCoord]},{"a":1,"n":"_assets","t":4,"rt":$n[1].HexAssets,"sn":"_assets"},{"a":1,"n":"_cfg","t":4,"rt":$n[0].GameConfig,"sn":"_cfg"},{"a":1,"n":"_stacks","t":4,"rt":$n[5].Dictionary$2(HexaTest.Domain.HexCoord,HexaTest.View.StackView),"sn":"_stacks","ro":true},{"a":1,"n":"_tiles","t":4,"rt":$n[5].Dictionary$2(HexaTest.Domain.HexCoord,UnityEngine.Transform),"sn":"_tiles","ro":true}]}; }, $n);
     /*HexaTest.View.BoardView end.*/
 
+    /*HexaTest.View.CameraAspectFitter start.*/
+    $m("HexaTest.View.CameraAspectFitter", function () { return {"att":1048833,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.Camera),new UnityEngine.DisallowMultipleComponent()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Apply","t":8,"sn":"Apply","rt":$n[3].Void},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[3].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[3].Void},{"a":1,"n":"_cam","t":4,"rt":$n[4].Camera,"sn":"_cam"},{"a":1,"n":"_lastH","t":4,"rt":$n[3].Int32,"sn":"_lastH","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"_lastW","t":4,"rt":$n[3].Int32,"sn":"_lastW","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"_refHalfHeight","t":4,"rt":$n[3].Single,"sn":"_refHalfHeight","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"_refHalfWidth","t":4,"rt":$n[3].Single,"sn":"_refHalfWidth","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Aspect (width / height) you framed the camera against in the editor. 0.5625 = 9:16 portrait. Set your Game view to this while authoring the shot."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"referenceAspect","t":4,"rt":$n[3].Single,"sn":"referenceAspect","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
+    /*HexaTest.View.CameraAspectFitter end.*/
+
     /*HexaTest.View.HexAssets start.*/
     $m("HexaTest.View.HexAssets", function () { return {"att":1048833,"a":2,"m":[{"a":2,"n":".ctor","t":1,"p":[$n[0].GameConfig,$n[4].Material],"pi":[{"n":"cfg","pt":$n[0].GameConfig,"ps":0},{"n":"litMaterial","dv":null,"o":true,"pt":$n[4].Material,"ps":1}],"sn":"ctor"},{"a":1,"n":"MakeMaterial","is":true,"t":8,"pi":[{"n":"baseMat","pt":$n[4].Material,"ps":0},{"n":"c","pt":$n[4].Color,"ps":1}],"sn":"MakeMaterial","rt":$n[4].Material,"p":[$n[4].Material,$n[4].Color]},{"a":2,"n":"MaterialFor","t":8,"pi":[{"n":"id","pt":$n[2].HexColorId,"ps":0}],"sn":"MaterialFor","rt":$n[4].Material,"p":[$n[2].HexColorId]},{"a":2,"n":"SeparatorMaterialFor","t":8,"pi":[{"n":"id","pt":$n[2].HexColorId,"ps":0}],"sn":"SeparatorMaterialFor","rt":$n[4].Material,"p":[$n[2].HexColorId]},{"a":2,"n":"BaseLayerMaterials","t":4,"rt":System.Array.type(UnityEngine.Material),"sn":"BaseLayerMaterials","ro":true},{"a":2,"n":"BaseLayerMeshes","t":4,"rt":System.Array.type(UnityEngine.Mesh),"sn":"BaseLayerMeshes","ro":true},{"a":2,"n":"DiscMesh","t":4,"rt":$n[4].Mesh,"sn":"DiscMesh","ro":true},{"a":2,"n":"DiscSeparatorMesh","t":4,"rt":$n[4].Mesh,"sn":"DiscSeparatorMesh","ro":true},{"a":2,"n":"TileHighlightMaterial","t":4,"rt":$n[4].Material,"sn":"TileHighlightMaterial","ro":true},{"a":2,"n":"TileMaterial","t":4,"rt":$n[4].Material,"sn":"TileMaterial","ro":true},{"a":2,"n":"TileMesh","t":4,"rt":$n[4].Mesh,"sn":"TileMesh","ro":true},{"a":1,"n":"_colorMaterials","t":4,"rt":System.Array.type(UnityEngine.Material),"sn":"_colorMaterials","ro":true},{"a":1,"n":"_separatorMaterials","t":4,"rt":System.Array.type(UnityEngine.Material),"sn":"_separatorMaterials","ro":true}]}; }, $n);
     /*HexaTest.View.HexAssets end.*/
 
     /*HexaTest.View.HexMeshBuilder start.*/
-    $m("HexaTest.View.HexMeshBuilder", function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"Build","is":true,"t":8,"pi":[{"n":"radius","pt":$n[3].Single,"ps":0},{"n":"thickness","pt":$n[3].Single,"ps":1}],"sn":"Build","rt":$n[4].Mesh,"p":[$n[3].Single,$n[3].Single]},{"a":1,"n":"BuildPrism","is":true,"t":8,"pi":[{"n":"ring","pt":$n[5].List$1(UnityEngine.Vector2),"ps":0},{"n":"thickness","pt":$n[3].Single,"ps":1}],"sn":"BuildPrism","rt":$n[4].Mesh,"p":[$n[5].List$1(UnityEngine.Vector2),$n[3].Single]},{"a":1,"n":"BuildRing","is":true,"t":8,"pi":[{"n":"radius","pt":$n[3].Single,"ps":0},{"n":"round","pt":$n[3].Single,"ps":1},{"n":"segments","pt":$n[3].Int32,"ps":2}],"sn":"BuildRing","rt":$n[5].List$1(UnityEngine.Vector2),"p":[$n[3].Single,$n[3].Single,$n[3].Int32]},{"a":2,"n":"BuildRounded","is":true,"t":8,"pi":[{"n":"radius","pt":$n[3].Single,"ps":0},{"n":"thickness","pt":$n[3].Single,"ps":1},{"n":"round01","pt":$n[3].Single,"ps":2},{"n":"cornerSegments","pt":$n[3].Int32,"ps":3}],"sn":"BuildRounded","rt":$n[4].Mesh,"p":[$n[3].Single,$n[3].Single,$n[3].Single,$n[3].Int32]},{"a":1,"n":"QuadBezier","is":true,"t":8,"pi":[{"n":"a","pt":$n[4].Vector2,"ps":0},{"n":"b","pt":$n[4].Vector2,"ps":1},{"n":"c","pt":$n[4].Vector2,"ps":2},{"n":"u","pt":$n[3].Single,"ps":3}],"sn":"QuadBezier","rt":$n[4].Vector2,"p":[$n[4].Vector2,$n[4].Vector2,$n[4].Vector2,$n[3].Single]},{"a":1,"n":"Radial","is":true,"t":8,"pi":[{"n":"p","pt":$n[4].Vector2,"ps":0}],"sn":"Radial","rt":$n[4].Vector3,"p":[$n[4].Vector2]}]}; }, $n);
+    $m("HexaTest.View.HexMeshBuilder", function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"Build","is":true,"t":8,"pi":[{"n":"radius","pt":$n[3].Single,"ps":0},{"n":"thickness","pt":$n[3].Single,"ps":1}],"sn":"Build","rt":$n[4].Mesh,"p":[$n[3].Single,$n[3].Single]},{"a":1,"n":"BuildPrism","is":true,"t":8,"pi":[{"n":"ring","pt":$n[5].List$1(UnityEngine.Vector2),"ps":0},{"n":"thickness","pt":$n[3].Single,"ps":1},{"n":"includeCaps","pt":$n[3].Boolean,"ps":2}],"sn":"BuildPrism","rt":$n[4].Mesh,"p":[$n[5].List$1(UnityEngine.Vector2),$n[3].Single,$n[3].Boolean]},{"a":1,"n":"BuildRing","is":true,"t":8,"pi":[{"n":"radius","pt":$n[3].Single,"ps":0},{"n":"round","pt":$n[3].Single,"ps":1},{"n":"segments","pt":$n[3].Int32,"ps":2}],"sn":"BuildRing","rt":$n[5].List$1(UnityEngine.Vector2),"p":[$n[3].Single,$n[3].Single,$n[3].Int32]},{"a":2,"n":"BuildRounded","is":true,"t":8,"pi":[{"n":"radius","pt":$n[3].Single,"ps":0},{"n":"thickness","pt":$n[3].Single,"ps":1},{"n":"round01","pt":$n[3].Single,"ps":2},{"n":"cornerSegments","pt":$n[3].Int32,"ps":3}],"sn":"BuildRounded","rt":$n[4].Mesh,"p":[$n[3].Single,$n[3].Single,$n[3].Single,$n[3].Int32]},{"a":2,"n":"BuildRoundedSideOnly","is":true,"t":8,"pi":[{"n":"radius","pt":$n[3].Single,"ps":0},{"n":"thickness","pt":$n[3].Single,"ps":1},{"n":"round01","pt":$n[3].Single,"ps":2},{"n":"cornerSegments","pt":$n[3].Int32,"ps":3}],"sn":"BuildRoundedSideOnly","rt":$n[4].Mesh,"p":[$n[3].Single,$n[3].Single,$n[3].Single,$n[3].Int32]},{"a":1,"n":"QuadBezier","is":true,"t":8,"pi":[{"n":"a","pt":$n[4].Vector2,"ps":0},{"n":"b","pt":$n[4].Vector2,"ps":1},{"n":"c","pt":$n[4].Vector2,"ps":2},{"n":"u","pt":$n[3].Single,"ps":3}],"sn":"QuadBezier","rt":$n[4].Vector2,"p":[$n[4].Vector2,$n[4].Vector2,$n[4].Vector2,$n[3].Single]}]}; }, $n);
     /*HexaTest.View.HexMeshBuilder end.*/
 
     /*HexaTest.View.StackFactory start.*/
@@ -3908,7 +4195,7 @@ if ( TRACE ) { TRACE( "HexaTest.Logic.TransferStep#init", this ); }
     /*HexaTest.UI.PackshotView end.*/
 
     /*HexaTest.UI.TimerHudView start.*/
-    $m("HexaTest.UI.TimerHudView", function () { return {"att":1048833,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ApplyAlarmPulse","t":8,"pi":[{"n":"k","pt":$n[3].Single,"ps":0},{"n":"pulseScale","pt":$n[3].Single,"ps":1}],"sn":"ApplyAlarmPulse","rt":$n[3].Void,"p":[$n[3].Single,$n[3].Single]},{"a":2,"n":"Begin","t":8,"sn":"Begin","rt":$n[3].Void},{"a":1,"n":"CaptureAlarmBaseState","t":8,"sn":"CaptureAlarmBaseState","rt":$n[3].Void},{"a":1,"n":"EndSequence","t":8,"sn":"EndSequence","rt":$n[6].IEnumerator},{"a":1,"n":"EnsureAlarmOverlays","t":8,"sn":"EnsureAlarmOverlays","rt":$n[3].Void},{"a":1,"n":"EnsureAlphaTintMaterial","t":8,"sn":"EnsureAlphaTintMaterial","rt":$n[3].Void},{"a":1,"n":"EnsureOverlay","t":8,"pi":[{"n":"source","pt":$n[7].Image,"ps":0},{"n":"overlay","pt":$n[7].Image,"ps":1},{"n":"name","pt":$n[3].String,"ps":2}],"sn":"EnsureOverlay","rt":$n[7].Image,"p":[$n[7].Image,$n[7].Image,$n[3].String]},{"a":1,"n":"EnsureTimerFillOverlay","t":8,"sn":"EnsureTimerFillOverlay","rt":$n[3].Void},{"a":1,"n":"EnterAlarm","t":8,"sn":"EnterAlarm","rt":$n[3].Void},{"a":1,"n":"EvaluateFillColor","t":8,"sn":"EvaluateFillColor","rt":$n[4].Color},{"a":1,"n":"SetFinalAlarmColor","t":8,"pi":[{"n":"alpha","pt":$n[3].Single,"ps":0}],"sn":"SetFinalAlarmColor","rt":$n[3].Void,"p":[$n[3].Single]},{"a":1,"n":"SetOverlayColor","t":8,"pi":[{"n":"overlay","pt":$n[7].Image,"ps":0},{"n":"alpha","pt":$n[3].Single,"ps":1}],"sn":"SetOverlayColor","rt":$n[3].Void,"p":[$n[7].Image,$n[3].Single]},{"a":1,"n":"SetTimerFill","t":8,"pi":[{"n":"amount","pt":$n[3].Single,"ps":0},{"n":"color","pt":$n[4].Color,"ps":1}],"sn":"SetTimerFill","rt":$n[3].Void,"p":[$n[3].Single,$n[4].Color]},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[3].Void},{"a":1,"n":"UpdateOverlayFill","is":true,"t":8,"pi":[{"n":"source","pt":$n[7].Image,"ps":0},{"n":"overlay","pt":$n[7].Image,"ps":1}],"sn":"UpdateOverlayFill","rt":$n[3].Void,"p":[$n[7].Image,$n[7].Image]},{"a":1,"n":"WatchPopLoop","t":8,"sn":"WatchPopLoop","rt":$n[6].IEnumerator},{"a":1,"n":"AnimatedTimerRect","t":16,"rt":$n[4].RectTransform,"g":{"a":1,"n":"get_AnimatedTimerRect","t":8,"rt":$n[4].RectTransform,"fg":"AnimatedTimerRect"},"fn":"AnimatedTimerRect"},{"a":1,"n":"NeedleUpAngle","is":true,"t":4,"rt":$n[3].Single,"sn":"NeedleUpAngle","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"_alarm","t":4,"rt":$n[3].Boolean,"sn":"_alarm","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_alphaTintMaterial","t":4,"rt":$n[4].Material,"sn":"_alphaTintMaterial"},{"a":1,"n":"_baseNeedleScale","t":4,"rt":$n[4].Vector3,"sn":"_baseNeedleScale"},{"a":1,"n":"_baseTimerScale","t":4,"rt":$n[4].Vector3,"sn":"_baseTimerScale"},{"a":1,"n":"_currentPulseScale","t":4,"rt":$n[3].Single,"sn":"_currentPulseScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"_ended","t":4,"rt":$n[3].Boolean,"sn":"_ended","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_fillOverlay","t":4,"rt":$n[7].Image,"sn":"_fillOverlay"},{"a":1,"n":"_popLoop","t":4,"rt":$n[4].Coroutine,"sn":"_popLoop"},{"a":1,"n":"_running","t":4,"rt":$n[3].Boolean,"sn":"_running","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_timer","t":4,"rt":$n[8].GameTimer,"sn":"_timer","ro":true},{"a":1,"n":"_timerBgOverlay","t":4,"rt":$n[7].Image,"sn":"_timerBgOverlay"},{"a":1,"n":"_timerNippleOverlay","t":4,"rt":$n[7].Image,"sn":"_timerNippleOverlay"},{"a":1,"n":"_trackOverlay","t":4,"rt":$n[7].Image,"sn":"_trackOverlay"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseInterval","t":4,"rt":$n[3].Single,"sn":"alarmPulseInterval","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseMaxScale","t":4,"rt":$n[3].Single,"sn":"alarmPulseMaxScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScale","t":4,"rt":$n[3].Single,"sn":"alarmPulseScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScaleDownDuration","t":4,"rt":$n[3].Single,"sn":"alarmPulseScaleDownDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScaleStep","t":4,"rt":$n[3].Single,"sn":"alarmPulseScaleStep","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScaleUpDuration","t":4,"rt":$n[3].Single,"sn":"alarmPulseScaleUpDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Remaining fraction at which the alarm stage begins (watch pops, radial grows)."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmThreshold","t":4,"rt":$n[3].Single,"sn":"alarmThreshold","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Assign Assets/Resources/HexUIAlphaTint \u2014 recolors overlays by sprite alpha (no multiply)."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alphaTintMaterial","t":4,"rt":$n[4].Material,"sn":"alphaTintMaterial"},{"at":[new UnityEngine.HeaderAttribute("Timing"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"duration","t":4,"rt":$n[3].Single,"sn":"duration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowDuration","t":4,"rt":$n[3].Single,"sn":"endThrowDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowFrequency","t":4,"rt":$n[3].Single,"sn":"endThrowFrequency","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowHorizontalAmplitude","t":4,"rt":$n[3].Single,"sn":"endThrowHorizontalAmplitude","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowSettleDuration","t":4,"rt":$n[3].Single,"sn":"endThrowSettleDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowVerticalAmplitude","t":4,"rt":$n[3].Single,"sn":"endThrowVerticalAmplitude","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Colors"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"fillGradient","t":4,"rt":pc.ColorGradient,"sn":"fillGradient"},{"at":[new UnityEngine.HeaderAttribute("Wired references (assign in scene)"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"fillImage","t":4,"rt":$n[7].Image,"sn":"fillImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"needleRect","t":4,"rt":$n[4].RectTransform,"sn":"needleRect"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"radialImage","t":4,"rt":$n[7].Image,"sn":"radialImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"timerBgImage","t":4,"rt":$n[7].Image,"sn":"timerBgImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"timerNippleImage","t":4,"rt":$n[7].Image,"sn":"timerNippleImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"timerRootRect","t":4,"rt":$n[4].RectTransform,"sn":"timerRootRect"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"trackAlarmColor","t":4,"rt":$n[4].Color,"sn":"trackAlarmColor"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"trackImage","t":4,"rt":$n[7].Image,"sn":"trackImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"watchImage","t":4,"rt":$n[7].Image,"sn":"watchImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"watchRect","t":4,"rt":$n[4].RectTransform,"sn":"watchRect"},{"a":2,"n":"Expired","t":2,"ad":{"a":2,"n":"add_Expired","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"addExpired","rt":$n[3].Void,"p":[Function]},"r":{"a":2,"n":"remove_Expired","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"removeExpired","rt":$n[3].Void,"p":[Function]}}]}; }, $n);
+    $m("HexaTest.UI.TimerHudView", function () { return {"att":1048833,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ApplyAlarmPulse","t":8,"pi":[{"n":"k","pt":$n[3].Single,"ps":0},{"n":"pulseScale","pt":$n[3].Single,"ps":1}],"sn":"ApplyAlarmPulse","rt":$n[3].Void,"p":[$n[3].Single,$n[3].Single]},{"a":2,"n":"Begin","t":8,"sn":"Begin","rt":$n[3].Void},{"a":1,"n":"CaptureAlarmBaseState","t":8,"sn":"CaptureAlarmBaseState","rt":$n[3].Void},{"a":1,"n":"EndSequence","t":8,"sn":"EndSequence","rt":$n[6].IEnumerator},{"a":1,"n":"EnsureAlarmOverlays","t":8,"sn":"EnsureAlarmOverlays","rt":$n[3].Void},{"a":1,"n":"EnsureAlphaTintMaterial","t":8,"sn":"EnsureAlphaTintMaterial","rt":$n[3].Void},{"a":1,"n":"EnsureOverlay","t":8,"pi":[{"n":"source","pt":$n[7].Image,"ps":0},{"n":"overlay","pt":$n[7].Image,"ps":1},{"n":"name","pt":$n[3].String,"ps":2}],"sn":"EnsureOverlay","rt":$n[7].Image,"p":[$n[7].Image,$n[7].Image,$n[3].String]},{"a":1,"n":"EnsureTimerFillOverlay","t":8,"sn":"EnsureTimerFillOverlay","rt":$n[3].Void},{"a":1,"n":"EnterAlarm","t":8,"sn":"EnterAlarm","rt":$n[3].Void},{"a":1,"n":"EvaluateFillColor","t":8,"sn":"EvaluateFillColor","rt":$n[4].Color},{"a":1,"n":"SetFinalAlarmColor","t":8,"pi":[{"n":"alpha","pt":$n[3].Single,"ps":0}],"sn":"SetFinalAlarmColor","rt":$n[3].Void,"p":[$n[3].Single]},{"a":1,"n":"SetOverlayColor","t":8,"pi":[{"n":"overlay","pt":$n[7].Image,"ps":0},{"n":"alpha","pt":$n[3].Single,"ps":1}],"sn":"SetOverlayColor","rt":$n[3].Void,"p":[$n[7].Image,$n[3].Single]},{"a":1,"n":"SetTimerFill","t":8,"pi":[{"n":"amount","pt":$n[3].Single,"ps":0},{"n":"color","pt":$n[4].Color,"ps":1}],"sn":"SetTimerFill","rt":$n[3].Void,"p":[$n[3].Single,$n[4].Color]},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[3].Void},{"a":1,"n":"UpdateOverlayFill","is":true,"t":8,"pi":[{"n":"source","pt":$n[7].Image,"ps":0},{"n":"overlay","pt":$n[7].Image,"ps":1}],"sn":"UpdateOverlayFill","rt":$n[3].Void,"p":[$n[7].Image,$n[7].Image]},{"a":1,"n":"WatchPopLoop","t":8,"sn":"WatchPopLoop","rt":$n[6].IEnumerator},{"a":1,"n":"AnimatedTimerRect","t":16,"rt":$n[4].RectTransform,"g":{"a":1,"n":"get_AnimatedTimerRect","t":8,"rt":$n[4].RectTransform,"fg":"AnimatedTimerRect"},"fn":"AnimatedTimerRect"},{"a":1,"n":"NeedleUpAngle","is":true,"t":4,"rt":$n[3].Single,"sn":"NeedleUpAngle","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"_alarm","t":4,"rt":$n[3].Boolean,"sn":"_alarm","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_alphaTintMaterial","t":4,"rt":$n[4].Material,"sn":"_alphaTintMaterial"},{"a":1,"n":"_baseNeedleScale","t":4,"rt":$n[4].Vector3,"sn":"_baseNeedleScale"},{"a":1,"n":"_baseTimerScale","t":4,"rt":$n[4].Vector3,"sn":"_baseTimerScale"},{"a":1,"n":"_currentPulseScale","t":4,"rt":$n[3].Single,"sn":"_currentPulseScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"_ended","t":4,"rt":$n[3].Boolean,"sn":"_ended","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_fillFullWidth","t":4,"rt":$n[3].Single,"sn":"_fillFullWidth","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"_fillOverlay","t":4,"rt":$n[7].Image,"sn":"_fillOverlay"},{"a":1,"n":"_popLoop","t":4,"rt":$n[4].Coroutine,"sn":"_popLoop"},{"a":1,"n":"_running","t":4,"rt":$n[3].Boolean,"sn":"_running","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_timer","t":4,"rt":$n[8].GameTimer,"sn":"_timer","ro":true},{"a":1,"n":"_timerBgOverlay","t":4,"rt":$n[7].Image,"sn":"_timerBgOverlay"},{"a":1,"n":"_timerNippleOverlay","t":4,"rt":$n[7].Image,"sn":"_timerNippleOverlay"},{"a":1,"n":"_trackOverlay","t":4,"rt":$n[7].Image,"sn":"_trackOverlay"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseInterval","t":4,"rt":$n[3].Single,"sn":"alarmPulseInterval","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseMaxScale","t":4,"rt":$n[3].Single,"sn":"alarmPulseMaxScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScale","t":4,"rt":$n[3].Single,"sn":"alarmPulseScale","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScaleDownDuration","t":4,"rt":$n[3].Single,"sn":"alarmPulseScaleDownDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScaleStep","t":4,"rt":$n[3].Single,"sn":"alarmPulseScaleStep","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmPulseScaleUpDuration","t":4,"rt":$n[3].Single,"sn":"alarmPulseScaleUpDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Remaining fraction at which the alarm stage begins (watch pops, radial grows)."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alarmThreshold","t":4,"rt":$n[3].Single,"sn":"alarmThreshold","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Assign Assets/Resources/HexUIAlphaTint \u2014 recolors overlays by sprite alpha (no multiply)."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alphaTintMaterial","t":4,"rt":$n[4].Material,"sn":"alphaTintMaterial"},{"at":[new UnityEngine.HeaderAttribute("Timing"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"duration","t":4,"rt":$n[3].Single,"sn":"duration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowDuration","t":4,"rt":$n[3].Single,"sn":"endThrowDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowFrequency","t":4,"rt":$n[3].Single,"sn":"endThrowFrequency","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowHorizontalAmplitude","t":4,"rt":$n[3].Single,"sn":"endThrowHorizontalAmplitude","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowSettleDuration","t":4,"rt":$n[3].Single,"sn":"endThrowSettleDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"endThrowVerticalAmplitude","t":4,"rt":$n[3].Single,"sn":"endThrowVerticalAmplitude","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Colors"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"fillGradient","t":4,"rt":pc.ColorGradient,"sn":"fillGradient"},{"at":[new UnityEngine.HeaderAttribute("Wired references (assign in scene)"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"fillImage","t":4,"rt":$n[7].Image,"sn":"fillImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"fillMaskRect","t":4,"rt":$n[4].RectTransform,"sn":"fillMaskRect"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"needleRect","t":4,"rt":$n[4].RectTransform,"sn":"needleRect"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"radialImage","t":4,"rt":$n[7].Image,"sn":"radialImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"timerBgImage","t":4,"rt":$n[7].Image,"sn":"timerBgImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"timerNippleImage","t":4,"rt":$n[7].Image,"sn":"timerNippleImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"timerRootRect","t":4,"rt":$n[4].RectTransform,"sn":"timerRootRect"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"trackAlarmColor","t":4,"rt":$n[4].Color,"sn":"trackAlarmColor"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"trackImage","t":4,"rt":$n[7].Image,"sn":"trackImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"watchImage","t":4,"rt":$n[7].Image,"sn":"watchImage"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"watchRect","t":4,"rt":$n[4].RectTransform,"sn":"watchRect"},{"a":2,"n":"Expired","t":2,"ad":{"a":2,"n":"add_Expired","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"addExpired","rt":$n[3].Void,"p":[Function]},"r":{"a":2,"n":"remove_Expired","t":8,"pi":[{"n":"value","pt":Function,"ps":0}],"sn":"removeExpired","rt":$n[3].Void,"p":[Function]}}]}; }, $n);
     /*HexaTest.UI.TimerHudView end.*/
 
     /*HexaTest.Logic.GameTimer start.*/
@@ -3956,11 +4243,11 @@ if ( TRACE ) { TRACE( "HexaTest.Logic.TransferStep#init", this ); }
     /*HexaTest.Domain.StackModel end.*/
 
     /*HexaTest.Config.GameConfig start.*/
-    $m("HexaTest.Config.GameConfig", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"ColorOf","t":8,"pi":[{"n":"id","pt":$n[2].HexColorId,"ps":0}],"sn":"ColorOf","rt":$n[4].Color,"p":[$n[2].HexColorId]},{"a":2,"n":"DiscRadius","t":16,"rt":$n[3].Single,"g":{"a":2,"n":"get_DiscRadius","t":8,"rt":$n[3].Single,"fg":"DiscRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},"fn":"DiscRadius"},{"a":2,"n":"TileRadius","t":16,"rt":$n[3].Single,"g":{"a":2,"n":"get_TileRadius","t":8,"rt":$n[3].Single,"fg":"TileRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},"fn":"TileRadius"},{"at":[new UnityEngine.TooltipAttribute("Platform layers top -> bottom. Length = number of layers (reference ~3).")],"a":2,"n":"baseLayerColors","t":4,"rt":System.Array.type(UnityEngine.Color),"sn":"baseLayerColors"},{"a":2,"n":"baseLayerThickness","t":4,"rt":$n[3].Single,"sn":"baseLayerThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Board platform (layered edge)"),new UnityEngine.TooltipAttribute("The platform is built from the same cells, so its silhouette matches exactly."),new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"baseRound","t":4,"rt":$n[3].Single,"sn":"baseRound","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Board"),new UnityEngine.TooltipAttribute("Ring radius of the hex board. 2 => 19 cells (matches reference).")],"a":2,"n":"boardRadius","t":4,"rt":$n[3].Int32,"sn":"boardRadius","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Center-to-center spacing of board cells. Equals the tessellation size.")],"a":2,"n":"cellSize","t":4,"rt":$n[3].Single,"sn":"cellSize","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How many same-color discs collapse and clear.")],"a":2,"n":"clearCount","t":4,"rt":$n[3].Int32,"sn":"clearCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Seconds to downscale one disc during a clear at speed x1.")],"a":2,"n":"clearDuration","t":4,"rt":$n[3].Single,"sn":"clearDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"cornerSegments","t":4,"rt":$n[3].Int32,"sn":"cornerSegments","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.HeaderAttribute("Hex disc geometry"),new UnityEngine.TooltipAttribute("Disc circumradius as a fraction of cellSize. 1.0 => neighbors touch exactly (dist=\u221a3\u00b7R)."),new UnityEngine.RangeAttribute(0.8, 1.0)],"a":2,"n":"discFill","t":4,"rt":$n[3].Single,"sn":"discFill","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Pause between consecutive discs in a clear.")],"a":2,"n":"discInterval","t":4,"rt":$n[3].Single,"sn":"discInterval","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"discRound","t":4,"rt":$n[3].Single,"sn":"discRound","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"discSeparatorDarken","t":4,"rt":$n[3].Single,"sn":"discSeparatorDarken","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Thin darker band near the bottom of each disc so stacked levels stay readable.")],"a":2,"n":"discSeparatorThickness","t":4,"rt":$n[3].Single,"sn":"discSeparatorThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Vertical gap between stacked discs (keep ~= thickness so they touch).")],"a":2,"n":"discSpacing","t":4,"rt":$n[3].Single,"sn":"discSpacing","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Disc height \u2014 larger reads as more 3D/chunky.")],"a":2,"n":"discThickness","t":4,"rt":$n[3].Single,"sn":"discThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How high a grabbed stack floats above the board so it never blends into it.")],"a":2,"n":"dragLift","t":4,"rt":$n[3].Single,"sn":"dragLift","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How much wider (world units) each lower layer is \u2014 the visible rim sliver. Keep small.")],"a":2,"n":"edgeRim","t":4,"rt":$n[3].Single,"sn":"edgeRim","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Merge animation"),new UnityEngine.TooltipAttribute("Seconds to flip one disc onto a neighbor at speed x1.")],"a":2,"n":"flipDuration","t":4,"rt":$n[3].Single,"sn":"flipDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Delay before launching the next disc in a run (enables overlap).")],"a":2,"n":"flipStagger","t":4,"rt":$n[3].Single,"sn":"flipStagger","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How many discs may be mid-flight at once (reference ~2).")],"a":2,"n":"maxConcurrentFlips","t":4,"rt":$n[3].Int32,"sn":"maxConcurrentFlips","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Upper cap on the accumulated speed multiplier.")],"a":2,"n":"maxSpeed","t":4,"rt":$n[3].Single,"sn":"maxSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"palette","t":4,"rt":System.Array.type(UnityEngine.Color),"sn":"palette"},{"at":[new UnityEngine.HeaderAttribute("Interaction")],"a":2,"n":"snapDistance","t":4,"rt":$n[3].Single,"sn":"snapDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Speed multiplier growth per merge step (0.30 => +30%).")],"a":2,"n":"speedRamp","t":4,"rt":$n[3].Single,"sn":"speedRamp","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Colors")],"a":2,"n":"tileColor","t":4,"rt":$n[4].Color,"sn":"tileColor"},{"at":[new UnityEngine.HeaderAttribute("Cell tile (packed, thin seam shows the platform underneath)"),new UnityEngine.TooltipAttribute("Tile radius as a fraction of cellSize. <1 leaves a thin outline seam."),new UnityEngine.RangeAttribute(0.7, 1.0)],"a":2,"n":"tileInset","t":4,"rt":$n[3].Single,"sn":"tileInset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How far the tile top sits above the platform top (y=0). Keep >= tileThickness/2.")],"a":2,"n":"tileRaise","t":4,"rt":$n[3].Single,"sn":"tileRaise","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"tileRound","t":4,"rt":$n[3].Single,"sn":"tileRound","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"tileThickness","t":4,"rt":$n[3].Single,"sn":"tileThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Tray"),new UnityEngine.TooltipAttribute("How far below the board center the tray sits (world units).")],"a":2,"n":"trayDistance","t":4,"rt":$n[3].Single,"sn":"trayDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"traySpacing","t":4,"rt":$n[3].Single,"sn":"traySpacing","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
+    $m("HexaTest.Config.GameConfig", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"ColorOf","t":8,"pi":[{"n":"id","pt":$n[2].HexColorId,"ps":0}],"sn":"ColorOf","rt":$n[4].Color,"p":[$n[2].HexColorId]},{"a":2,"n":"DiscRadius","t":16,"rt":$n[3].Single,"g":{"a":2,"n":"get_DiscRadius","t":8,"rt":$n[3].Single,"fg":"DiscRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},"fn":"DiscRadius"},{"a":2,"n":"TileRadius","t":16,"rt":$n[3].Single,"g":{"a":2,"n":"get_TileRadius","t":8,"rt":$n[3].Single,"fg":"TileRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},"fn":"TileRadius"},{"at":[new UnityEngine.TooltipAttribute("Platform layers top -> bottom. Length = number of layers (reference ~3).")],"a":2,"n":"baseLayerColors","t":4,"rt":System.Array.type(UnityEngine.Color),"sn":"baseLayerColors"},{"a":2,"n":"baseLayerThickness","t":4,"rt":$n[3].Single,"sn":"baseLayerThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Board platform (layered edge)"),new UnityEngine.TooltipAttribute("The platform is built from the same cells, so its silhouette matches exactly."),new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"baseRound","t":4,"rt":$n[3].Single,"sn":"baseRound","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Board"),new UnityEngine.TooltipAttribute("Ring radius of the hex board. 2 => 19 cells (matches reference).")],"a":2,"n":"boardRadius","t":4,"rt":$n[3].Int32,"sn":"boardRadius","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Center-to-center spacing of board cells. Equals the tessellation size.")],"a":2,"n":"cellSize","t":4,"rt":$n[3].Single,"sn":"cellSize","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How many same-color discs collapse and clear.")],"a":2,"n":"clearCount","t":4,"rt":$n[3].Int32,"sn":"clearCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Seconds to downscale one disc during a clear at speed x1.")],"a":2,"n":"clearDuration","t":4,"rt":$n[3].Single,"sn":"clearDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"cornerSegments","t":4,"rt":$n[3].Int32,"sn":"cornerSegments","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.HeaderAttribute("Hex disc geometry"),new UnityEngine.TooltipAttribute("Disc circumradius as a fraction of cellSize. 1.0 => neighbors touch exactly (dist=\u221a3\u00b7R)."),new UnityEngine.RangeAttribute(0.8, 1.0)],"a":2,"n":"discFill","t":4,"rt":$n[3].Single,"sn":"discFill","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Pause between consecutive discs in a clear.")],"a":2,"n":"discInterval","t":4,"rt":$n[3].Single,"sn":"discInterval","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"discRound","t":4,"rt":$n[3].Single,"sn":"discRound","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"discSeparatorDarken","t":4,"rt":$n[3].Single,"sn":"discSeparatorDarken","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Thin darker band near the bottom of each disc so stacked levels stay readable.")],"a":2,"n":"discSeparatorThickness","t":4,"rt":$n[3].Single,"sn":"discSeparatorThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Vertical gap between stacked discs (keep ~= thickness so they touch).")],"a":2,"n":"discSpacing","t":4,"rt":$n[3].Single,"sn":"discSpacing","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Disc height \u2014 larger reads as more 3D/chunky.")],"a":2,"n":"discThickness","t":4,"rt":$n[3].Single,"sn":"discThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How high a grabbed stack floats above the board so it never blends into it.")],"a":2,"n":"dragLift","t":4,"rt":$n[3].Single,"sn":"dragLift","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How much wider (world units) each lower layer is \u2014 the visible rim sliver. Keep small.")],"a":2,"n":"edgeRim","t":4,"rt":$n[3].Single,"sn":"edgeRim","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Merge animation"),new UnityEngine.TooltipAttribute("Seconds to flip one disc onto a neighbor at speed x1.")],"a":2,"n":"flipDuration","t":4,"rt":$n[3].Single,"sn":"flipDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Delay before launching the next disc in a run (enables overlap).")],"a":2,"n":"flipStagger","t":4,"rt":$n[3].Single,"sn":"flipStagger","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How fast a released stack glides into its cell, in world units/second. Higher = snappier magnet-in; lower = a slower, floatier pull.")],"a":2,"n":"magnetSpeed","t":4,"rt":$n[3].Single,"sn":"magnetSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How many discs may be mid-flight at once (reference ~2).")],"a":2,"n":"maxConcurrentFlips","t":4,"rt":$n[3].Int32,"sn":"maxConcurrentFlips","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Upper cap on the accumulated speed multiplier.")],"a":2,"n":"maxSpeed","t":4,"rt":$n[3].Single,"sn":"maxSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"palette","t":4,"rt":System.Array.type(UnityEngine.Color),"sn":"palette"},{"at":[new UnityEngine.HeaderAttribute("Interaction")],"a":2,"n":"snapDistance","t":4,"rt":$n[3].Single,"sn":"snapDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Speed multiplier growth per merge step (0.30 => +30%).")],"a":2,"n":"speedRamp","t":4,"rt":$n[3].Single,"sn":"speedRamp","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Colors")],"a":2,"n":"tileColor","t":4,"rt":$n[4].Color,"sn":"tileColor"},{"at":[new UnityEngine.HeaderAttribute("Cell tile (packed, thin seam shows the platform underneath)"),new UnityEngine.TooltipAttribute("Tile radius as a fraction of cellSize. <1 leaves a thin outline seam."),new UnityEngine.RangeAttribute(0.7, 1.0)],"a":2,"n":"tileInset","t":4,"rt":$n[3].Single,"sn":"tileInset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("How far the tile top sits above the platform top (y=0). Keep >= tileThickness/2.")],"a":2,"n":"tileRaise","t":4,"rt":$n[3].Single,"sn":"tileRaise","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"tileRound","t":4,"rt":$n[3].Single,"sn":"tileRound","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"tileThickness","t":4,"rt":$n[3].Single,"sn":"tileThickness","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Tray"),new UnityEngine.TooltipAttribute("How far below the board center the tray sits (world units).")],"a":2,"n":"trayDistance","t":4,"rt":$n[3].Single,"sn":"trayDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"traySpacing","t":4,"rt":$n[3].Single,"sn":"traySpacing","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
     /*HexaTest.Config.GameConfig end.*/
 
     /*HexaTest.App.GameBootstrap start.*/
-    $m("HexaTest.App.GameBootstrap", function () { return {"nested":[$n[9].GameBootstrap.TrayEntry],"att":1048833,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[3].Void},{"a":1,"n":"CellStackPos","t":8,"pi":[{"n":"coord","pt":$n[2].HexCoord,"ps":0}],"sn":"CellStackPos","rt":$n[4].Vector3,"p":[$n[2].HexCoord]},{"a":1,"n":"FitCameraToAspect","t":8,"pi":[{"n":"cam","pt":$n[4].Camera,"ps":0}],"sn":"FitCameraToAspect","rt":$n[3].Void,"p":[$n[4].Camera]},{"a":1,"n":"GetTraySource","t":8,"sn":"GetTraySource","rt":$n[3].Nullable$1(UnityEngine.Vector3)},{"a":1,"n":"OnCascadeDone","t":8,"sn":"OnCascadeDone","rt":$n[3].Void},{"a":1,"n":"OnTimeUp","t":8,"sn":"OnTimeUp","rt":$n[3].Void},{"a":1,"n":"PlaceFromTray","t":8,"pi":[{"n":"view","pt":$n[1].StackView,"ps":0},{"n":"coord","pt":$n[2].HexCoord,"ps":1}],"sn":"PlaceFromTray","rt":$n[3].Boolean,"p":[$n[1].StackView,$n[2].HexCoord],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"RandomDiscs","t":8,"sn":"RandomDiscs","rt":$n[5].List$1(HexaTest.Domain.HexColorId)},{"a":1,"n":"RefillTray","t":8,"sn":"RefillTray","rt":$n[3].Void},{"a":1,"n":"SeedBoard","t":8,"sn":"SeedBoard","rt":$n[3].Void},{"a":1,"n":"SetUpCamera","t":8,"sn":"SetUpCamera","rt":$n[3].Void},{"a":1,"n":"Shuffle","is":true,"t":8,"pi":[{"n":"list","pt":$n[5].IList$1(System.Object),"ps":0}],"tpc":1,"tprm":["T"],"sn":"Shuffle","rt":$n[3].Void,"p":[$n[5].IList$1(System.Object)]},{"a":1,"n":"StackY","t":16,"rt":$n[3].Single,"g":{"a":1,"n":"get_StackY","t":8,"rt":$n[3].Single,"fg":"StackY","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},"fn":"StackY"},{"a":1,"n":"_animator","t":4,"rt":$n[9].MergeAnimator,"sn":"_animator"},{"a":1,"n":"_assets","t":4,"rt":$n[1].HexAssets,"sn":"_assets"},{"a":1,"n":"_board","t":4,"rt":$n[2].BoardModel,"sn":"_board"},{"a":1,"n":"_boardView","t":4,"rt":$n[1].BoardView,"sn":"_boardView"},{"a":1,"n":"_factory","t":4,"rt":$n[1].StackFactory,"sn":"_factory"},{"a":1,"n":"_gameOver","t":4,"rt":$n[3].Boolean,"sn":"_gameOver","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_resolver","t":4,"rt":$n[8].MergeResolver,"sn":"_resolver"},{"a":1,"n":"_tray","t":4,"rt":$n[5].List$1(HexaTest.App.GameBootstrap.TrayEntry),"sn":"_tray","ro":true},{"a":1,"n":"_trayRoot","t":4,"rt":$n[4].Transform,"sn":"_trayRoot"},{"at":[new UnityEngine.TooltipAttribute("How much of the screen width the board fills. Higher = smaller board. Keeps framing consistent across device aspects (editor vs Luna)."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"cameraFitMargin","t":4,"rt":$n[3].Single,"sn":"cameraFitMargin","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"config","t":4,"rt":$n[0].GameConfig,"sn":"config"},{"at":[new UnityEngine.TooltipAttribute("Assign Assets/Resources/HexBaseMaterial \u2014 referenced here so Luna bundles it reliably."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"hexBaseMaterial","t":4,"rt":$n[4].Material,"sn":"hexBaseMaterial"},{"at":[new UnityEngine.HeaderAttribute("Scene references (drag the HUD / tutorial objects)"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"hud","t":4,"rt":$n[10].TimerHudView,"sn":"hud"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"packshot","t":4,"rt":$n[10].PackshotView,"sn":"packshot"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"seededCells","t":4,"rt":$n[3].Int32,"sn":"seededCells","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"setUpCamera","t":4,"rt":$n[3].Boolean,"sn":"setUpCamera","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"tutorial","t":4,"rt":$n[9].TutorialController,"sn":"tutorial"}]}; }, $n);
+    $m("HexaTest.App.GameBootstrap", function () { return {"nested":[$n[9].GameBootstrap.TrayEntry],"att":1048833,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ApplyEnvironment","t":8,"sn":"ApplyEnvironment","rt":$n[3].Void},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[3].Void},{"a":1,"n":"BuildBackground","t":8,"sn":"BuildBackground","rt":$n[3].Void},{"a":1,"n":"BuildShadowGround","t":8,"sn":"BuildShadowGround","rt":$n[3].Void},{"a":1,"n":"CellStackPos","t":8,"pi":[{"n":"coord","pt":$n[2].HexCoord,"ps":0}],"sn":"CellStackPos","rt":$n[4].Vector3,"p":[$n[2].HexCoord]},{"a":1,"n":"GetTraySource","t":8,"sn":"GetTraySource","rt":$n[3].Nullable$1(UnityEngine.Vector3)},{"a":1,"n":"MagnetIntoCell","t":8,"pi":[{"n":"view","pt":$n[1].StackView,"ps":0},{"n":"coord","pt":$n[2].HexCoord,"ps":1},{"n":"cell","pt":$n[2].CellModel,"ps":2}],"sn":"MagnetIntoCell","rt":$n[6].IEnumerator,"p":[$n[1].StackView,$n[2].HexCoord,$n[2].CellModel]},{"a":1,"n":"OnCascadeDone","t":8,"sn":"OnCascadeDone","rt":$n[3].Void},{"a":1,"n":"OnPlayerGrab","t":8,"sn":"OnPlayerGrab","rt":$n[3].Void},{"a":1,"n":"OnTimeUp","t":8,"sn":"OnTimeUp","rt":$n[3].Void},{"a":1,"n":"PlaceFromTray","t":8,"pi":[{"n":"view","pt":$n[1].StackView,"ps":0},{"n":"coord","pt":$n[2].HexCoord,"ps":1}],"sn":"PlaceFromTray","rt":$n[3].Boolean,"p":[$n[1].StackView,$n[2].HexCoord],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"RandomDiscs","t":8,"sn":"RandomDiscs","rt":$n[5].List$1(HexaTest.Domain.HexColorId)},{"a":1,"n":"RefillTray","t":8,"sn":"RefillTray","rt":$n[3].Void},{"a":1,"n":"SeedBoard","t":8,"sn":"SeedBoard","rt":$n[3].Void},{"a":1,"n":"Shuffle","is":true,"t":8,"pi":[{"n":"list","pt":$n[5].IList$1(System.Object),"ps":0}],"tpc":1,"tprm":["T"],"sn":"Shuffle","rt":$n[3].Void,"p":[$n[5].IList$1(System.Object)]},{"a":1,"n":"StackY","t":16,"rt":$n[3].Single,"g":{"a":1,"n":"get_StackY","t":8,"rt":$n[3].Single,"fg":"StackY","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},"fn":"StackY"},{"a":1,"n":"_activeMagnets","t":4,"rt":$n[3].Int32,"sn":"_activeMagnets","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"_animator","t":4,"rt":$n[9].MergeAnimator,"sn":"_animator"},{"a":1,"n":"_assets","t":4,"rt":$n[1].HexAssets,"sn":"_assets"},{"a":1,"n":"_board","t":4,"rt":$n[2].BoardModel,"sn":"_board"},{"a":1,"n":"_boardView","t":4,"rt":$n[1].BoardView,"sn":"_boardView"},{"a":1,"n":"_cam","t":4,"rt":$n[4].Camera,"sn":"_cam"},{"a":1,"n":"_factory","t":4,"rt":$n[1].StackFactory,"sn":"_factory"},{"a":1,"n":"_gameOver","t":4,"rt":$n[3].Boolean,"sn":"_gameOver","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_resolver","t":4,"rt":$n[8].MergeResolver,"sn":"_resolver"},{"a":1,"n":"_started","t":4,"rt":$n[3].Boolean,"sn":"_started","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_tray","t":4,"rt":$n[5].List$1(HexaTest.App.GameBootstrap.TrayEntry),"sn":"_tray","ro":true},{"a":1,"n":"_trayRoot","t":4,"rt":$n[4].Transform,"sn":"_trayRoot"},{"at":[new UnityEngine.TooltipAttribute("Material asset using Hexa/ScreenGradient. A direct asset reference (not Shader.Find) is required for Luna to include the shader in the web build."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"backgroundMaterial","t":4,"rt":$n[4].Material,"sn":"backgroundMaterial"},{"at":[new UnityEngine.TooltipAttribute("Assign back.png \u2014 full-screen gradient background drawn behind the board."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"backgroundSprite","t":4,"rt":$n[4].Sprite,"sn":"backgroundSprite"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"config","t":4,"rt":$n[0].GameConfig,"sn":"config"},{"at":[new UnityEngine.TooltipAttribute("Assign Assets/Resources/HexBaseMaterial \u2014 referenced here so Luna bundles it reliably."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"hexBaseMaterial","t":4,"rt":$n[4].Material,"sn":"hexBaseMaterial"},{"at":[new UnityEngine.HeaderAttribute("Scene references (drag the HUD / tutorial objects)"),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"hud","t":4,"rt":$n[10].TimerHudView,"sn":"hud"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"packshot","t":4,"rt":$n[10].PackshotView,"sn":"packshot"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"seededCells","t":4,"rt":$n[3].Int32,"sn":"seededCells","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Material asset using Hexa/ShadowGround. Same Luna requirement as above."),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"shadowGroundMaterial","t":4,"rt":$n[4].Material,"sn":"shadowGroundMaterial"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"tutorial","t":4,"rt":$n[9].TutorialController,"sn":"tutorial"}]}; }, $n);
     /*HexaTest.App.GameBootstrap end.*/
 
     /*HexaTest.App.GameBootstrap+TrayEntry start.*/
@@ -3968,7 +4255,7 @@ if ( TRACE ) { TRACE( "HexaTest.Logic.TransferStep#init", this ); }
     /*HexaTest.App.GameBootstrap+TrayEntry end.*/
 
     /*HexaTest.App.InputController start.*/
-    $m("HexaTest.App.InputController", function () { return {"att":1048833,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Drag","t":8,"sn":"Drag","rt":$n[3].Void},{"a":2,"n":"Init","t":8,"pi":[{"n":"cam","pt":$n[4].Camera,"ps":0},{"n":"cfg","pt":$n[0].GameConfig,"ps":1},{"n":"board","pt":$n[2].BoardModel,"ps":2},{"n":"view","pt":$n[1].BoardView,"ps":3},{"n":"isBusy","pt":Function,"ps":4},{"n":"place","pt":Function,"ps":5},{"n":"onGrab","dv":null,"o":true,"pt":Function,"ps":6},{"n":"onInvalidDrop","dv":null,"o":true,"pt":Function,"ps":7}],"sn":"Init","rt":$n[3].Void,"p":[$n[4].Camera,$n[0].GameConfig,$n[2].BoardModel,$n[1].BoardView,Function,Function,Function,Function]},{"a":1,"n":"ProjectToGround","t":8,"pi":[{"n":"point","out":true,"pt":$n[4].Vector3,"ps":0}],"sn":"ProjectToGround","rt":$n[3].Boolean,"p":[$n[4].Vector3],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"Release","t":8,"sn":"Release","rt":$n[3].Void},{"a":1,"n":"TryGrab","t":8,"sn":"TryGrab","rt":$n[3].Void},{"a":1,"n":"TryNearestEmpty","t":8,"pi":[{"n":"world","pt":$n[4].Vector3,"ps":0},{"n":"coord","out":true,"pt":$n[2].HexCoord,"ps":1}],"sn":"TryNearestEmpty","rt":$n[3].Boolean,"p":[$n[4].Vector3,$n[2].HexCoord],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[3].Void},{"a":1,"n":"_board","t":4,"rt":$n[2].BoardModel,"sn":"_board"},{"a":1,"n":"_cam","t":4,"rt":$n[4].Camera,"sn":"_cam"},{"a":1,"n":"_cfg","t":4,"rt":$n[0].GameConfig,"sn":"_cfg"},{"a":1,"n":"_hasHover","t":4,"rt":$n[3].Boolean,"sn":"_hasHover","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_held","t":4,"rt":$n[1].StackView,"sn":"_held"},{"a":1,"n":"_home","t":4,"rt":$n[4].Vector3,"sn":"_home"},{"a":1,"n":"_hover","t":4,"rt":$n[2].HexCoord,"sn":"_hover"},{"a":1,"n":"_isBusy","t":4,"rt":Function,"sn":"_isBusy"},{"a":1,"n":"_onGrab","t":4,"rt":Function,"sn":"_onGrab"},{"a":1,"n":"_onInvalidDrop","t":4,"rt":Function,"sn":"_onInvalidDrop"},{"a":1,"n":"_place","t":4,"rt":Function,"sn":"_place"},{"a":1,"n":"_view","t":4,"rt":$n[1].BoardView,"sn":"_view"}]}; }, $n);
+    $m("HexaTest.App.InputController", function () { return {"att":1048833,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Drag","t":8,"sn":"Drag","rt":$n[3].Void},{"a":2,"n":"Init","t":8,"pi":[{"n":"cam","pt":$n[4].Camera,"ps":0},{"n":"cfg","pt":$n[0].GameConfig,"ps":1},{"n":"board","pt":$n[2].BoardModel,"ps":2},{"n":"view","pt":$n[1].BoardView,"ps":3},{"n":"isBusy","pt":Function,"ps":4},{"n":"place","pt":Function,"ps":5},{"n":"onGrab","dv":null,"o":true,"pt":Function,"ps":6},{"n":"onInvalidDrop","dv":null,"o":true,"pt":Function,"ps":7}],"sn":"Init","rt":$n[3].Void,"p":[$n[4].Camera,$n[0].GameConfig,$n[2].BoardModel,$n[1].BoardView,Function,Function,Function,Function]},{"a":1,"n":"ProjectToGround","t":8,"pi":[{"n":"point","out":true,"pt":$n[4].Vector3,"ps":0}],"sn":"ProjectToGround","rt":$n[3].Boolean,"p":[$n[4].Vector3],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"Release","t":8,"sn":"Release","rt":$n[3].Void},{"a":1,"n":"TryGrab","t":8,"sn":"TryGrab","rt":$n[3].Void},{"a":1,"n":"TryNearestEmpty","t":8,"pi":[{"n":"world","pt":$n[4].Vector3,"ps":0},{"n":"coord","out":true,"pt":$n[2].HexCoord,"ps":1}],"sn":"TryNearestEmpty","rt":$n[3].Boolean,"p":[$n[4].Vector3,$n[2].HexCoord],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[3].Void},{"a":1,"n":"_board","t":4,"rt":$n[2].BoardModel,"sn":"_board"},{"a":1,"n":"_cam","t":4,"rt":$n[4].Camera,"sn":"_cam"},{"a":1,"n":"_cfg","t":4,"rt":$n[0].GameConfig,"sn":"_cfg"},{"a":1,"n":"_grabOffset","t":4,"rt":$n[4].Vector3,"sn":"_grabOffset"},{"a":1,"n":"_hasHover","t":4,"rt":$n[3].Boolean,"sn":"_hasHover","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"_held","t":4,"rt":$n[1].StackView,"sn":"_held"},{"a":1,"n":"_home","t":4,"rt":$n[4].Vector3,"sn":"_home"},{"a":1,"n":"_hover","t":4,"rt":$n[2].HexCoord,"sn":"_hover"},{"a":1,"n":"_isBusy","t":4,"rt":Function,"sn":"_isBusy"},{"a":1,"n":"_onGrab","t":4,"rt":Function,"sn":"_onGrab"},{"a":1,"n":"_onInvalidDrop","t":4,"rt":Function,"sn":"_onInvalidDrop"},{"a":1,"n":"_place","t":4,"rt":Function,"sn":"_place"},{"a":1,"n":"_view","t":4,"rt":$n[1].BoardView,"sn":"_view"}]}; }, $n);
     /*HexaTest.App.InputController end.*/
 
     /*HexaTest.App.MergeAnimator start.*/

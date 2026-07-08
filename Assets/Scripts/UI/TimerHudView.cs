@@ -33,6 +33,7 @@ namespace HexaTest.UI
 
         [Header("Wired references (assign in scene)")]
         [SerializeField] private Image fillImage;
+        [SerializeField] private RectTransform fillMaskRect;
         [SerializeField] private Image trackImage;
         [SerializeField] private Image timerBgImage;
         [SerializeField] private Image timerNippleImage;
@@ -58,12 +59,22 @@ namespace HexaTest.UI
         private Image _trackOverlay;
         private Image _fillOverlay;
         private Material _alphaTintMaterial;
+        private float _fillFullWidth;
 
         private RectTransform AnimatedTimerRect => timerRootRect != null ? timerRootRect : watchRect;
 
         public void Begin()
         {
-            EnsureTimerFillOverlay();
+            if (fillMaskRect != null)
+            {
+                if (_fillFullWidth <= 0f) _fillFullWidth = fillMaskRect.rect.width;
+                EnsureAlphaTintMaterial();
+                if (_alphaTintMaterial != null) fillImage.material = _alphaTintMaterial;
+            }
+            else
+            {
+                EnsureTimerFillOverlay();
+            }
             _timer.Begin(duration);
             _running = true;
             SetTimerFill(1f, EvaluateFillColor());
@@ -218,6 +229,16 @@ namespace HexaTest.UI
         private void SetTimerFill(float amount, Color color)
         {
             if (fillImage == null) return;
+
+            if (fillMaskRect != null)
+            {
+                if (_fillFullWidth <= 0f) _fillFullWidth = fillMaskRect.rect.width;
+                Vector2 sd = fillMaskRect.sizeDelta;
+                fillMaskRect.sizeDelta = new Vector2(_fillFullWidth * Mathf.Clamp01(amount), sd.y);
+                fillImage.color = color;
+                return;
+            }
+
             EnsureTimerFillOverlay();
             fillImage.fillAmount = amount;
             fillImage.color = Color.clear;

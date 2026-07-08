@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using HexaTest.Config;
 using HexaTest.Domain;
 using HexaTest.Logic;
@@ -11,10 +13,10 @@ namespace HexaTest.App
     public sealed class GameBootstrap : MonoBehaviour
     {
         [SerializeField] private GameConfig config = new GameConfig();
-        [SerializeField] private bool setUpCamera = true;
         [SerializeField] private int seededCells = 10;
-        [Tooltip("How much of the screen width the board fills. Higher = smaller board. Keeps framing consistent across device aspects (editor vs Luna).")]
-        [SerializeField] private float cameraFitMargin = 1.2f;
+        // Camera position / rotation / projection / size are configured directly on the
+        // Main Camera in the scene — the runtime no longer touches them, so you can frame
+        // the shot in the editor. See ApplyEnvironment() for the non-camera render settings.
 
         [Header("Scene references (drag the HUD / tutorial objects)")]
         [SerializeField] private TimerHudView hud;
@@ -23,8 +25,17 @@ namespace HexaTest.App
         [Tooltip("Assign Assets/Resources/HexBaseMaterial — referenced here so Luna bundles it reliably.")]
         [SerializeField] private Material hexBaseMaterial;
         [SerializeField] private PackshotView packshot;
+        [Tooltip("Assign back.png — full-screen gradient background drawn behind the board.")]
+        [SerializeField] private Sprite backgroundSprite;
+        [Tooltip("Material asset using Hexa/ScreenGradient. A direct asset reference (not Shader.Find) is required for Luna to include the shader in the web build.")]
+        [SerializeField] private Material backgroundMaterial;
+        [Tooltip("Material asset using Hexa/ShadowGround. Same Luna requirement as above.")]
+        [SerializeField] private Material shadowGroundMaterial;
 
         private bool _gameOver;
+        private bool _started;
+        private Camera _cam;
+        private int _activeMagnets;
 
         private HexAssets _assets;
         private BoardModel _board;
@@ -63,7 +74,9 @@ namespace HexaTest.App
             _trayRoot.SetParent(transform, false);
             RefillTray();
 
-            if (setUpCamera) SetUpCamera();
+            ApplyEnvironment();
+            BuildBackground();
+            BuildShadowGround();
 
             _animator = gameObject.AddComponent<MergeAnimator>();
             _animator.Init(config, _board, _boardView);
@@ -72,14 +85,20 @@ namespace HexaTest.App
 
             InputController input = gameObject.AddComponent<InputController>();
             input.Init(Camera.main, config, _board, _boardView,
-                () => _animator.IsPlaying || _gameOver, PlaceFromTray,
-                () => { if (tutorial != null) tutorial.NotifyGrab(); },
+                () => _animator.IsPlaying || _gameOver || _activeMagnets > 0, PlaceFromTray,
+                OnPlayerGrab,
                 () => { if (tutorial != null) tutorial.NotifyDropFailed(); });
 
-            if (hud != null)
+            if (hud != null) hud.Expired += OnTimeUp;
+        }
+
+        private void OnPlayerGrab()
+        {
+            if (tutorial != null) tutorial.NotifyGrab();
+            if (!_started)
             {
-                hud.Expired += OnTimeUp;
-                hud.Begin();
+                _started = true;
+                if (hud != null) hud.Begin();
             }
         }
 
@@ -105,14 +124,40 @@ namespace HexaTest.App
             cell.Stack = entry.Model;
             view.IsTray = false;
             view.transform.SetParent(_boardView.transform, true);
-            view.transform.position = CellStackPos(coord);
             _boardView.Register(coord, view);
             _tray.Remove(entry);
             if (tutorial != null) tutorial.NotifyPlaced();
 
+            StartCoroutine(MagnetIntoCell(view, coord, cell));
+            return true;
+        }
+
+        // Glides the just-dropped stack from wherever it was released into its cell's
+        // resting spot, instead of snapping there instantly. The merge cascade only
+        // starts once it has visually arrived, so discs don't fly off before the piece
+        // has landed.
+        private IEnumerator MagnetIntoCell(StackView view, HexCoord coord, CellModel cell)
+        {
+            _activeMagnets++;
+
+            Vector3 start = view.transform.position;
+            Vector3 target = CellStackPos(coord);
+            float dist = Vector3.Distance(start, target);
+            float dur = config.magnetSpeed > 0.001f ? dist / config.magnetSpeed : 0f;
+
+            float t = 0f;
+            while (t < dur)
+            {
+                t += Time.deltaTime;
+                view.transform.position = Vector3.Lerp(start, target, Easing.OutQuad(Mathf.Clamp01(t / dur)));
+                yield return null;
+            }
+            view.transform.position = target;
+
+            _activeMagnets--;
+
             List<MergeStep> plan = _resolver.Resolve(_board.Clone(), coord, config.clearCount);
             _animator.Play(plan, OnCascadeDone);
-            return true;
         }
 
         private void OnCascadeDone()
@@ -174,34 +219,96 @@ namespace HexaTest.App
             }
         }
 
-        private void SetUpCamera()
+        // Non-camera render settings only. The camera itself (transform, projection,
+        // orthographic size, clear flags) is set up in the scene and left untouched here.
+        private void ApplyEnvironment()
         {
-            Camera cam = Camera.main;
-            if (cam == null)
-            {
-                GameObject go = new GameObject("Main Camera") { tag = "MainCamera" };
-                cam = go.AddComponent<Camera>();
-            }
-            cam.transform.position = new Vector3(0f, 11f, -10f);
-            cam.transform.rotation = Quaternion.Euler(50f, 0f, 0f);
-            cam.clearFlags = CameraClearFlags.SolidColor;
-            cam.backgroundColor = new Color(0.75f, 0.85f, 0.93f);
-            FitCameraToAspect(cam);
+            _cam = Camera.main;
+            // Required for Luna's shadow pipeline: its web renderer draws a camera depth
+            // pre-pass through each shader's SHADOWCASTER pass with NO keywords before
+            // collecting screen-space shadows. Enabling the depth texture here makes the
+            // editor exercise those keywordless caster variants during Play mode, so the
+            // Luna export records and compiles them (otherwise shadows silently vanish
+            // in the web build even though all SHADOWS_DEPTH variants are present).
+            if (_cam != null)
+                _cam.depthTextureMode |= DepthTextureMode.Depth;
 
             RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
-            RenderSettings.ambientLight = new Color(0.78f, 0.83f, 0.9f);
+            RenderSettings.ambientLight = new Color(0.72f, 0.78f, 0.86f);
+            QualitySettings.shadowDistance = 60f;
+            QualitySettings.shadowProjection = ShadowProjection.StableFit;
         }
 
-        private void FitCameraToAspect(Camera cam)
+        // A large horizontal shadow-catcher at board level so stacks cast soft shadows
+        // onto the backdrop AROUND the board (not just on the board), matching the ref.
+        // It is invisible except where a real-time shadow darkens the background beneath it.
+        private void BuildShadowGround()
         {
-            float aspect = Screen.height > 0 ? (float)Screen.width / Screen.height : cam.aspect;
-            if (aspect <= 0f) { cam.fieldOfView = 65f; return; }
+            // Luna strips shaders that are only referenced through Shader.Find, so the
+            // serialized material asset is the reliable path; Shader.Find stays as an
+            // editor-friendly fallback.
+            Material src = shadowGroundMaterial;
+            if (src == null)
+            {
+                Shader sh = Shader.Find("Hexa/ShadowGround");
+                if (sh != null) src = new Material(sh);
+            }
+            if (src == null || backgroundSprite == null) { Debug.LogWarning("[Hexa] ShadowGround material/background missing."); return; }
 
-            float boardHalfWidth = config.cellSize * (1.5f * config.boardRadius + 1f);
-            float halfW = boardHalfWidth * cameraFitMargin;
-            float dist = Vector3.Distance(cam.transform.position, Vector3.zero);
-            float fov = 2f * Mathf.Atan(halfW / (aspect * dist)) * Mathf.Rad2Deg;
-            cam.fieldOfView = Mathf.Clamp(fov, 25f, 90f);
+            // Must sit strictly below the lowest platform layer, or the two coplanar
+            // opaque surfaces z-fight and the shadowed ground wins the fight in patches,
+            // blanking out the platform's rim colors wherever a shadow lands on them.
+            float platformBottom = -config.baseLayerThickness * _assets.BaseLayerMeshes.Length;
+
+            GameObject g = GameObject.CreatePrimitive(PrimitiveType.Plane);
+            g.name = "ShadowGround";
+            Destroy(g.GetComponent<Collider>());
+            g.transform.SetParent(transform, false);
+            g.transform.position = new Vector3(0f, platformBottom - 0.05f, 0f);
+            g.transform.localScale = new Vector3(20f, 1f, 20f); // Unity plane is 10u => 200u
+
+            Material mat = new Material(src);
+            mat.mainTexture = backgroundSprite.texture;  // same image as the background => seamless
+            mat.SetFloat("_Strength", 0.45f);
+            MeshRenderer mr = g.GetComponent<MeshRenderer>();
+            mr.sharedMaterial = mat;
+            mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            mr.receiveShadows = true;
+        }
+
+        private void BuildBackground()
+        {
+            if (backgroundSprite == null || _cam == null) return;
+
+            // A screen-filling quad parented to the camera, placed far behind the board.
+            // Unlit so it is unaffected by lights/shadows, and depth-correct so the board
+            // always draws on top (the earlier ScreenSpace-Camera canvas covered the board).
+            GameObject bg = GameObject.CreatePrimitive(PrimitiveType.Quad);
+            bg.name = "Background";
+            Destroy(bg.GetComponent<Collider>());
+            bg.transform.SetParent(_cam.transform, false);
+            bg.transform.localPosition = new Vector3(0f, 0f, 50f);
+            bg.transform.localRotation = Quaternion.identity;
+
+            // Screen-UV sampling makes the visible gradient independent of the quad size,
+            // so we oversize generously to always cover the view (the aspect fitter may
+            // zoom out at runtime). No distortion results from the extra size.
+            float h = (_cam.orthographic ? _cam.orthographicSize : 20f * Mathf.Tan(_cam.fieldOfView * 0.5f * Mathf.Deg2Rad)) * 2f;
+            bg.transform.localScale = new Vector3(h * 4f, h * 3f, 1f);
+
+            Material src = backgroundMaterial;
+            if (src == null)
+            {
+                Shader bgSh = Shader.Find("Hexa/ScreenGradient");
+                if (bgSh == null) bgSh = Shader.Find("Unlit/Texture");
+                if (bgSh != null) src = new Material(bgSh);
+            }
+            if (src == null) { Debug.LogWarning("[Hexa] Background material missing."); Destroy(bg); return; }
+            Material mat = new Material(src) { mainTexture = backgroundSprite.texture };
+            MeshRenderer mr = bg.GetComponent<MeshRenderer>();
+            mr.sharedMaterial = mat;
+            mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            mr.receiveShadows = false;
         }
     }
 }

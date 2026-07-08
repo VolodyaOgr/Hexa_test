@@ -21,7 +21,7 @@ namespace HexaTest.View
         public HexAssets(GameConfig cfg, Material litMaterial = null)
         {
             DiscMesh = HexMeshBuilder.BuildRounded(cfg.DiscRadius, cfg.discThickness, cfg.discRound, cfg.cornerSegments);
-            DiscSeparatorMesh = HexMeshBuilder.BuildRounded(
+            DiscSeparatorMesh = HexMeshBuilder.BuildRoundedSideOnly(
                 cfg.DiscRadius * 1.012f,
                 cfg.discSeparatorThickness,
                 cfg.discRound,
@@ -67,9 +67,10 @@ namespace HexaTest.View
         {
             Material m = baseMat != null ? new Material(baseMat) : new Material(Shader.Find("Sprites/Default"));
             m.color = c;
-            if (m.HasProperty("_Glossiness")) m.SetFloat("_Glossiness", 0.25f);
+            if (m.HasProperty("_Glossiness")) m.SetFloat("_Glossiness", 0.42f);
             m.enableInstancing = true;
             return m;
         }
+
     }
 }
