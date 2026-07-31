@@ -969,7 +969,7 @@ MonoBehaviour:
     maxConcurrentFlips: 2
     clearDuration: 0.11
     discInterval: 0.04
-    speedRamp: 0.3
+    speedRamp: 0.02
     maxSpeed: 8
     tileColor: {r: 0.66, g: 0.76, b: 0.9, a: 1}
     palette:
@@ -984,9 +984,34 @@ MonoBehaviour:
   hud: {fileID: 6061446377732119772}
   tutorial: {fileID: 488558441}
   hexBaseMaterial: {fileID: 2100000, guid: 45ed8a9ad54484c4d868ddb861942a36, type: 2}
-  backgroundSprite: {fileID: 21300000, guid: f7d124632d5f87642bbe531f16c59783, type: 3}
   backgroundMaterial: {fileID: 2100000, guid: a4f4669ce87132540b2192c8973ae857, type: 2}
   shadowGroundMaterial: {fileID: 2100000, guid: f6174949baa38c54f97b18e6203bc2d2, type: 2}
+  backgroundSkyColors:
+  - {r: 0.45, g: 0.75, b: 0.92, a: 1}
+  backgroundDockColors:
+  - {r: 0.16, g: 0.42, b: 0.46, a: 1}
+  backgroundDockHeight01: 0.3
+  backgroundGradientSoftness01: 0.22
+  backgroundStars: 1
+  backgroundStarCount: 40
+  backgroundStarColor: {r: 1, g: 1, b: 0.92, a: 1}
+  clearVfxByColor:
+  - {fileID: 137758, guid: a67ce15f50785584d97708026f874d99, type: 3}
+  - {fileID: 106676, guid: f8232d266ed6c8043a5353ca283993ea, type: 3}
+  - {fileID: 1438902432858508, guid: 70d6dfe08ec8a1447b4822e95e56918e, type: 3}
+  - {fileID: 1170179563386922, guid: 5a28ab12a60431942ac754ec3f39c551, type: 3}
+  - {fileID: 153912, guid: 932046b7eaf3b554f8d74c81e2f00558, type: 3}
+  - {fileID: 121188, guid: 27bec7bc47f580b41b60cd2d2cac5908, type: 3}
+  - {fileID: 112506, guid: 625fd74b8294443449d2aded4ac87947, type: 3}
+  - {fileID: 120778, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
+  placeVfxPrefab: {fileID: 194666, guid: 268f984e175944440bf68fb3d316673d, type: 3}
+  endScreenPopupFrame: {fileID: 1950236017049353580, guid: b8147e19868374ba383a12cbaa398892, type: 3}
+  endScreenButtonGreen: {fileID: 1825499016186761122, guid: 9e10565277ea942469a04e8e4a29b8e8, type: 3}
+  endScreenButtonBlue: {fileID: 1266896852483600849, guid: 8ab284b5214534699984acce51873626, type: 3}
+  endScreenStarOn: {fileID: 21300000, guid: fb3d9ab77192f48d29273337d1eb43a5, type: 3}
+  endScreenStarOff: {fileID: 21300000, guid: f38098d552a984003a237adf1d93ca19, type: 3}
+  endScreenStarSparkleVfx: {fileID: 1849074136873566357, guid: b767da134f1d6419caf90850d2b1454d, type: 3}
+  endScreenAdIcon: {fileID: 21300000, guid: d535ffb65bf754dda95c3181d7389600, type: 3}
 --- !u!4 &1742542810
 Transform:
   m_ObjectHideFlags: 0

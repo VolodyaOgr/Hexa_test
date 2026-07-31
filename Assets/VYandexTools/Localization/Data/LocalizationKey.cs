@@ -9,4 +9,5 @@ public enum LocalizationKey
     next,
     level_format,
     remaining_format,
+    continue_ad_sub,
 }

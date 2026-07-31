@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1000000004
-    m_Localized: РЕКЛАМА  +МЕСТО
+    m_Localized: ПРОДОЛЖИТЬ
     m_Metadata:
       m_Items: []
   - m_Id: 1000000005
@@ -52,6 +52,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1000000009
     m_Localized: "Осталось: {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000010
+    m_Localized: смотреть рекламу
     m_Metadata:
       m_Items: []
   references:

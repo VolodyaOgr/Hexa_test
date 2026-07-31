@@ -85,8 +85,8 @@ namespace HexaTest.Config
         public float clearDuration = 0.11f;
         [Tooltip("Pause between consecutive discs in a clear.")]
         public float discInterval = 0.04f;
-        [Tooltip("Speed multiplier growth per merge step (0.30 => +30%).")]
-        public float speedRamp = 0.30f;
+        [Tooltip("Quadratic speed-ramp coefficient: multiplier = 1 + speedRamp * stepIndex^2. Small values keep short combos near normal speed and only ramp up on long cascades.")]
+        public float speedRamp = 0.02f;
         [Tooltip("Upper cap on the accumulated speed multiplier.")]
         public float maxSpeed = 8f;
 

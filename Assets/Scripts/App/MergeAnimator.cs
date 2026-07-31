@@ -13,16 +13,18 @@ namespace HexaTest.App
         private GameConfig _cfg;
         private BoardModel _board;
         private BoardView _view;
+        private GameObject[] _clearVfxByColor;
 
         public bool IsPlaying { get; private set; }
 
         private int _activeFlips;
 
-        public void Init(GameConfig cfg, BoardModel board, BoardView view)
+        public void Init(GameConfig cfg, BoardModel board, BoardView view, GameObject[] clearVfxByColor)
         {
             _cfg = cfg;
             _board = board;
             _view = view;
+            _clearVfxByColor = clearVfxByColor;
         }
 
         public void Play(System.Collections.Generic.List<MergeStep> plan, Action onComplete)
@@ -36,7 +38,10 @@ namespace HexaTest.App
 
             for (int i = 0; i < plan.Count; i++)
             {
-                float speed = Mathf.Min(Mathf.Pow(1f + _cfg.speedRamp, i), _cfg.maxSpeed);
+                // Quadratic ease-in instead of exponential: short combos stay near normal speed,
+                // the ramp only becomes noticeable on genuinely long cascades — no more slamming
+                // into the speed cap within the first handful of steps.
+                float speed = Mathf.Min(1f + _cfg.speedRamp * i * i, _cfg.maxSpeed);
 
                 if (plan[i] is TransferStep t) yield return Transfer(t, speed);
                 else if (plan[i] is ClearStep c) yield return Clear(c, speed);
@@ -125,6 +130,9 @@ namespace HexaTest.App
             for (int i = 0; i < step.Count; i++)
             {
                 Transform disc = view.RemoveTopForClear();
+                // Fire the burst as the last disc of this run actually disappears, not when the
+                // run first forms — reads as "the stack got cleared", not "pieces just touched".
+                if (i == step.Count - 1) SpawnClearVfx(disc.position, step.Color);
                 yield return Downscale(disc, dur);
                 Destroy(disc.gameObject);
 
@@ -133,6 +141,18 @@ namespace HexaTest.App
             }
 
             if (cell.IsEmpty) _view.RemoveStack(step.Cell);
+        }
+
+        private void SpawnClearVfx(Vector3 pos, HexColorId color)
+        {
+            if (_clearVfxByColor == null) return;
+            int i = (int)color;
+            if (i < 0 || i >= _clearVfxByColor.Length) return;
+            GameObject prefab = _clearVfxByColor[i];
+            if (prefab == null) return;
+            GameObject fx = Instantiate(prefab, pos, Quaternion.identity);
+            VfxTuning.Scale(fx, 0.55f, 0.7f);
+            Destroy(fx, 2f);
         }
 
         private static IEnumerator Downscale(Transform disc, float dur)

@@ -24,12 +24,41 @@ namespace HexaTest.App
 
         [Tooltip("Assign Assets/Resources/HexBaseMaterial — referenced here so Luna bundles it reliably.")]
         [SerializeField] private Material hexBaseMaterial;
-        [Tooltip("Assign back.png — full-screen gradient background drawn behind the board.")]
-        [SerializeField] private Sprite backgroundSprite;
         [Tooltip("Material asset using Hexa/ScreenGradient. A direct asset reference (not Shader.Find) is required for Luna to include the shader in the web build.")]
         [SerializeField] private Material backgroundMaterial;
         [Tooltip("Material asset using Hexa/ShadowGround. Same Luna requirement as above.")]
         [SerializeField] private Material shadowGroundMaterial;
+
+        [Header("Background (procedural — no external art)")]
+        [Tooltip("Sky color, upper part of the screen. Paired by index with backgroundDockColors; cycled by level, wrapping.")]
+        [SerializeField] private Color[] backgroundSkyColors = { new Color(0.45f, 0.75f, 0.92f) };
+        [Tooltip("Dock color, lower part of the screen where the tray sits — visually marks off the placement area.")]
+        [SerializeField] private Color[] backgroundDockColors = { new Color(0.16f, 0.42f, 0.46f) };
+        [Tooltip("How far up the screen (0=bottom edge, 1=top edge) the sky/dock gradient is centered.")]
+        [Range(0f, 1f)] [SerializeField] private float backgroundDockHeight01 = 0.30f;
+        [Tooltip("How wide the smooth transition between sky and dock color is, as a fraction of screen height.")]
+        [Range(0.02f, 0.6f)] [SerializeField] private float backgroundGradientSoftness01 = 0.22f;
+        [Tooltip("Twinkling star/sparkle particles drifting over the background.")]
+        [SerializeField] private bool backgroundStars = true;
+        [SerializeField] private int backgroundStarCount = 40;
+        [SerializeField] private Color backgroundStarColor = new Color(1f, 1f, 0.92f);
+
+        [Header("VFX (particle prefabs)")]
+        [Tooltip("One burst prefab per palette color, indexed the same as config.palette — played once per stack clear.")]
+        [SerializeField] private GameObject[] clearVfxByColor;
+        [Tooltip("Played once at the cell when a tray piece lands.")]
+        [SerializeField] private GameObject placeVfxPrefab;
+
+        [Header("End screens (win/lose popup art)")]
+        [SerializeField] private GameObject endScreenPopupFrame;
+        [SerializeField] private GameObject endScreenButtonGreen;
+        [SerializeField] private GameObject endScreenButtonBlue;
+        [SerializeField] private Sprite endScreenStarOn;
+        [SerializeField] private Sprite endScreenStarOff;
+        [Tooltip("UI-space particle burst played behind each earned star as it pops in.")]
+        [SerializeField] private GameObject endScreenStarSparkleVfx;
+        [Tooltip("Small ad icon badge shown on the rewarded-ad continue button.")]
+        [SerializeField] private Sprite endScreenAdIcon;
 
         private const int TraySlots = 3;
 
@@ -99,9 +128,10 @@ namespace HexaTest.App
             ApplyEnvironment();
             BuildBackground();
             BuildShadowGround();
+            BuildBackgroundStars();
 
             _animator = gameObject.AddComponent<MergeAnimator>();
-            _animator.Init(config, _board, _boardView);
+            _animator.Init(config, _board, _boardView, clearVfxByColor);
 
             // Tutorial only on Level 1: simpler UX, avoids logic confusion on later levels.
             if (tutorial != null && _level == 1)
@@ -124,11 +154,22 @@ namespace HexaTest.App
             _goalHud.SetTimerRemaining(1f);
             RefreshGoal();
 
+            var endScreenAssets = new EndScreenAssets
+            {
+                PopupFrame = endScreenPopupFrame,
+                ButtonGreen = endScreenButtonGreen,
+                ButtonBlue = endScreenButtonBlue,
+                StarOn = endScreenStarOn,
+                StarOff = endScreenStarOff,
+                StarSparkleVfx = endScreenStarSparkleVfx,
+                AdIcon = endScreenAdIcon,
+            };
+
             _overView = gameObject.AddComponent<GameOverView>();
-            _overView.Init(Restart, ContinueWithReward);
+            _overView.Init(Restart, ContinueWithReward, endScreenAssets);
 
             _completeView = gameObject.AddComponent<LevelCompleteView>();
-            _completeView.Init(NextLevel);
+            _completeView.Init(NextLevel, endScreenAssets);
 
             GaEventProvider.ProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Start, Metric("Level"), Metric(_level.ToString()));
             SafeGameStart();
@@ -281,15 +322,13 @@ namespace HexaTest.App
             if (_completeView != null) _completeView.Show(_level, stars);
         }
 
-        // Stars reward efficiency: 3 if a good chunk of the bag was left unused, down to 1.
+        // Stars reward speed: how much of the level's allotted time got used.
+        // <50% => 3 stars, 50-80% => 2 stars, >80% => 1 star.
         private int ComputeStars()
         {
-            int bagTotal = _spec.Bag.Count;
-            int used = bagTotal - _bag.Count - _tray.Count;
-            if (bagTotal <= 0) return 3;
-            float usedRatio = (float)used / bagTotal;
-            if (usedRatio <= 0.7f) return 3;
-            if (usedRatio <= 0.9f) return 2;
+            float used01 = _levelTimerStarted ? _levelTimer.Progress01 : 0f;
+            if (used01 < 0.5f) return 3;
+            if (used01 <= 0.8f) return 2;
             return 1;
         }
 
@@ -444,6 +483,13 @@ namespace HexaTest.App
             }
             view.transform.position = target;
 
+            if (placeVfxPrefab != null)
+            {
+                GameObject fx = Instantiate(placeVfxPrefab, target, Quaternion.identity);
+                VfxTuning.Scale(fx, 0.6f, 0.8f);
+                Destroy(fx, 2f);
+            }
+
             _activeMagnets--;
 
             List<MergeStep> plan = _resolver.Resolve(_board.Clone(), coord, config.clearCount);
@@ -471,6 +517,47 @@ namespace HexaTest.App
             QualitySettings.shadowProjection = ShadowProjection.StableFit;
         }
 
+        private Texture2D _backgroundTex;
+
+        // Smooth vertical gradient backdrop instead of stock art: sky color up top blending
+        // into a "dock" color toward the bottom, no hard edge. A tall, 1px-wide texture with
+        // bilinear filtering interpolates perfectly smoothly regardless of resolution — no
+        // pixelation. Generated once per level and reused by BuildShadowGround so the ground
+        // stays seamless with it (same texture, same screen-space UV sampling).
+        private Texture2D CurrentBackgroundTexture()
+        {
+            if (_backgroundTex != null) return _backgroundTex;
+
+            Color sky = PickCycled(backgroundSkyColors, _level, new Color(0.45f, 0.75f, 0.92f));
+            Color dock = PickCycled(backgroundDockColors, _level, new Color(0.16f, 0.42f, 0.46f));
+
+            const int h = 256;
+            var tex = new Texture2D(1, h, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
+
+            float center = backgroundDockHeight01;
+            float half = Mathf.Max(0.001f, backgroundGradientSoftness01 * 0.5f);
+
+            var pixels = new Color[h];
+            for (int y = 0; y < h; y++)
+            {
+                float v = (float)y / (h - 1); // 0 = bottom of screen, 1 = top
+                float t = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(center - half, center + half, v));
+                pixels[y] = Color.Lerp(dock, sky, t);
+            }
+            tex.SetPixels(pixels);
+            tex.Apply(false, false);
+
+            _backgroundTex = tex;
+            return tex;
+        }
+
+        private static Color PickCycled(Color[] colors, int level, Color fallback)
+        {
+            if (colors == null || colors.Length == 0) return fallback;
+            int i = ((level - 1) % colors.Length + colors.Length) % colors.Length;
+            return colors[i];
+        }
+
         // A large horizontal shadow-catcher at board level so stacks cast soft shadows
         // onto the backdrop AROUND the board (not just on the board), matching the ref.
         // It is invisible except where a real-time shadow darkens the background beneath it.
@@ -485,7 +572,8 @@ namespace HexaTest.App
                 Shader sh = Shader.Find("Hexa/ShadowGround");
                 if (sh != null) src = new Material(sh);
             }
-            if (src == null || backgroundSprite == null) { Debug.LogWarning("[Hexa] ShadowGround material/background missing."); return; }
+            Texture2D bgTex = CurrentBackgroundTexture();
+            if (src == null || bgTex == null) { Debug.LogWarning("[Hexa] ShadowGround material/background missing."); return; }
 
             // Must sit strictly below the lowest platform layer, or the two coplanar
             // opaque surfaces z-fight and the shadowed ground wins the fight in patches,
@@ -501,7 +589,7 @@ namespace HexaTest.App
             g.transform.localScale = new Vector3(20f, 1f, 20f); // Unity plane is 10u => 200u
 
             Material mat = new Material(src);
-            mat.mainTexture = backgroundSprite.texture;  // same image as the background => seamless
+            mat.mainTexture = bgTex;  // same image as the background => seamless
             mat.SetFloat("_Strength", 0.45f);
             MeshRenderer mr = g.GetComponent<MeshRenderer>();
             mr.sharedMaterial = mat;
@@ -511,7 +599,8 @@ namespace HexaTest.App
 
         private void BuildBackground()
         {
-            if (backgroundSprite == null || _cam == null) return;
+            Texture2D bgTex = CurrentBackgroundTexture();
+            if (bgTex == null || _cam == null) return;
 
             // A screen-filling quad parented to the camera, placed far behind the board.
             // Unlit so it is unaffected by lights/shadows, and depth-correct so the board
@@ -538,11 +627,63 @@ namespace HexaTest.App
                 if (bgSh != null) src = new Material(bgSh);
             }
             if (src == null) { Debug.LogWarning("[Hexa] Background material missing."); Destroy(bg); return; }
-            Material mat = new Material(src) { mainTexture = backgroundSprite.texture };
+            Material mat = new Material(src) { mainTexture = bgTex };
             MeshRenderer mr = bg.GetComponent<MeshRenderer>();
             mr.sharedMaterial = mat;
             mr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             mr.receiveShadows = false;
+        }
+
+        // Ambient twinkling stars scattered over the background, behind the board (depth-tested
+        // against the board's opaque geometry, same trick BuildBackground relies on). Uses
+        // Unity's built-in default particle material — no external art.
+        private void BuildBackgroundStars()
+        {
+            if (!backgroundStars || backgroundStarCount <= 0 || _cam == null) return;
+
+            GameObject stars = new GameObject("BackgroundStars");
+            stars.layer = 0;
+            stars.transform.SetParent(_cam.transform, false);
+            stars.transform.localPosition = new Vector3(0f, 0f, 49.5f); // in front of the bg quad (z=50)
+
+            float h = (_cam.orthographic ? _cam.orthographicSize : 20f * Mathf.Tan(_cam.fieldOfView * 0.5f * Mathf.Deg2Rad)) * 2f;
+
+            ParticleSystem ps = stars.AddComponent<ParticleSystem>();
+            ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+            ParticleSystem.MainModule main = ps.main;
+            main.loop = true;
+            main.startLifetime = 22f;
+            main.startSpeed = 0f;
+            main.startSize = new ParticleSystem.MinMaxCurve(0.02f, 0.06f);
+            main.startColor = backgroundStarColor;
+            main.simulationSpace = ParticleSystemSimulationSpace.Local;
+            main.maxParticles = Mathf.Max(1, backgroundStarCount * 2);
+
+            ParticleSystem.EmissionModule emission = ps.emission;
+            emission.rateOverTime = backgroundStarCount / main.startLifetime.constant;
+
+            ParticleSystem.ShapeModule shape = ps.shape;
+            shape.shapeType = ParticleSystemShapeType.Box;
+            shape.scale = new Vector3(h * 3.2f, h * 2.2f, 0.01f);
+
+            // Size pulses through several full cycles across each particle's lifetime, and since
+            // particles spawn at different times their pulses land out of phase — reads as an
+            // organic shimmer rather than a synchronized blink.
+            var twinkle = new AnimationCurve();
+            const int cycles = 6;
+            const int steps = cycles * 4;
+            for (int i = 0; i <= steps; i++)
+            {
+                float t = (float)i / steps;
+                float v = 0.25f + 0.75f * (0.5f + 0.5f * Mathf.Sin(t * cycles * Mathf.PI * 2f));
+                twinkle.AddKey(t, v);
+            }
+            ParticleSystem.SizeOverLifetimeModule sizeOverLifetime = ps.sizeOverLifetime;
+            sizeOverLifetime.enabled = true;
+            sizeOverLifetime.size = new ParticleSystem.MinMaxCurve(1f, twinkle);
+
+            ps.Play();
         }
 
         private static void Shuffle<T>(IList<T> list)
