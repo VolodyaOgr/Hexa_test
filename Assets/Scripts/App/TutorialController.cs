@@ -140,13 +140,15 @@ namespace HexaTest.App
 
         private Vector3? FindTargetCell()
         {
+            // Pick the first empty cell in order (stable, always the same spot on L1).
+            // Ordered by: Q ascending, then R ascending (top-left to bottom-right in axial coords).
             CellModel best = null;
-            float bestSqr = float.MaxValue;
+            int bestKey = int.MaxValue;
             foreach (CellModel cell in _board.Cells)
             {
                 if (!cell.IsEmpty) continue;
-                float sqr = cell.Coord.ToWorld(_cfg.cellSize).sqrMagnitude;
-                if (sqr < bestSqr) { bestSqr = sqr; best = cell; }
+                int key = cell.Coord.Q * 1000 + cell.Coord.R;  // Deterministic ordering
+                if (key < bestKey) { bestKey = key; best = cell; }
             }
             if (best == null) return null;
 

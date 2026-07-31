@@ -62,6 +62,18 @@ namespace HexaTest.Config
         public float trayDistance = 7f;
         public float traySpacing = 2.4f;
 
+        [Header("Level timer")]
+        [Tooltip("Fixed seconds added to the timer on level 1 before per-piece time.")]
+        public float timerStartBonusSeconds = 28f;
+        [Tooltip("Fixed seconds added to the timer on pressured late levels before per-piece time.")]
+        public float timerEndBonusSeconds = 8f;
+        [Tooltip("Seconds per bag piece on level 1. Early levels should feel almost untimed.")]
+        public float timerStartSecondsPerPiece = 24f;
+        [Tooltip("Seconds per bag piece on pressured late levels.")]
+        public float timerEndSecondsPerPiece = 8f;
+        [Tooltip("Level at which the timer reaches its late-game pressure values.")]
+        public int timerFullPressureLevel = 25;
+
         [Header("Merge animation")]
         [Tooltip("Seconds to flip one disc onto a neighbor at speed x1.")]
         public float flipDuration = 0.24f;

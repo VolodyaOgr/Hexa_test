@@ -1,10 +1,14 @@
 {
   "dependencies": {
+    "com.blackbox.kimicuyandexgames": "https://github.com/21Vladimir21/KimicuYandexGames.git",
+    "com.ivanmurzak.unity.mcp": "0.81.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "9.1.1",
     "com.unity.collab-proxy": "2.12.4",
     "com.unity.feature.development": "1.0.1",
-    "com.unity.playworks.upp": "file:C:/Users/kosty/Downloads/7.2.0/scripts",
+    "com.unity.localization": "1.5.7",
+    "com.unity.nuget.newtonsoft-json": "3.2.1",
+    "com.unity.recorder": "4.0.3",
     "com.unity.textmeshpro": "3.0.7",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.4",
@@ -39,5 +43,19 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.ivanmurzak",
+        "extensions.unity",
+        "org.nuget.com.ivanmurzak",
+        "org.nuget.microsoft",
+        "org.nuget.system",
+        "org.nuget.r3"
+      ]
+    }
+  ]
 }

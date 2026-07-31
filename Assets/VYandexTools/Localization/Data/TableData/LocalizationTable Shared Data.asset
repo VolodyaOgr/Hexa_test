@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: LocalizationTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: LocalizationTable
+  m_TableCollectionNameGuidString: cff4782b823810c4897fd83cc4769813
+  m_Entries:
+  - m_Id: 1000000001
+    m_Key: game_over_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000002
+    m_Key: score_format
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000003
+    m_Key: best_format
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000004
+    m_Key: continue_ad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000005
+    m_Key: restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000006
+    m_Key: level_complete_format
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000007
+    m_Key: next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000008
+    m_Key: level_format
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000009
+    m_Key: remaining_format
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7506090502764101656
+  references:
+    version: 2
+    RefIds:
+    - rid: 7506090502764101656
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1785056333182
