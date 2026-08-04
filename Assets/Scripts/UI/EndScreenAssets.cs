@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace HexaTest.UI
@@ -14,5 +15,10 @@ namespace HexaTest.UI
         public Sprite StarOff;
         public GameObject StarSparkleVfx;
         public Sprite AdIcon;
+
+        // Cyrillic-capable TMP font asset for text built directly from code (not sourced from a
+        // prefab's own TextMeshProUGUI). Unity's built-in legacy WebGL font has no Cyrillic glyphs,
+        // so any code-created label that can show Russian text needs this instead.
+        public TMP_FontAsset HudFont;
     }
 }

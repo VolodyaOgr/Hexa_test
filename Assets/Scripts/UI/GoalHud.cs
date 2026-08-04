@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,23 +6,30 @@ namespace HexaTest.UI
 {
     /// <summary>
     /// Top-of-screen goal readout for the "clear the board" objective: current level, a progress
-    /// bar (cleared / total starting hexes) and the remaining-hex count. Built from code with the
-    /// built-in font, like the rest of this project's UI, so it needs no scene wiring and always
-    /// renders in a WebGL build.
+    /// bar (cleared / total starting hexes) and the remaining-hex count. Built from code, like the
+    /// rest of this project's UI, so it needs no scene wiring and always renders in a WebGL build.
+    /// Uses TextMeshPro with an explicit font asset (not Unity's built-in legacy font) because the
+    /// built-in WebGL font has no Cyrillic glyphs — Russian text would render as blank/missing
+    /// characters otherwise.
     /// </summary>
     public sealed class GoalHud : MonoBehaviour
     {
         private const float ReferenceWidth = 1080f;
         private const float ReferenceHeight = 1920f;
 
-        private Text _levelText;
-        private Text _remainText;
+        private TextMeshProUGUI _levelText;
+        private TextMeshProUGUI _remainText;
         private RectTransform _fill;
+        private GameObject _canvasGo;
+        private TMP_FontAsset _font;
 
-        public void Build()
+        public void Build(TMP_FontAsset font = null)
         {
+            _font = font;
+
             GameObject canvasGo = new GameObject("GoalHudCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             canvasGo.transform.SetParent(transform, false);
+            _canvasGo = canvasGo;
 
             Canvas canvas = canvasGo.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -54,6 +62,15 @@ namespace HexaTest.UI
             _fill.offsetMax = new Vector2(4f, -4f);
         }
 
+        /// <summary>
+        /// Hides the HUD while a Game Over / Level Complete popup is up, so its level/remaining/timer
+        /// text doesn't render behind (and visually clash with) the popup's own text.
+        /// </summary>
+        public void SetVisible(bool visible)
+        {
+            if (_canvasGo != null) _canvasGo.SetActive(visible);
+        }
+
         public void SetLevel(int level)
         {
             if (_levelText != null)
@@ -84,9 +101,9 @@ namespace HexaTest.UI
                 : Color.Lerp(danger, warning, Mathf.InverseLerp(0f, 0.35f, amount));
         }
 
-        private static Text CreateLabel(Transform parent, string name, Vector2 anchoredPos, int fontSize, string value)
+        private TextMeshProUGUI CreateLabel(Transform parent, string name, Vector2 anchoredPos, int fontSize, string value)
         {
-            GameObject go = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+            GameObject go = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(TextMeshProUGUI));
             go.transform.SetParent(parent, false);
 
             RectTransform rect = go.GetComponent<RectTransform>();
@@ -95,13 +112,13 @@ namespace HexaTest.UI
             rect.anchoredPosition = anchoredPos;
             rect.sizeDelta = new Vector2(900f, fontSize + 24f);
 
-            Text text = go.GetComponent<Text>();
-            text.font = UiFont.Builtin;
+            TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+            if (_font != null) text.font = _font;
             text.fontSize = fontSize;
-            text.alignment = TextAnchor.MiddleCenter;
+            text.alignment = TextAlignmentOptions.Center;
             text.color = Color.white;
-            text.horizontalOverflow = HorizontalWrapMode.Overflow;
-            text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.enableWordWrapping = false;
+            text.overflowMode = TextOverflowModes.Overflow;
             text.raycastTarget = false;
             text.text = value;
             return text;

@@ -21,8 +21,8 @@ namespace HexaTest.UI
         private GameObject _root;
         private CanvasGroup _dimGroup;
         private RectTransform _panelRect;
-        private Text _scoreText;
-        private Text _bestText;
+        private TextMeshProUGUI _scoreText;
+        private TextMeshProUGUI _bestText;
         private Action _onRestart;
         private Action _onContinue;
         private Button _continueButton;
@@ -158,9 +158,9 @@ namespace HexaTest.UI
                 img.preserveAspect = true;
             }
 
-            _scoreText = CreateLabel(_panelRect, "Score", new Vector2(0f, -50f), 60,
+            _scoreText = CreateTmpLabel(_panelRect, "Score", new Vector2(0f, -50f), 60,
                 Loc.Format(LocalizationKey.score_format, "SCORE  {0}", 0));
-            _bestText = CreateLabel(_panelRect, "Best", new Vector2(0f, -130f), 48,
+            _bestText = CreateTmpLabel(_panelRect, "Best", new Vector2(0f, -130f), 48,
                 Loc.Format(LocalizationKey.best_format, "BEST  {0}", 0));
 
             // Continue: primary label ("CONTINUE") plus a smaller "ad required" subtitle and an
@@ -289,6 +289,32 @@ namespace HexaTest.UI
             text.color = Color.white;
             text.horizontalOverflow = HorizontalWrapMode.Overflow;
             text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.raycastTarget = false;
+            text.text = value;
+            return text;
+        }
+
+        // TMP variant for text that can contain Cyrillic (score/best): Unity's built-in legacy
+        // WebGL font used by CreateLabel above has no Cyrillic glyphs, so RU text would render
+        // with the letters silently dropped (digits/punctuation only).
+        private TextMeshProUGUI CreateTmpLabel(Transform parent, string name, Vector2 anchoredPos, int fontSize, string value)
+        {
+            GameObject go = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(TextMeshProUGUI));
+            go.transform.SetParent(parent, false);
+
+            RectTransform rect = go.GetComponent<RectTransform>();
+            rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.anchoredPosition = anchoredPos;
+            rect.sizeDelta = new Vector2(760f, fontSize + 30f);
+
+            TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+            if (_assets != null && _assets.HudFont != null) text.font = _assets.HudFont;
+            text.fontSize = fontSize;
+            text.alignment = TextAlignmentOptions.Center;
+            text.color = Color.white;
+            text.enableWordWrapping = false;
+            text.overflowMode = TextOverflowModes.Overflow;
             text.raycastTarget = false;
             text.text = value;
             return text;

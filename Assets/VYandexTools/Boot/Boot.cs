@@ -1,10 +1,12 @@
 using System.Collections;
 using Agava.YandexGames;
 using GameAnalyticsSDK;
+using HexaTest.UI;
 using Kimicu.YandexGames;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using Billing = Kimicu.YandexGames.Billing;
 using WebApplication = Kimicu.YandexGames.WebApplication;
@@ -27,15 +29,28 @@ namespace DefaultNamespace.Yandex
 
 #endif
         private bool _billingSuccses;
+        private BootLoadingScreen _loadingScreen;
 
         private IEnumerator Start()
         {
+            _loadingScreen = BootLoadingScreen.Show();
+
             yield return YandexGamesSdk.Initialize();
+            _loadingScreen?.SetProgress(0.15f);
 #if UNITY_WEBGL && !UNITY_EDITOR
             yield return Cloud.Initialize();
 #endif
+            _loadingScreen?.SetProgress(0.3f);
+
             yield return LocalizationSettings.InitializationOperation;
             SetLanguage();
+            _loadingScreen?.SetProgress(0.4f);
+
+            // Start loading the selected locale's string table right away so it can finish
+            // loading in the background while the rest of Boot runs. On WebGL the game UI
+            // (Loc.cs) reads strings synchronously via WaitForCompletion, which is not
+            // supported on WebGL, so the table must already be loaded before any UI is built.
+            var localizationTableOperation = LocalizationSettings.StringDatabase.GetTableAsync(Loc.TableName);
 
             Advertisement.Initialize();
             WebApplication.Initialize(OnStopGame);
@@ -44,13 +59,29 @@ namespace DefaultNamespace.Yandex
             yield return RunWithTimeout(WaitUntilRoutine(() => GameAnalytics.Initialized), BootStepTimeoutSeconds);
             yield return RunWithTimeout(WaitUntilRoutine(GameAnalytics.IsRemoteConfigsReady), BootStepTimeoutSeconds);
 #endif
+            _loadingScreen?.SetProgress(0.5f);
+
             yield return RunWithTimeout(Billing.Initialize(), BootStepTimeoutSeconds);
+            _loadingScreen?.SetProgress(0.7f);
+
             if (Billing.Initialized)
                 yield return RunWithTimeout(Consume(), BootStepTimeoutSeconds);
+            _loadingScreen?.SetProgress(0.8f);
 
             SaveSystem.Instance.Init();
             Advertisement.ShowInterstitialAd();
+            _loadingScreen?.SetProgress(0.85f);
+
+            yield return RunWithTimeout(WaitForOperation(localizationTableOperation), BootStepTimeoutSeconds);
+            _loadingScreen?.SetProgress(0.9f);
+
             LoadScene();
+        }
+
+        private static IEnumerator WaitForOperation(AsyncOperationHandle handle)
+        {
+            if (!handle.IsDone)
+                yield return handle;
         }
 
         private IEnumerator Consume()
@@ -137,7 +168,13 @@ namespace DefaultNamespace.Yandex
         }
 
 
-        private void LoadScene() => SceneManager.LoadScene(sceneBuildIndex: 1);
+        private void LoadScene()
+        {
+            if (_loadingScreen != null)
+                StartCoroutine(_loadingScreen.LoadTargetScene(sceneBuildIndex: 1, progressFrom: 0.9f));
+            else
+                SceneManager.LoadScene(sceneBuildIndex: 1);
+        }
 
 
         internal enum PurchaseIndexes

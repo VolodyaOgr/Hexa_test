@@ -1,5 +1,15 @@
 [
   {
+    "description": "Отключает показ рекламы.",
+    "id": "NoAD",
+    "imageURI": "//yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png",
+    "price": "49 YAN",
+    "priceCurrencyCode": "YAN",
+    "priceValue": "49",
+    "priceCurrencyPicture": "//yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png",
+    "title": "Без рекламы"
+  },
+  {
     "description": "Валюта для покупки предметов в магазине.",
     "id": "coins_1000_example",
     "imageURI": "//yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png",

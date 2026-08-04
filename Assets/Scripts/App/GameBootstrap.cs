@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using HexaTest.Config;
@@ -59,6 +60,10 @@ namespace HexaTest.App
         [SerializeField] private GameObject endScreenStarSparkleVfx;
         [Tooltip("Small ad icon badge shown on the rewarded-ad continue button.")]
         [SerializeField] private Sprite endScreenAdIcon;
+        [Tooltip("Cyrillic-capable TMP font asset for HUD/score text built directly from code. " +
+                 "Unity's built-in legacy WebGL font has no Cyrillic glyphs, so Russian text on the " +
+                 "goal HUD and the Game Over score/best labels needs this instead.")]
+        [SerializeField] private TMP_FontAsset hudFontAsset;
 
         private const int TraySlots = 3;
 
@@ -149,7 +154,7 @@ namespace HexaTest.App
             if (hud != null) hud.gameObject.SetActive(false);
 
             _goalHud = gameObject.AddComponent<GoalHud>();
-            _goalHud.Build();
+            _goalHud.Build(hudFontAsset);
             _goalHud.SetLevel(_level);
             _goalHud.SetTimerRemaining(1f);
             RefreshGoal();
@@ -163,6 +168,7 @@ namespace HexaTest.App
                 StarOff = endScreenStarOff,
                 StarSparkleVfx = endScreenStarSparkleVfx,
                 AdIcon = endScreenAdIcon,
+                HudFont = hudFontAsset,
             };
 
             _overView = gameObject.AddComponent<GameOverView>();
@@ -319,6 +325,7 @@ namespace HexaTest.App
 
             GaEventProvider.ProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Complete, Metric("Level"), Metric(_level.ToString()));
 
+            if (_goalHud != null) _goalHud.SetVisible(false);
             if (_completeView != null) _completeView.Show(_level, stars);
         }
 
@@ -351,6 +358,7 @@ namespace HexaTest.App
             if (tutorial != null) tutorial.StopForever();
             SaveBest(_score);
             GaEventProvider.ProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Fail, Metric("Level"), Metric(_level.ToString()));
+            if (_goalHud != null) _goalHud.SetVisible(false);
             if (_overView != null) _overView.Show(_score, LoadBest(), continueAvailable);
         }
 
@@ -378,12 +386,48 @@ namespace HexaTest.App
             ClearSomeCells(6);
             _levelOver = false;
             if (_levelTimerStarted) _levelTimer.Begin(Mathf.Max(1f, _levelTimerDuration * 0.35f));
-            if (_goalHud != null) _goalHud.SetTimerRemaining(_levelTimer.Remaining01);
+            if (_goalHud != null)
+            {
+                _goalHud.SetTimerRemaining(_levelTimer.Remaining01);
+                _goalHud.SetVisible(true);
+            }
             SafeGameStart();
             if (_overView != null) _overView.Hide();
+
+            // A continue must always leave the player with something to place. If the level was
+            // lost by running out of bag pieces (not a placement deadlock), clearing board space
+            // alone changes nothing — EvaluateEnd would immediately re-trigger GameOver against the
+            // still-empty tray/bag, bouncing the player straight back to the loss screen.
+            if (_bag.Count == 0 && _tray.Count == 0)
+                RefillBagForContinue();
+
             FillTray();
             RefreshGoal();
             EvaluateEnd();
+        }
+
+        // Tops up the bag with a handful of single-disc pieces, colored from whatever's already on
+        // the board (falls back to the level palette if the board is somehow empty), so the pieces
+        // are likely to merge with existing stacks instead of just taking up space.
+        private void RefillBagForContinue()
+        {
+            var colors = new List<HexColorId>();
+            foreach (CellModel c in _board.Cells)
+                if (!c.IsEmpty && !colors.Contains(c.Stack.TopColor))
+                    colors.Add(c.Stack.TopColor);
+
+            if (colors.Count == 0)
+            {
+                int paletteCount = Mathf.Max(1, config.palette.Length);
+                for (int i = 0; i < paletteCount; i++)
+                    colors.Add((HexColorId)i);
+            }
+
+            for (int i = 0; i < TraySlots; i++)
+            {
+                HexColorId color = colors[Random.Range(0, colors.Count)];
+                _bag.Enqueue(new LevelPiece(new List<HexColorId> { color }));
+            }
         }
 
         private void ClearSomeCells(int count)

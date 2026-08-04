@@ -9,7 +9,7 @@ namespace HexaTest.UI
     /// </summary>
     public static class Loc
     {
-        private const string TableName = "LocalizationTable";
+        internal const string TableName = "LocalizationTable";
         private const string EmptyLocaleCode = "em";
 
         public static bool IsEmptyLocale

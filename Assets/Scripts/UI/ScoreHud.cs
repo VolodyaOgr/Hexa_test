@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,19 +7,22 @@ namespace HexaTest.UI
     /// <summary>
     /// Minimal endless-mode score readout, built entirely from code (like the rest of
     /// this project's UI) so it needs no scene wiring. Shows the current run's score and
-    /// the saved best. Uses a legacy <see cref="Text"/> with Unity's built-in font so it
-    /// always renders in a WebGL build without depending on imported TMP essentials.
+    /// the saved best. Uses TextMeshPro with an explicit font asset (not Unity's built-in
+    /// legacy font) because the built-in WebGL font has no Cyrillic glyphs.
     /// </summary>
     public sealed class ScoreHud : MonoBehaviour
     {
         private const float ReferenceWidth = 1080f;
         private const float ReferenceHeight = 1920f;
 
-        private Text _scoreText;
-        private Text _bestText;
+        private TextMeshProUGUI _scoreText;
+        private TextMeshProUGUI _bestText;
+        private TMP_FontAsset _font;
 
-        public void Build()
+        public void Build(TMP_FontAsset font = null)
         {
+            _font = font;
+
             GameObject canvasGo = new GameObject("ScoreHudCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             canvasGo.transform.SetParent(transform, false);
 
@@ -31,8 +35,8 @@ namespace HexaTest.UI
             scaler.referenceResolution = new Vector2(ReferenceWidth, ReferenceHeight);
             scaler.matchWidthOrHeight = 0.5f;
 
-            _scoreText = CreateLabel(canvasGo.transform, "Score", new Vector2(0f, -120f), 96, TextAnchor.MiddleCenter);
-            _bestText = CreateLabel(canvasGo.transform, "Best", new Vector2(0f, -220f), 48, TextAnchor.MiddleCenter);
+            _scoreText = CreateLabel(canvasGo.transform, "Score", new Vector2(0f, -120f), 96);
+            _bestText = CreateLabel(canvasGo.transform, "Best", new Vector2(0f, -220f), 48);
 
             Set(0, 0);
         }
@@ -43,9 +47,9 @@ namespace HexaTest.UI
             if (_bestText != null) _bestText.text = Loc.Format(LocalizationKey.best_format, "BEST  {0}", best);
         }
 
-        private static Text CreateLabel(Transform parent, string name, Vector2 anchoredPos, int fontSize, TextAnchor align)
+        private TextMeshProUGUI CreateLabel(Transform parent, string name, Vector2 anchoredPos, int fontSize)
         {
-            GameObject go = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+            GameObject go = new GameObject(name, typeof(RectTransform), typeof(CanvasRenderer), typeof(TextMeshProUGUI));
             go.transform.SetParent(parent, false);
 
             RectTransform rect = go.GetComponent<RectTransform>();
@@ -54,13 +58,13 @@ namespace HexaTest.UI
             rect.anchoredPosition = anchoredPos;
             rect.sizeDelta = new Vector2(900f, fontSize + 24f);
 
-            Text text = go.GetComponent<Text>();
-            text.font = UiFont.Builtin;
+            TextMeshProUGUI text = go.GetComponent<TextMeshProUGUI>();
+            if (_font != null) text.font = _font;
             text.fontSize = fontSize;
-            text.alignment = align;
+            text.alignment = TextAlignmentOptions.Center;
             text.color = Color.white;
-            text.horizontalOverflow = HorizontalWrapMode.Overflow;
-            text.verticalOverflow = VerticalWrapMode.Overflow;
+            text.enableWordWrapping = false;
+            text.overflowMode = TextOverflowModes.Overflow;
             text.raycastTarget = false;
             return text;
         }

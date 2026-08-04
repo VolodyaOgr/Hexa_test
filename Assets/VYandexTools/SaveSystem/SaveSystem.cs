@@ -64,6 +64,25 @@ public class SaveSystem : Singleton<SaveSystem>
         return saveData;
     }
 
+    /// <summary>
+    /// Полный сброс прогресса — для тестирования (см. <see cref="SaveResetCheat"/>).
+    /// Сбрасывает кэш в памяти И хранилище (Cloud в WebGL-билде, PlayerPrefs в редакторе —
+    /// та же ветка, что и обычное сохранение). Сброс кэша обязателен: без него ближайший
+    /// автосейв через SavingPeriod секунд просто запишет старые данные обратно.
+    /// </summary>
+    public static void ResetAllData()
+    {
+        cachedSaveData = new PlayerSaveData
+        {
+            Level = 1,
+        };
+        IsDataLoaded = true;
+        lastSavedJson = null;
+
+        SaveCurrent();
+        Debug.Log("[SaveSystem] Save data was reset.");
+    }
+
     public void SaveToStorage()
     {
         SaveCurrent();
