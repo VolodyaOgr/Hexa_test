@@ -710,6 +710,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4412576098970319050}
     m_Modifications:
+    - target: {fileID: 2225471018521170356, guid: d9c222f21b95963479c6db496c5e505d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2225471018521170356, guid: d9c222f21b95963479c6db496c5e505d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2225471018521170356, guid: d9c222f21b95963479c6db496c5e505d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3979892252336140641, guid: d9c222f21b95963479c6db496c5e505d, type: 3}
       propertyPath: m_Name
       value: NoAdsButton
