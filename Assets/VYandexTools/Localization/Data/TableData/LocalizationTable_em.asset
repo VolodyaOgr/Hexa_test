@@ -58,6 +58,18 @@ MonoBehaviour:
     m_Localized:
     m_Metadata:
       m_Items: []
+  - m_Id: 1000000011
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000012
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000013
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

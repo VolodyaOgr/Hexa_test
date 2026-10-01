@@ -151,7 +151,7 @@ namespace HexaTest.App
                 () => { if (tutorial != null) tutorial.NotifyDropFailed(); });
 
             // Endless mode's countdown HUD is gone; hide the old timer HUD and drive the goal readout.
-            if (hud != null) hud.gameObject.SetActive(false);
+            if (hud != null) HideTimerHud();
 
             _goalHud = gameObject.AddComponent<GoalHud>();
             _goalHud.Build(hudFontAsset);
@@ -327,6 +327,26 @@ namespace HexaTest.App
 
             if (_goalHud != null) _goalHud.SetVisible(false);
             if (_completeView != null) _completeView.Show(_level, stars);
+        }
+
+        // The old timer HUD is hidden, but its canvas also hosts the NoAds button (and must stay
+        // visible), so deactivating the whole hud object would remove that button from the game.
+        private void HideTimerHud()
+        {
+            hud.enabled = false;
+
+            Canvas canvas = hud.GetComponentInChildren<Canvas>(true);
+            Transform keep = canvas != null && canvas.GetComponentInChildren<NoAdButton>(true) != null
+                ? canvas.GetComponentInChildren<NoAdButton>(true).transform
+                : null;
+            if (keep == null)
+            {
+                hud.gameObject.SetActive(false);
+                return;
+            }
+
+            foreach (Transform child in canvas.transform)
+                if (child != keep) child.gameObject.SetActive(false);
         }
 
         // Stars reward speed: how much of the level's allotted time got used.

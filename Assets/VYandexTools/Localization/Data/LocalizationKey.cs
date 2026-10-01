@@ -10,4 +10,7 @@ public enum LocalizationKey
     level_format,
     remaining_format,
     continue_ad_sub,
+    review_title,
+    review_description,
+    review_button,
 }

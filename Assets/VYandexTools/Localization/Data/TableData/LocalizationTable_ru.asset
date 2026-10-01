@@ -58,6 +58,18 @@ MonoBehaviour:
     m_Localized: смотреть рекламу
     m_Metadata:
       m_Items: []
+  - m_Id: 1000000011
+    m_Localized: Нравится игра?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000012
+    m_Localized: Оцени игру и оставь отзыв
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000013
+    m_Localized: Оценить игру
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

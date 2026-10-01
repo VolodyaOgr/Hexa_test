@@ -69,7 +69,7 @@ namespace DefaultNamespace.Yandex
             _loadingScreen?.SetProgress(0.8f);
 
             SaveSystem.Instance.Init();
-            Advertisement.ShowInterstitialAd();
+            global::Yandex.Advertisement.ShowInterstitial(placement: "boot");
             _loadingScreen?.SetProgress(0.85f);
 
             yield return RunWithTimeout(WaitForOperation(localizationTableOperation), BootStepTimeoutSeconds);

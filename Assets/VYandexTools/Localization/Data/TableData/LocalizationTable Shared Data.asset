@@ -55,6 +55,18 @@ MonoBehaviour:
     m_Key: continue_ad_sub
     m_Metadata:
       m_Items: []
+  - m_Id: 1000000011
+    m_Key: review_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000012
+    m_Key: review_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000000013
+    m_Key: review_button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

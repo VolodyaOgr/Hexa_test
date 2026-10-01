@@ -14,9 +14,14 @@ namespace Yandex
         private const float WaitTime = 2f;
         private const string AdPlacement = "timer";
 
+        // Periodic ads interrupt active play, which is not allowed in this game: interstitials are
+        // shown only at natural breaks (GameBootstrap: Next / Restart). Set to true to bring the
+        // timer back.
+        private const bool PeriodicAdsEnabled = false;
+
         private IEnumerator Start()
         {
-            if (SaveSystem.SaveData.NoAds)
+            if (!PeriodicAdsEnabled || SaveSystem.SaveData.NoAds)
                 yield break;
 
             while (true)

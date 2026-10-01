@@ -70,6 +70,7 @@ namespace HexaTest.Levels
             foreach (var c in board.Cells) coords.Add(c.Coord);
 
             var reversed = new List<(LevelPiece, HexCoord)>();
+            var pieceSize = new Dictionary<HexColorId, int>();
 
             for (int i = 0; i < clears; i++)
             {
@@ -93,8 +94,24 @@ namespace HexaTest.Levels
                 // Biasing most discs onto neighbours keeps the STARTING board visibly full — the point
                 // of a "clear the board" puzzle — while pieces stay small, satisfying drops. From level
                 // 2 on we bias even harder toward neighbours so starting stacks read as deep/layered.
+                // Every piece of one colour has the SAME size within a level (chosen on the colour's
+                // first use). Differently sized stacks of one colour read as "some of them can't
+                // be enough" and made levels look unsolvable to players; the forward replay below
+                // still proves the level clears with the uniform sizes.
                 int pieceMax = allowMultiColor ? 4 : 6;
-                int placed = pushable.Count == 0 ? clearCount : Mathf.Min(clearCount, rng.Next(2, pieceMax));
+                int placed;
+                if (pushable.Count == 0)
+                {
+                    placed = clearCount;
+                    if (pieceSize.TryGetValue(col, out int fixedSize) && fixedSize != placed)
+                    {
+                        spec = null;
+                        return false;
+                    }
+                }
+                else if (!pieceSize.TryGetValue(col, out placed))
+                    placed = Mathf.Min(clearCount, rng.Next(2, pieceMax));
+                pieceSize[col] = placed;
                 int t = clearCount - placed; // discs seeded onto neighbours
 
                 int idx = 0;
@@ -151,7 +168,9 @@ namespace HexaTest.Levels
 
                 HexColorId col = made < colors.Count ? colors[made] : colors[rng.Next(colors.Count)];
                 Shuffle(rng, nbrs);
-                int nUse = Mathf.Min(nbrs.Count, rng.Next(1, Mathf.Min(4, clearCount)));
+                // Fixed neighbour count => every piece has the same size (clearCount - nUse).
+                const int nUse = 2;
+                if (nbrs.Count < nUse) continue;
                 int t = Mathf.Min(clearCount - 1, nUse); // at least 1 per neighbour
                 // distribute t discs across nUse neighbours (>=1 each)
                 int[] amt = new int[nUse];

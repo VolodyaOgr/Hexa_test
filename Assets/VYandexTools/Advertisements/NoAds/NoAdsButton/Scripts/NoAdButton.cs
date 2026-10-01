@@ -15,18 +15,41 @@ public class NoAdButton : MonoBehaviour
     
     private void Awake()
     {
-        if (SaveSystem.SaveData.NoAds == false)
-            button.onClick.AddListener(BuyNoAd);
-        else OnBuyNoAds();
-
-        priceText.Text = Billing.CatalogProducts.FirstOrDefault(x => x.id == Boot.PurchaseIndexes.NoAD.ToString())
-            ?.price.ToString();
-        var picture = Billing.CatalogProducts[0].priceCurrencyPicture;
-        StartCoroutine(DownloadImage(picture));
+        // Subscribe first: a failure below (catalog not loaded) must not leave the button stale.
         PlayerSaveData.OnBuyNoAds += OnBuyNoAds;
+
+        if (SaveSystem.SaveData.NoAds)
+        {
+            OnBuyNoAds();
+            return;
+        }
+
+        button.onClick.AddListener(BuyNoAd);
+
+        // The catalog can be empty/null when Billing failed or timed out in Boot; the button must
+        // still be shown (the purchase call itself reports errors).
+        var catalog = Billing.CatalogProducts;
+        if (catalog == null || catalog.Length == 0)
+            return;
+
+        var product = catalog.FirstOrDefault(x => x.id == Boot.PurchaseIndexes.NoAD.ToString());
+        if (product != null)
+            priceText.Text = product.price.ToString();
+
+        var picture = (product ?? catalog[0]).priceCurrencyPicture;
+        if (!string.IsNullOrEmpty(picture))
+            StartCoroutine(DownloadImage(picture));
     }
 
-    private void OnBuyNoAds() => button.gameObject.SetActive(false);
+    private void OnDestroy() => PlayerSaveData.OnBuyNoAds -= OnBuyNoAds;
+
+    // The SaveData setter raises this event on EVERY NoAds assignment (including loading a save
+    // with NoAds=false), so check the actual value before hiding.
+    private void OnBuyNoAds()
+    {
+        if (SaveSystem.SaveData.NoAds)
+            button.gameObject.SetActive(false);
+    }
 
     private void BuyNoAd()
     {
